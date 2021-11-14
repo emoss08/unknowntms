@@ -52,48 +52,42 @@ var Tractors = (function () {
                         },
                         owned_by: {
                             validators: {
-                                notEmpty: { message: 'Owned By field is required.' },
                                 stringLength: { min: 1, max: 50, message: 'Owned By must be more than 1 and less than 50 characters long.' },
                                 regexp: { regexp: /^[a-zA-Z0-9]+$/, message: "Owned By can only consist of alphabetical and number" },
                             }
                         },
                         driver_1:{
                             validators: {
-                                notEmpty: { message: 'Driver 1 field is required.' },
                                 stringLength: { min: 1, max: 50, message: 'Driver 1 must be more than 1 and less than 50 characters long.' },
                                 regexp: { regexp: /^[a-zA-Z0-9]+$/, message: "Driver 1 can only consist of alphabetical and number" },
                             }
                         },
                         tag:{
                             validators: {
-                                notEmpty: { message: 'Tag field is required.' },
                                 stringLength: { min: 1, max: 50, message: 'Tag must be more than 1 and less than 50 characters long.' },
                                 regexp: { regexp: /^[a-zA-Z0-9]+$/, message: "Tag can only consist of alphabetical and number" },
                             }
                         },
                         tag_state:{
                             validators: {
-                                notEmpty: { message: 'Tag field is required.' },
                                 stringLength: { min: 1, max: 50, message: 'Tag must be more than 1 and less than 50 characters long.' },
                                 regexp: { regexp: /^[a-zA-Z0-9]+$/, message: "Tag can only consist of alphabetical and number" },
                             }
                         },
                         tag_expiration:{
                             validators: {
-                                notEmpty: { message: 'Tag Expiration field is required.' },
                                 date:{ format: 'YYYY-MM-DD', message: 'The value is not a valid date. Use the format YYYY-MM-DD' }
                             }
                         },
                         last_inspection:{
                             validators: {
-                                notEmpty: { message: 'Last Inspection field is required.' },
                                 date:{ format: 'YYYY-MM-DD', message: 'The value is not a valid date. Use the format YYYY-MM-DD' }
                             }
                         },
                         comments:{
                             validators: {
                                 stringLength: { min: 1, max: 500, message: 'Comments must be more than 1 and less than 500 characters long.' },
-                                regexp: { regexp: /^[a-zA-Z0-9]+$/, message: "Comments can only consist of alphabetical and number" },
+                                regexp: { regexp: /^[a-z\s]+$/i, message: "Description can consist of alphabetical characters and spaces only." },
                             }
                         },
                     },
