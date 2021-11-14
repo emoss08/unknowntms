@@ -106,6 +106,23 @@ var Tractors = (function () {
                     control: { valid: "is-valid", invalid: "is-invalid" },
                     row: { invalid: "has-danger" },
                 })),
+
+                // Select2 validation integration
+                $(e.querySelector('[name="driver_1"]')).on('change', function () {
+                    // Revalidate the color field when an option is chosen
+                    i.revalidateField('driver_1');
+                });
+            // Select2 validation integration
+            $(e.querySelector('[name="status"]')).on('change', function () {
+                // Revalidate the color field when an option is chosen
+                i.revalidateField('status');
+            });
+            // Select2 validation integration
+            $(e.querySelector('[name="tag_state"]')).on('change', function () {
+                // Revalidate the color field when an option is chosen
+                i.revalidateField('tag_state');
+            });
+
                 t.addEventListener("click", function (n) {
                     n.preventDefault(),
                         i.validate().then(function (i) {

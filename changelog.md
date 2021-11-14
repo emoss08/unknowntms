@@ -340,3 +340,5 @@ Note - Artisan is usually inside of the application itself.
 ```
 
 3. Added Laravel Telescope to system menu.
+4. Improved form validation for Tractors Master file.
+5. Modified daterangepicker for Tractors Master file to be more user friendly.
