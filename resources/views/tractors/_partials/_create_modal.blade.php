@@ -57,6 +57,7 @@
                                     </label>
                                     <input type="text" class="form-control form-control-solid" name="tractor_id" id="tractor_id_max" maxlength="4" required />
                                     <!--end::Input-->
+                                    <div class="valid-feedback">Looks good! Nice Job.</div>
                                 </div>
                                 <!--end::Col-->
                             </div>
@@ -77,6 +78,7 @@
                                     <!--end::Label-->
                                     <!--begin::Input-->
                                     <input type="text" class="form-control form-control-solid" name="year" id="kt_docs_maxlength_always_show" maxlength="4" required />
+                                    <div class="valid-feedback">Looks good! Nice Job.</div>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Col-->
@@ -87,6 +89,7 @@
                                         <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Make of the tractor."></i>
                                     </label>
                                     <input type="text" class="form-control form-control-solid" name="make" id="kt_docs_maxlength_always_show" maxlength="30" required />
+                                    <div class="valid-feedback">Looks good! Nice Job.</div>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Col-->
@@ -96,6 +99,7 @@
                                         <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Model of the tractor."></i>
                                     </label>
                                     <input type="text" class="form-control form-control-solid" name="model" id="kt_docs_maxlength_always_show" maxlength="30" required />
+                                    <div class="valid-feedback">Looks good! Nice Job.</div>
                                     <!--end::Input-->
                                 </div>
                             </div>
@@ -116,6 +120,7 @@
                                     <!--end::Label-->
                                     <!--begin::Input-->
                                     <input type="text" class="form-control form-control-solid" name="vin" id="kt_docs_maxlength_always_show" maxlength="40" required />
+                                    <div class="valid-feedback">Looks good! Nice Job.</div>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Col-->
@@ -126,6 +131,7 @@
                                         <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Owner of the tractor."></i>
                                     </label>
                                     <input type="text" class="form-control form-control-solid" name="owned_by" id="kt_docs_maxlength_always_show" maxlength="30" required />
+                                    <div class="valid-feedback">Looks good! Nice Job.</div>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Col-->
@@ -140,6 +146,7 @@
                                         <option value="UDRIVER">Unknown Driver</option>
                                     </select>
                                     <!--end::Input-->
+                                    <div class="valid-feedback">Looks good! Nice Job.</div>
                                 </div>
                             </div>
                             <!--end::Row-->
@@ -159,6 +166,7 @@
                                     <!--end::Label-->
                                     <!--begin::Input-->
                                     <input type="text" class="form-control form-control-solid" name="tag" id="kt_docs_maxlength_always_show" maxlength="40"/>
+                                    <div class="valid-feedback">Looks good! Nice Job.</div>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Col-->
@@ -223,6 +231,7 @@
                                         <option value="WY">Wyoming</option>
                                     </select>
                                     <!--end::Input-->
+                                    <div class="valid-feedback">Looks good! Nice Job.</div>
                                 </div>
                                 <!--end::Col-->
                                 <div class="col-md-4 fv-row">
@@ -231,6 +240,7 @@
                                         <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Expiration Date of Tag."></i>
                                     </label>
                                     <input class="form-control form-control-solid" name="tag_expiration" id="tag_expiration"/>
+                                    <div class="valid-feedback">Looks good! Nice Job.</div>
                                     <!--end::Input-->
                                 </div>
                             </div>
@@ -251,6 +261,7 @@
                                     <!--end::Label-->
                                     <!--begin::Input-->
                                     <input class="form-control form-control-solid" name="last_inspection" id="last_inspection"/>
+                                    <div class="valid-feedback">Looks good! Nice Job.</div>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Col-->
@@ -266,6 +277,7 @@
                             <span>Comments</span>
                         </label>
                         <textarea name="comments" class="form-control form-control form-control-solid" data-kt-autosize="true" maxlength="50"></textarea>
+                        <div class="valid-feedback">Looks good! Nice Job.</div>
                         <!--end::solid autosize textarea-->
                     </div>
                     <!--end::Input group-->
