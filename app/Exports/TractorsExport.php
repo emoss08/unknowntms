@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Exports;
+
+use App\Models\Tractors;
+use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+
+class TractorsExport implements FromCollection, ShouldAutoSize, WithHeadings
+{
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function collection()
+    {
+        return Tractors::all();
+    }
+
+    public function headings(): array
+    {
+        return [
+            '#',
+            'Status',
+            'Tractor ID',
+            'Year',
+            'Make',
+            'Model',
+            'Vin',
+            'Owned By',
+            'Driver 1',
+            'Driver 2',
+            'Tag',
+            'Tag State',
+            'Tag Expiration',
+            'Last Inspiration',
+            'Comments',
+            'Entered by (User ID)',
+        ];
+    }
+}
