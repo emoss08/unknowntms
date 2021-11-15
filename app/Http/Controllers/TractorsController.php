@@ -13,6 +13,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use PDF;
+use Yajra\DataTables\DataTables;
 
 class TractorsController extends Controller
 {
@@ -129,6 +130,7 @@ class TractorsController extends Controller
     }
 
     /**
+     * File Import for Tractor
      * @return \Illuminate\Support\Collection
      */
     public function fileImport(Request $request)
@@ -138,6 +140,8 @@ class TractorsController extends Controller
     }
 
     /**
+     *
+     * File Export for Tractor
      * @return \Illuminate\Support\Collection
      */
     public function fileExport()
@@ -145,17 +149,20 @@ class TractorsController extends Controller
         return Excel::download(new TractorsExport(), 'tractors-collection.xlsx');
     }
 
-    // Display user data in view
-    public function showEmployees(){
-        $tractors = Tractors::all();
-        return view('index', compact('tractors'));
+    // Tractor list for DataTables
+    public function getTractors(Request $request)
+    {
+        $tractors = Tractors::latest()->get();
+
+        return Datatables::of($tractors)
+            ->addColumn('Actions', function ($tractors)  {
+                return '<button class="btn btn-light btn-active-light-info btn-sm" data-bs-toggle="modal" data-bs-target="#edit-tractors-'.$tractors->id.'" class="menu-link px-3">Edit</button>';
+            })
+            ->rawColumns(['Actions'])
+            ->make(true);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // PDF export for Tractor List
     public function createPDF() {
         // retreive all records from db
         $data = [

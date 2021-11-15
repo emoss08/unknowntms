@@ -115,6 +115,7 @@ class EquipmentTypeController extends Controller
         return redirect()->route('equipmenttypes.index')->with($notification);
     }
 
+    //
     public function getEquipTypes(Request $request)
     {
         $equip_types = EquipmentType::latest()->get();

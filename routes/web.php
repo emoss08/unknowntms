@@ -77,16 +77,16 @@ Route::middleware('auth')->group(function () {
 
     /** GET for DataTables to produce data */
     Route::get('equipmenttype/list', [EquipmentTypeController::class, 'getEquipTypes'])->name('equipmenttype.list');
-
+    Route::get('tractor/list', [TractorsController::class, 'getTractors'])->name('tractors.list');
     /** Mail Functions */
     Route::get('sending-queue-emails', [TestQueueEmails::class,'sendTestEmails']);
 
     Route::get('equipmenttype/file-export', [EquipmentTypeController::class, 'fileExport'])->name('equip-file-export');
     /** Export records to excel and pdf */
-    Route::get('/file-import-export', [TractorsController::class, 'fileImportExport']);
-    Route::post('/file-import', [TractorsController::class, 'fileImport'])->name('file-import');
-    Route::get('/file-export', [TractorsController::class, 'fileExport'])->name('file-export');
-    Route::get('/pdf', [TractorsController::class, 'createPDF']);
+    Route::get('tractor/file-import-export', [TractorsController::class, 'fileImportExport']);
+    Route::post('tractor/file-import', [TractorsController::class, 'fileImport'])->name('file-import');
+    Route::get('tractor/file-export', [TractorsController::class, 'fileExport'])->name('file-export');
+    Route::get('tractor/pdf', [TractorsController::class, 'createPDF'])->name('tractor.pdf');
 
     /**     Artisan Control Center Command Paths      */
     Route::get('system-schedule', function () {

@@ -2,7 +2,7 @@
 @foreach ($tractor as $tractors)
 
     <!--begin::Modal - Edit Tractors-->
-    <div class="modal fade" id="edit-tractor-{{ $tractors->id }}" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="edit-tractors-{{ $tractors->id }}" tabindex="-1" aria-hidden="true">
         <!--begin::Modal dialog-->
         <div class="modal-dialog modal-xl">
             <!--begin::Modal content-->
@@ -29,7 +29,7 @@
                 <!--begin::Modal body-->
                 <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                     <!--begin::Form-->
-                    <form action="{{ route('tractors.update',$tractors->id) }}" method="POST" id="tractor_form_edit" novalidate>
+                    <form action="{{ route('tractors.update',$tractors->id) }}" method="POST" id="tractor_form_edit-{{ $tractors->id }}" novalidate>
                     @csrf
                     @method('PUT')
                     <!--begin::Input group-->
@@ -138,7 +138,7 @@
                                             <span>Driver</span>
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Driver Assigned to the Driver."></i>
                                         </label>
-                                        <select class="form-select form-select-solid" data-dropdown-parent="#edit-tractor-{{ $tractors->id }}" data-control="select2" data-placeholder="Select an driver" name="driver_1">
+                                        <select class="form-select form-select-solid" data-dropdown-parent="#edit-tractors-{{ $tractors->id }}" data-control="select2" data-placeholder="Select an driver" name="driver_1">
                                             <option>{{ $tractors->driver_1 }}</option>
                                             <option value="TDRIVER">Test Driver</option>
                                             <option value="UDRIVER">Unknown Driver</option>
@@ -172,7 +172,7 @@
                                             <span>Tag State</span>
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="State of the yearly registration sticker that you place on your license plate every time you renew your vehicle's registration"></i>
                                         </label>
-                                        <select class="form-select form-select-solid" data-dropdown-parent="#edit-tractor-{{ $tractors->id }}" data-control="select2" data-placeholder="Select an state" name="tag_state" >
+                                        <select class="form-select form-select-solid" data-dropdown-parent="#edit-tractors-{{ $tractors->id }}" data-control="select2" data-placeholder="Select an state" name="tag_state" >
                                             <option>{{ $tractors->tag_state }}</option>
                                             <option value="AL">Alabama</option>
                                             <option value="AK">Alaska</option>
@@ -234,7 +234,7 @@
                                             <span>Tag Expiration</span>
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Expiration Date of Tag."></i>
                                         </label>
-                                        <input class="form-control form-control-solid" name="tag_expiration" id="tag_expiration" value="{{ $tractors->tag_expiration }}"/>
+                                        <input class="form-control form-control-solid" name="tag_expiration" id="tag_expiration-{{ $tractors->id }}" value="{{ $tractors->tag_expiration }}"/>
                                         <!--end::Input-->
                                     </div>
                                 </div>
@@ -254,7 +254,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input class="form-control form-control-solid" name="last_inspection" id="last_inspection" value="{{ $tractors->last_inspection }}" />
+                                        <input class="form-control form-control-solid" name="last_inspection" id="last_inspection-{{ $tractors->id }}" value="{{ $tractors->last_inspection }}" />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Col-->
@@ -276,7 +276,7 @@
                         <!--begin::Actions-->
                         <div class="text-center pt-15">
                             <button type="reset" id="kt_modal_new_card_cancel" class="btn btn-light me-3">Discard</button>
-                            <button type="submit" id="tractor__edit_submit" class="btn btn-primary">
+                            <button type="submit" id="tractor_submit_edit-{{ $tractors->id }}" class="btn btn-primary">
                                 <span class="indicator-label">Submit</span>
                                 <span class="indicator-progress">Please wait...
 									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>

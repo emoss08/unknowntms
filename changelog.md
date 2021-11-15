@@ -343,3 +343,12 @@ Note - Artisan is usually inside of the application itself.
 4. Improved form validation for Tractors Master file.
 5. Modified daterangepicker for Tractors Master file to be more user friendly.
 6. Added scheduled job to delete In-Active Tractors.
+
+## Changelog 11/14/2021
+
+1. Changed tractors master file to use ajax to render data.
+2. Added search functionality to tractors master file.
+3. Fixed form validation for each tractor in tractors master file.
+4. Changed routes for export to PDF and export to Excel for Tractors Master file.
+5. Fixed minor bugs. (Tag Expiration Date, and Tag Expiration Date was not showing on edit modal for each tractor)
+

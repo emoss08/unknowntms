@@ -112,10 +112,8 @@ return array(
                 ),
                 'js'  => array(
                     'plugins/custom/datatables/datatables.bundle.js',
-                    'js/custom/tractors/tractortable.js',
                     'js/custom/tractors/custom.js',
                     'js/custom/tractors/submit.js',
-                    'js/custom/tractors/edit-submit.js',
                 ),
             ),
         ),
