@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\EquipmentTypeExport;
 use App\Http\Requests\EquipmentTypeRequest;
 use App\Models\EquipmentType;
+use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -59,10 +60,9 @@ class EquipmentTypeController extends Controller
         $input = $request->all();
         $input['entered_by'] = auth()->user()->id;
 
-        if ($request->user()->cannot('equipment-type-create', $input)) {
-            abort(403);
+        if (! Gate::allows('equipment-type-create', $input)) {
+            return abort(401);
         }
-
         EquipmentType::create($input);
 
         return redirect()->route('equipmenttypes.index');
@@ -106,11 +106,11 @@ class EquipmentTypeController extends Controller
             'closeButton' => true,
 
         );
-        $equipmenttype->update($request->all());
 
         if ($request->user()->cannot('equipment-type-edit', $equipmenttype)) {
             abort (403);
         }
+        $equipmenttype->update($request->all());
 
         return redirect()->route('equipmenttypes.index')->with($notification);
     }

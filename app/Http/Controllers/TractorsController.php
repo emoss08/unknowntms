@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Exports\TractorsExport;
+use App\Http\Requests\TractorsRequest;
 use App\Imports\TractorsImport;
+use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Tractors;
 use Illuminate\Contracts\Foundation\Application;
@@ -52,22 +54,17 @@ class TractorsController extends Controller
         return view('tractors.create');
     }
 
-    public function store(Request $request)
+    public function store(TractorsRequest $request)
     {
         $request ->validate([
-            'status' => 'required',
             'tractor_id' => 'required|unique:tractors,tractor_id',
-            'year' => 'required|size:4',
-            'make' => 'required',
-            'model' => 'required',
-            'vin' => 'required|vin_code',
         ]);
 
         $input = $request->all();
         $input['entered_by'] = auth()->user()->id;
 
-        if ($request->user()->cannot('tractor-create', $input)) {
-            abort(403);
+        if (! Gate::allows('tractor-create', $input)) {
+            return abort(401);
         }
         Tractors::create($input);
 
@@ -104,21 +101,21 @@ class TractorsController extends Controller
      * @return RedirectResponse
      */
 
-    public function update(Request $request, Tractors $tractor)
+    public function update(TractorsRequest $request, Tractors $tractor)
     {
-        $request->validate([
-            'status' => 'required',
-            'tractor_id' => 'required',
-            'year' => 'required',
-            'make' => 'required',
-            'model' => 'required',
-            'odometer' => 'min:1',
-            'comments' => 'required|profanity'
-        ]);
+        $notification = array(
+            'message' => 'Record Successfully Updated!',
+            'alert-type' => 'success',
+            'closeButton' => true,
 
+        );
+
+        if ($request->user()->cannot('tractor-edit', $tractor)) {
+            abort (403);
+        }
         $tractor->update($request->all());
 
-        return redirect()->route('tractors.index');
+        return redirect()->route('tractors.index')->with($notification);
     }
 
     /**

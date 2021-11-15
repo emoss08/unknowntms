@@ -59,5 +59,39 @@ class RouteServiceProvider extends ServiceProvider
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
         });
+
+        // Throttle artisan commands
+        RateLimiter::for('artisan', function (Request $request) {
+            return Limit::perMinute(1)->response(function () {
+
+                // Notification variable
+                $notification = array(
+                    'message' => 'Too many attempts. Please wait..',
+                    'alert-type' => 'error',
+                    'closeButton' => true,
+                );
+
+                return redirect()->back()->with($notification);
+            });
+        });
+
+        RateLimiter::for('exports', function (Request $request) {
+            return Limit::perMinute(5)->response(function() {
+
+                // Notification variable
+                $notification = array(
+                    'message' => 'Too many attempts. Please wait..',
+                    'alert-type' => 'error',
+                    'closeButton' => true,
+                );
+                return redirect()->back()->with($notification);
+            });
+        });
+
+        RateLimiter::for('application', function (Request $request) {
+            return Limit::perMinute(10000)->response(function() {
+                return response('System detected suspicious activity! Please wait..', 429);
+            });
+        });
     }
 }

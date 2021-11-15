@@ -319,7 +319,6 @@ Note - Artisan is usually inside of the application itself.
 2. Changed Artisan command routes to provide more information, and provide user with better experience.
 
 ```php
-
     Route::get('view-clear', function () {
         Artisan::call('view:cache');
 
@@ -336,12 +335,11 @@ Note - Artisan is usually inside of the application itself.
         Log::warning('Clear Cache View Files artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
         return redirect()->back()->with($notification);
     })->name('view-clear');
-
 ```
 
 3. Added Laravel Telescope to system menu.
 4. Improved form validation for Tractors Master file.
-5. Modified daterangepicker for Tractors Master file to be more user friendly.
+5. Modified daterangepicker for Tractors Master files to be more user friendly.
 6. Added scheduled job to delete In-Active Tractors.
 
 ## Changelog 11/14/2021
@@ -352,4 +350,17 @@ Note - Artisan is usually inside of the application itself.
 4. Changed routes for export to PDF and export to Excel for Tractors Master file.
 5. Fixed minor bugs. (Tag Expiration Date, and Tag Expiration Date was not showing on edit modal for each tractor)
 6. Fixed select2 issue for Tag State & Driver dropdown in Tractors Master file.
+
+## Changelog 11/15/2021
+1. Added request policy for Tractors Master file.
+2. Change Gate on Tractors and Equipment Type Controllers.
+```php
+        if (! Gate::allows('tractor-create', $input)) {
+            return abort(401);
+        }
+        Tractors::create($input);
+```
+3. Added Middleware to prevent throttling for Artisan Commands (Artisan Control Center Commands can only be run once every minute).
+4. Added Middleware to prevent throttling for Export files.
+5. Added Middleware to prevent throttling for Application Pages. (10000 request can be made per minute before user is kicked out of system)
 

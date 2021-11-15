@@ -45,8 +45,8 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <select class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option" data-dropdown-parent="#edit-tractor-{{ $tractors->id }}" name="status">
-                                            <option>{{ $tractors->status }}</option>
+                                        <select class="form-select form-select-solid" data-control="select2" data-placeholder="{{ $tractors->status }}" data-dropdown-parent="#edit-tractors-{{ $tractors->id }}" name="status">
+                                            <option></option>
                                             <option value="Active">Active</option>
                                             <option value="In-Active">In-Active</option>
                                         </select>
