@@ -351,4 +351,5 @@ Note - Artisan is usually inside of the application itself.
 3. Fixed form validation for each tractor in tractors master file.
 4. Changed routes for export to PDF and export to Excel for Tractors Master file.
 5. Fixed minor bugs. (Tag Expiration Date, and Tag Expiration Date was not showing on edit modal for each tractor)
+6. Fixed select2 issue for Tag State & Driver dropdown in Tractors Master file.
 
