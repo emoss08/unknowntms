@@ -6,9 +6,9 @@
         </div>
     @endif
 
-@include('tractors._partials._content')
-@include('tractors._partials._create_modal')
-@include('tractors._partials._edit_modal')
+@includeIf('tractors._partials._content')
+@includeIf('tractors._partials._create_modal')
+@includeIf('tractors._partials._edit_modal')
 </x-base-layout>
 
 <!-- begin:: Form Validation Script for each Equipment Type -->
