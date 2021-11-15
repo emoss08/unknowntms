@@ -182,12 +182,12 @@ return array(
 
         array(
             'title' => 'Components',
-            'path'  => '//preview.keenthemes.com/metronic8/demo1/documentation/base/utilities.html',
+            'path'  => '//preview.keenthemes.com/metronic8/demo8/documentation/base/utilities.html',
         ),
 
         array(
             'title' => 'Documentation',
-            'path'  => '//preview.keenthemes.com/metronic8/demo1/documentation/getting-started.html',
+            'path'  => '//preview.keenthemes.com/metronic8/demo8/documentation/getting-started.html',
         ),
     ),
 
@@ -197,7 +197,7 @@ return array(
         array(
             'title' => 'Dashboard',
             'path'  => 'index',
-            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/art/art002.svg", "svg-icon-2"),
+            'icon'  => theme()->getSvgIcon("demo8/media/icons/duotune/art/art002.svg", "svg-icon-2"),
         ),
         //// Customer Service
         array(
@@ -208,7 +208,7 @@ return array(
         array(
             'title'      => 'Order Management',
             'icon'       => array(
-                'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/technology/teh009.svg", "svg-icon-2"),
+                'svg'  => theme()->getSvgIcon("demo8/media/icons/duotune/technology/teh009.svg", "svg-icon-2"),
                 'font' => '<i class="bi bi-person fs-2"></i>',
             ),
             'classes'    => array('item' => 'menu-accordion'),
@@ -231,7 +231,7 @@ return array(
                     array(
                         'title'      => 'Master Files',
                         'icon'       => array(
-                            'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/files/fil012.svg", "svg-icon-2"),
+                            'svg'  => theme()->getSvgIcon("demo8/media/icons/duotune/files/fil012.svg", "svg-icon-2"),
                             'font' => '<i class="bi bi-person fs-2"></i>',
                         ),
                         'classes'    => array('item' => 'menu-accordion'),
@@ -325,7 +325,7 @@ return array(
         array(
             'title'      => 'Account',
             'icon'       => array(
-                'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/communication/com006.svg", "svg-icon-2"),
+                'svg'  => theme()->getSvgIcon("demo8/media/icons/duotune/communication/com006.svg", "svg-icon-2"),
                 'font' => '<i class="bi bi-person fs-2"></i>',
             ),
             'classes'    => array('item' => 'menu-accordion'),
@@ -367,7 +367,7 @@ return array(
         array(
             'title'      => 'System',
             'icon'       => array(
-                'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen025.svg", "svg-icon-2"),
+                'svg'  => theme()->getSvgIcon("demo8/media/icons/duotune/general/gen025.svg", "svg-icon-2"),
                 'font' => '<i class="bi bi-layers fs-3"></i>',
             ),
             'classes'    => array('item' => 'menu-accordion'),
@@ -433,7 +433,7 @@ return array(
         // Changelog
         array(
             'title' => 'Changelog v'.theme()->getVersion(),
-            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen005.svg", "svg-icon-2"),
+            'icon'  => theme()->getSvgIcon("demo8/media/icons/duotune/general/gen005.svg", "svg-icon-2"),
             'path'  => 'documentation/getting-started/changelog',
         ),
     ),
@@ -461,14 +461,14 @@ return array(
                     // Documentation
                     array(
                         'title' => 'Documentation',
-                        'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/abstract/abs027.svg", "svg-icon-2"),
+                        'icon'  => theme()->getSvgIcon("demo8/media/icons/duotune/abstract/abs027.svg", "svg-icon-2"),
                         'path'  => 'documentation/getting-started/overview',
                     ),
 
                     // Changelog
                     array(
                         'title' => 'Changelog v'.theme()->getVersion(),
-                        'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/general/gen005.svg", "svg-icon-2"),
+                        'icon'  => theme()->getSvgIcon("demo8/media/icons/duotune/general/gen005.svg", "svg-icon-2"),
                         'path'  => 'documentation/getting-started/changelog',
                     ),
                 ),
