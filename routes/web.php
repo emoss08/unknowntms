@@ -81,9 +81,15 @@ Route::middleware('auth')->group(function () {
     });
     /* end::Middleware to throttle application **/
 
+    /** begin::Ajax Calls */
+    Route::post('equipmenttype/showEquipTypes', [EquipmentTypeController::class, 'showEquipTypes'])->name('equipmenttype.showEquipTypes');
+    /** end::Ajax Calls */
+
     /** begin::GET for DataTables to produce data */
+        Route::get('equipmenttype/showEquipTypes', [EquipmentTypeController::class, 'showEquipTypes'])->name('equipmenttype.showEquipTypes');
         Route::get('equipmenttype/list', [EquipmentTypeController::class, 'getEquipTypes'])->name('equipmenttype.list');
         Route::get('tractor/list', [TractorsController::class, 'getTractors'])->name('tractors.list');
+        Route::get('commodity/list', [CommoditiesController::class, 'getCommodities'])->name('commodity.list');
     /** end::GET for DataTables to produce data */
 
     /* begin::Middleware to throttle Exports **/

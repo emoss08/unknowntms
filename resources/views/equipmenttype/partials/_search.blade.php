@@ -30,7 +30,6 @@
                     <select class="form-select form-select-solid select2-hidden-accessible" data-control="select2" data-placeholder="In Progress" data-hide-search="true" data-select2-id="select2-data-10-lo7h" tabindex="-1" aria-hidden="true">
                         <option value="Active" selected="selected" data-select2-id="select2-data-12-dieh">Active</option>
                         <option value="2">In-Active</option>
-                        <option value="3">Done</option>
                     </select>
                     <!--end::Select-->
                 </div>
@@ -38,10 +37,8 @@
                 <!--begin::Input group-->
                 <div class="mb-5">
                     <label class="fs-6 form-label fw-bolder text-dark">Equip Type ID</label>
-                    <select class="form-select form-select-solid select2-hidden-accessible" data-control="select2" data-placeholder="In Progress" data-hide-search="true" tabindex="-1" aria-hidden="true">
-                        @foreach ($equipmenttype as $equipmenttypes)
-                        <option value="{{$equipmenttypes->equip_type_id}}">{{$equipmenttypes->equip_type_id}}</option>
-                            @endforeach
+                    <select class="form-select form-select-solid select2-hidden-accessible" id='selEquip'>
+                        <option value='0'>-- Select Equip Type --</option>
                     </select>
                 </div>
                 <!--end::Input group-->

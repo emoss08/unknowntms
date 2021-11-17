@@ -49,7 +49,7 @@
 {{-- end::Head --}}
 
 {{-- begin::Body --}}
-<body {!! theme()->printHtmlAttributes('body') !!} {!! theme()->printHtmlClasses('body') !!} {!! theme()->printCssVariables('body') !!}>
+<body {!! theme()->printHtmlAttributes('body') !!} {!! theme()->printHtmlClasses('body') !!} {!! theme()->printCssVariables('body') !!} ">
 
 @if (theme()->getOption('layout', 'loader/display') === true)
     {{ theme()->getView('layout/_loader') }}
@@ -180,6 +180,21 @@
     }
     @endif
 </script>
+
+<!--
+<script>
+window.oncontextmenu = function () {
+return false;
+}
+$(document).keydown(function (event) {
+if (event.keyCode == 123) {
+return false;
+}
+else if ((event.ctrlKey && event.shiftKey && event.keyCode == 73) || (event.ctrlKey && event.shiftKey && event.keyCode == 74)) {
+return false;
+}
+});
+</script> -->
 {{--end::TOASTR options --}}
 </body>
 {{-- end::Body --}}

@@ -37,7 +37,8 @@ class EquipmentTypeController extends Controller
      */
     public function index()
     {
-        $equipmenttype = EquipmentType::all();
+        $equipmenttype = EquipmentType::with('user')->get(['id', 'equip_type_id', 'status', 'description']);
+
         return view('equipmenttype.index', compact('equipmenttype'));
     }
 
@@ -136,6 +137,29 @@ class EquipmentTypeController extends Controller
         return Excel::download(new EquipmentTypeExport(), 'equipment-type-collection.xlsx');
     }
 
+    /*
+AJAX request
+*/
+    public function showEquipTypes(Request $request)
+    {
+        $search = $request->search;
+
+        if($search == ''){
+            $equiptypes = EquipmentType::orderby('equip_type_id','asc')->select('id','equip_type_id')->limit(5)->get();
+        }else{
+            $equiptypes = EquipmentType::orderby('equip_type_id','asc')->select('id','equip_type_id')->where('equip_type_id', 'like', '%' .$search . '%')->limit(5)->get();
+        }
+
+        $response = array();
+        foreach($equiptypes as $equiptype){
+            $response[] = array(
+                "id"=>$equiptype->id,
+                "text"=>$equiptype->equip_type_id
+            );
+        }
+
+        return response()->json($response);
+    }
 
     /**
      * @return \Illuminate\Support\Collection

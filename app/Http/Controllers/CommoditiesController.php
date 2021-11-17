@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CommodityStoreRequest;
+use App\Http\Requests\CommodityUpdateRequest;
+use App\Http\Requests\EquipmentTypeRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Commodities;
+use Illuminate\Support\Facades\Gate;
+use Yajra\DataTables\DataTables;
 
 class CommoditiesController extends Controller
 {
@@ -24,8 +29,7 @@ class CommoditiesController extends Controller
     public function index()
     {
         $commodities = Commodities::all();
-        return view('commodities.index',compact('commodities'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('commodities.index',compact('commodities'));
     }
 
     /**
@@ -41,20 +45,18 @@ class CommoditiesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param CommodityStoreRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CommodityStoreRequest $request)
     {
 
-        $request->validate([
-            'status' => 'required',
-            'commodity_id' => 'required|profanity|max:5|min:2|unique:commodities,commodity_id',
-            'description' => 'required|profanity|max:50'
-        ]);
-
-        $input = $request->all();
+        $input = $request->validated();
         $input['entered_by'] = auth()->user()->id;
+
+        if (! Gate::allows('commodities-create', $input)) {
+            abort(401);
+        }
 
         Commodities::create($input);
 
@@ -79,17 +81,25 @@ class CommoditiesController extends Controller
      * @param  \App\Commodities  $commodity
      * @return RedirectResponse
      */
-    public function update(Request $request, Commodities $commodity)
+    public function update(CommodityUpdateRequest $request, Commodities $commodity)
     {
+        $input = $request->validated();
 
-        $request->validate([
-            'status' => 'required',
-            'commodity_id' => 'required|profanity|max:5|min:2',
-            'description' => 'required|profanity|max:50'
-        ]);
-
-        $commodity->update($request->all());
+        $commodity->update($input);
 
         return redirect()->route('commodities.index');
+    }
+
+    //
+    public function getCommodities(Request $request)
+    {
+        $commodity = Commodities::latest()->get();
+
+        return Datatables::of($commodity)
+            ->addColumn('Actions', function ($commodity)  {
+                return '<button class="btn btn-light btn-active-light-info btn-sm" data-bs-toggle="modal" data-bs-target="#edit-commodity-'.$commodity->id.'" class="menu-link px-3">Edit</button>';
+            })
+            ->rawColumns(['Actions'])
+            ->make(true);
     }
 }

@@ -27,7 +27,7 @@
                 <!--begin::Modal body-->
                 <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                     <!--begin::Form-->
-                    <form action="{{ route('commodities.update',$commodity->id) }}" method="POST" id="commodity_form_edit" novalidate>
+                    <form action="{{ route('commodities.update',$commodity->id) }}" method="POST" id="commodity_form_edit_{{ $commodity->id }}" novalidate>
                     @csrf
                     @method('PUT')
                     <!--begin::Input group-->
@@ -57,7 +57,7 @@
                                             <span class="required">Commodity ID</span>
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Unique identifier for Commodity."></i>
                                         </label>
-                                        <input type="text" class="form-control form-control-solid" value="{{ $commodity->commodity_id }}" name="commodity_id" id="kt_docs_maxlength_always_show" maxlength="4" required />
+                                        <input type="text" class="form-control form-control-solid" value="{{ $commodity->commodity_id }}" name="commodity_id" id="kt_docs_maxlength_always_show" maxlength="4" readonly />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Col-->
@@ -80,7 +80,7 @@
                         <!--begin::Actions-->
                         <div class="text-center pt-15">
                             <button type="reset" data-bs-dismiss="modal" class="btn btn-light me-3">Cancel</button>
-                            <button type="submit" id="commodity_submit_edit" class="btn btn-primary">
+                            <button type="submit" id="commodity_submit_edit_{{ $commodity->id }}" class="btn btn-primary">
                                 <span class="indicator-label">Submit</span>
                                 <span class="indicator-progress">Please wait...
 									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>

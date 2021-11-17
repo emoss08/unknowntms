@@ -353,7 +353,7 @@ Note - Artisan is usually inside of the application itself.
 
 ## Changelog 11/15/2021
 1. Added request policy for Tractors Master file.
-2. Change Gate on Tractors and Equipment Type Controllers.
+2. Changed Gate on Tractors and Equipment Type Controllers.
 ```php
         if (! Gate::allows('tractor-create', $input)) {
             return abort(401);

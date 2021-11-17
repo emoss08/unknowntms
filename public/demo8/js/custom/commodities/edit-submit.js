@@ -1,144 +1,72 @@
 "use strict";
-
-// Class definition
-var Commodity_edit = function () {
-    // Elements
-    var form;
-    var submitButton;
-    var validator;
-
-    // Handle form
-    var handleForm = function (e) {
-        // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
-        validator = FormValidation.formValidation(
-            form,
-            {
-                fields: {
-                    'is_active': {
-                        validators: {
-                            notEmpty: {
-                                message: 'Status field is required.'
-                            }
-                        }
-                    },
-                    'commodity_id': {
-                        validators: {
-                            notEmpty: {
-                                message: 'Commodity ID field is required.'
-                            }
-                        }
-                    },
-                    'description': {
-                        validators: {
-                            notEmpty: {
-                                message: 'Description field is required.'
-                            }
-                        }
-                    }
-                },
-                plugins: {
-                    trigger: new FormValidation.plugins.Trigger(),
-                    bootstrap: new FormValidation.plugins.Bootstrap5({
-                        rowSelector: '.fv-row',
-                        eleInvalidClass: '',
-                        eleValidClass: ''
-                    })
-                }
-            }
-        );
-
-        // Handle form submit
-        submitButton.addEventListener('click', function (e) {
-            // Prevent button default action
-            e.preventDefault();
-
-            // Validate form
-            validator.validate().then(function (status) {
-                if (status === 'Valid') {
-                    // Show loading indication
-                    submitButton.setAttribute('data-kt-indicator', 'on');
-
-                    // Disable button to avoid multiple click
-                    submitButton.disabled = true;
-
-                    // Simulate ajax request
-                    axios.post(submitButton.closest('form').getAttribute('action'), new FormData(form))
-                        .then(function (response) {
-                            // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-                            Swal.fire({
-                                text: "Record successfully updated!",
-                                icon: "success",
-                                buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
-                                customClass: {
-                                    confirmButton: "btn btn-primary"
-                                }
-                            }).then(function (result) {
-                                if (result.isConfirmed) {
-                                    form.querySelector('[name="commodity_id"]').value = "";
-                                    form.querySelector('[name="description"]').value = "";
-                                    window.location.reload();
-                                }
-                            });
-                        })
-                        .catch(function (error) {
-                            let dataMessage = error.response.data.message;
-                            let dataErrors = error.response.data.errors;
-
-                            for (const errorsKey in dataErrors) {
-                                if (!dataErrors.hasOwnProperty(errorsKey)) continue;
-                                dataMessage += "\r\n" + dataErrors[errorsKey];
-                            }
-
-                            if (error.response) {
-                                Swal.fire({
-                                    text: dataMessage,
-                                    icon: "error",
-                                    buttonsStyling: false,
-                                    confirmButtonText: "Ok, got it!",
-                                    customClass: {
-                                        confirmButton: "btn btn-primary"
-                                    }
-                                });
-                            }
-                        })
-                        .then(function () {
-                            // always executed
-                            // Hide loading indication
-                            submitButton.removeAttribute('data-kt-indicator');
-
-                            // Enable button
-                            submitButton.disabled = false;
-                        });
-                } else {
-                    // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-                    Swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
-                        icon: "error",
-                        buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
-                        customClass: {
-                            confirmButton: "btn btn-primary"
-                        }
-                    });
-                }
-            });
-        });
-    }
-
-    // Public functions
+var Commodity_edit = (function () {
+    var t, e, i;
     return {
-        // Initialization
         init: function () {
-            form = document.querySelector('#commodity_form_edit');
-            submitButton = document.querySelector('#commodity_submit_edit');
-
-            handleForm();
-        }
+            (t = document.querySelector("#equip_type_form_edit")),
+                (e = document.querySelector("#equip_type_submit_edit")),
+                (i = FormValidation.formValidation(t, {
+                    fields: {
+                        status: { validators: { notEmpty: { message: "Status field is required." } } },
+                        commodity_id: {
+                            validators: {
+                                notEmpty: { message: "The Commodity ID is required" },
+                                stringLength: { min: 1, max: 4, message: "Commodity ID must be more than 1 and less than 4 characters long." },
+                                regexp: { regexp: /^[a-zA-Z0-9]+$/, message: "Commodity ID can only consist of alphabetical and number" },
+                            },
+                        },
+                        description: {
+                            validators: {
+                                notEmpty: { message: "Description field is required." },
+                                stringLength: { min: 1, max: 50, message: "Description must be more than 1 and less than 50 characters long." },
+                                regexp: { regexp: /^[a-z\s]+$/i, message: "Description can consist of alphabetical characters and spaces only." },
+                            },
+                        },
+                    },
+                    plugins: { trigger: new FormValidation.plugins.Trigger(), bootstrap: new FormValidation.plugins.Bootstrap5({ rowSelector: ".fv-row", eleInvalidClass: "", eleValidClass: "" }) },
+                    err: { clazz: "invalid-feedback" },
+                    control: { valid: "is-valid", invalid: "is-invalid" },
+                })),
+                e.addEventListener("click", function (n) {
+                    n.preventDefault(),
+                        i.validate().then(function (i) {
+                            "Valid" === i
+                                ? (e.setAttribute("data-kt-indicator", "on"),
+                                    (e.disabled = !0),
+                                    axios
+                                        .post(e.closest("form").getAttribute("action"), new FormData(t))
+                                        .then(function (e) {
+                                            Swal.fire({
+                                                text: "New record successfully processed!",
+                                                icon: "success",
+                                                buttonsStyling: !1,
+                                                confirmButtonText: "Ok, got it!",
+                                                customClass: { confirmButton: "btn font-weight-bold btn-light-primary" },
+                                            }).then(function (e) {
+                                                e.isConfirmed && ((t.querySelector('[name="commodity_id"]').value = ""), (t.querySelector('[name="description"]').value = ""), window.location.reload());
+                                            });
+                                        })
+                                        .catch(function (t) {
+                                            let e = t.response.data.message,
+                                                i = t.response.data.errors;
+                                            for (const t in i) i.hasOwnProperty(t) && (e += "\r\n" + i[t]);
+                                            t.response && Swal.fire({ text: e, icon: "error", buttonsStyling: !1, confirmButtonText: "Ok, got it!", customClass: { confirmButton: "btn btn-primary" } });
+                                        })
+                                        .then(function () {
+                                            e.removeAttribute("data-kt-indicator"), (e.disabled = !1);
+                                        }))
+                                : Swal.fire({
+                                    text: "Sorry, looks like there are some errors detected, please try again.",
+                                    icon: "error",
+                                    buttonsStyling: !1,
+                                    confirmButtonText: "Ok, got it!",
+                                    customClass: { confirmButton: "btn btn-primary" },
+                                });
+                        });
+                });
+        },
     };
-}();
-
-// On document ready
+})();
 KTUtil.onDOMContentLoaded(function () {
     Commodity_edit.init();
 });

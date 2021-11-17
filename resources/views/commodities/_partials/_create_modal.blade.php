@@ -67,7 +67,7 @@
                             <span class="required">Description</span>
                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Brief description of Commodity."></i>
                         </label>
-                        <textarea name="description" class="form-control form-control form-control-solid" data-kt-autosize="true" maxlength="50"></textarea>
+                        <textarea name="description" class="form-control form-control form-control-solid" data-kt-autosize="true" maxlength="255"></textarea>
                         <!--end::solid autosize textarea-->
                     </div>
                     <!--end::Input group-->
