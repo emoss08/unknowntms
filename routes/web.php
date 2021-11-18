@@ -83,6 +83,7 @@ Route::middleware('auth')->group(function () {
 
     /** begin::Ajax Calls */
     Route::post('equipmenttype/showEquipTypes', [EquipmentTypeController::class, 'showEquipTypes'])->name('equipmenttype.showEquipTypes');
+    Route::post('tractor/showTractorList', [TractorsController::class, 'showTractorList'])->name('tractors.showTractors');
     /** end::Ajax Calls */
 
     /** begin::GET for DataTables to produce data */

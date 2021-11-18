@@ -38,10 +38,8 @@
                 <!--begin::Input group-->
                 <div class="mb-5">
                     <label class="fs-6 form-label fw-bolder text-dark">Tractor ID</label>
-                    <select class="form-select form-select-solid select2-hidden-accessible" data-control="select2" data-placeholder="In Progress" data-hide-search="true" tabindex="-1" aria-hidden="true">
-                        @foreach ($tractor as $tractors)
-                            <option value="{{$tractors->tractor_id}}">{{$tractors->tractor_id}}</option>
-                        @endforeach
+                    <select class="form-select form-select-solid select2-hidden-accessible" id='selTractors'>
+                        <option value='0'>-- Select Tractor --</option>
                     </select>
                 </div>
                 <!--end::Input group-->

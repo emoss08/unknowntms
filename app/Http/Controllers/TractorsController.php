@@ -146,6 +146,25 @@ class TractorsController extends Controller
         return Excel::download(new TractorsExport(), 'tractors-collection.xlsx');
     }
 
+    /* AJAX request */
+    public function showTractorList(Request $request)
+    {
+        $search = $request->search;
+        if($search == ''){
+            $tractors = Tractors::orderby('tractor_id','asc')->select('id','tractor_id')->limit(5)->get();
+        }else{
+            $tractors = Tractors::orderby('tractor_id','asc')->select('id','tractor_id')->where('tractor_id', 'like', '%' .$search . '%')->limit(5)->get();
+        }
+        $response = array();
+        foreach($tractors as $tractor){
+            $response[] = array(
+                "id"=>$tractor->id,
+                "text"=>$tractor->tractor_id
+            );
+        }
+        return response()->json($response);
+    }
+
     // Tractor list for DataTables
     public function getTractors(Request $request)
     {

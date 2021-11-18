@@ -30,3 +30,30 @@
     $(function(){$('#tractor_table').DataTable({processing:!0,serverSide:!0,searching:!1,"order":[[0,"desc"]],search:{return:!0},pageLength:7,ajax:'{!! route('tractors.list') !!}',columns:[{data:'status',name:'status'},{data:'tractor_id',name:'tractor_id'},{data:'year',name:'year'},{data:'make',name:'make'},{data:'model',name:'model'},{data:'owned_by',name:'owned_by'},{data:'last_inspection',name:'last_inspection'},{data:'Actions',name:'Actions',orderable:!1,serachable:!1,sClass:'text-center'},]})})
 </script>
 <!-- end::Script to Produce DataTable for Tractors -->
+
+<script type="text/javascript">
+    // CSRF Token
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    $(document).ready(function(){
+        $( "#selTractors" ).select2({
+            ajax: {
+                url: "{{route('tractors.showTractors')}}",
+                type: "post",
+                dataType: 'json',
+                delay: 250,
+                data: function (params) {
+                    return {
+                        _token: CSRF_TOKEN,
+                        search: params.term // search term
+                    };
+                },
+                processResults: function (response) {
+                    return {
+                        results: response
+                    };
+                },
+                cache: true
+            }
+        });
+    });
+</script>
