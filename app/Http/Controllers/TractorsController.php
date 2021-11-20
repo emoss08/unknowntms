@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Exports\TractorsExport;
 use App\Http\Requests\TractorsRequest;
 use App\Imports\TractorsImport;
+use App\Models\User;
+use App\Notifications\TractorAdded;
 use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Tractors;
@@ -14,6 +16,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Notification;
 use PDF;
 use Yajra\DataTables\DataTables;
 
@@ -193,4 +196,22 @@ class TractorsController extends Controller
 
         return $pdf->download('tractors.pdf');
     }
+
+    public function sendTractorNotification() {
+        $userSchema = User::first();
+
+        $offerData = [
+            'name' => 'BOGO',
+            'body' => 'You received an offer.',
+            'thanks' => 'Thank you',
+            'offerText' => 'Check out the offer',
+            'offerUrl' => url('/'),
+            'offer_id' => 007
+        ];
+
+        Notification::send($userSchema, new TractorAdded($offerData));
+
+        dd('Task completed!');
+    }
+
 }

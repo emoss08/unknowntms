@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Broadcast;
+    use App\Broadcasting\TractorChannel;
+    use Illuminate\Support\Facades\Broadcast;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 Broadcast::channel('notification-send', function ($user) {
     return true;
 });
+
+Broadcast::channel('tractor-send', TractorChannel::class);

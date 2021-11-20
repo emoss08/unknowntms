@@ -84,13 +84,15 @@ Route::middleware('auth')->group(function () {
     /** begin::Ajax Calls */
     Route::post('equipmenttype/showEquipTypes', [EquipmentTypeController::class, 'showEquipTypes'])->name('equipmenttype.showEquipTypes');
     Route::post('tractor/showTractorList', [TractorsController::class, 'showTractorList'])->name('tractors.showTractors');
+    Route::post('commodity/showCommoditiesList', [CommoditiesController::class, 'showCommoditiesList'])->name('commodity.showCommoditiesList');
+    Route::post('ordertype/showOrderTypesList', [OrderTypesController::class, 'showOrderTypesList'])->name('ordertypes.showOrderTypesList');
     /** end::Ajax Calls */
 
     /** begin::GET for DataTables to produce data */
-        Route::get('equipmenttype/showEquipTypes', [EquipmentTypeController::class, 'showEquipTypes'])->name('equipmenttype.showEquipTypes');
         Route::get('equipmenttype/list', [EquipmentTypeController::class, 'getEquipTypes'])->name('equipmenttype.list');
         Route::get('tractor/list', [TractorsController::class, 'getTractors'])->name('tractors.list');
         Route::get('commodity/list', [CommoditiesController::class, 'getCommodities'])->name('commodity.list');
+        Route::get('ordertype/list', [OrderTypesController::class, 'getOrderTypes'])->name('ordertype.list');
     /** end::GET for DataTables to produce data */
 
     /* begin::Middleware to throttle Exports **/

@@ -32,7 +32,6 @@
 <!-- end::Script to Produce DataTable for Tractors -->
 
 <script type="text/javascript">
-    // CSRF Token
     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
     $(document).ready(function(){
         $( "#selTractors" ).select2({
@@ -44,7 +43,7 @@
                 data: function (params) {
                     return {
                         _token: CSRF_TOKEN,
-                        search: params.term // search term
+                        search: params.term
                     };
                 },
                 processResults: function (response) {

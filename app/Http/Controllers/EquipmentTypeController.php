@@ -137,6 +137,7 @@ class EquipmentTypeController extends Controller
         return Excel::download(new EquipmentTypeExport(), 'equipment-type-collection.xlsx');
     }
 
+    /* AJAX request */
     public function showEquipTypes(Request $request)
     {
         $search = $request->search;

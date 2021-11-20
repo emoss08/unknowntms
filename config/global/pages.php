@@ -112,7 +112,6 @@ return array(
                 ),
                 'js'  => array(
                     'plugins/custom/datatables/datatables.bundle.js',
-                    'js/custom/tractors/custom.js',
                     'js/custom/tractors/submit.js',
                 ),
             ),
@@ -130,10 +129,7 @@ return array(
                 ),
                 'js'  => array(
                     'plugins/custom/datatables/datatables.bundle.js',
-                    'js/custom/trailers/trailerstable.js',
-                    'js/custom/trailers/maxlength.js',
                     'js/custom/trailers/submit.js',
-                    'js/custom/trailers/edit-submit.js',
                 ),
             ),
         ),
@@ -150,7 +146,6 @@ return array(
                     ),
                     'js'  => array(
                         'plugins/custom/datatables/datatables.bundle.js',
-                        'js/custom/equipment_type/custom.js',
                         'js/custom/equipment_type/submit.js',
                     ),
                 ),
@@ -161,7 +156,6 @@ return array(
     // Order Types
     'ordertypes' => array(
             'title'  => 'Order Types Overview',
-            'view'   => 'ordertypes/overview',
             'assets' => array(
                 'custom' => array(
                     'css' => array(
@@ -169,10 +163,7 @@ return array(
                     ),
                     'js'  => array(
                         'plugins/custom/datatables/datatables.bundle.js',
-                        'js/custom/ordertype/ordertypetable.js',
-                        'js/custom/ordertype/maxlength.js',
                         'js/custom/ordertype/submit.js',
-                        'js/custom/ordertype/edit-submit.js',
                     ),
                 ),
             ),
@@ -194,10 +185,7 @@ return array(
                 ),
                 'js'  => array(
                     'plugins/custom/datatables/datatables.bundle.js',
-                    'js/custom/commodities/commodities-table.js',
-                    'js/custom/commodities/maxlength.js',
                     'js/custom/commodities/submit.js',
-                    'js/custom/commodities/edit-submit.js',
                 ),
             ),
         ),

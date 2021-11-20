@@ -102,4 +102,23 @@ class CommoditiesController extends Controller
             ->rawColumns(['Actions'])
             ->make(true);
     }
+
+    /* AJAX request */
+    public function showCommoditiesList(Request $request)
+    {
+        $search = $request->search;
+        if($search == ''){
+            $commodities = Commodities::orderby('commodity_id','asc')->select('id','commodity_id')->limit(5)->get();
+        }else{
+            $commodities = Commodities::orderby('commodity_id','asc')->select('id','commodity_id')->where('commodity_id', 'like', '%' .$search . '%')->limit(5)->get();
+        }
+        $response = array();
+        foreach($commodities as $commodity){
+            $response[] = array(
+                "id"=>$commodity->id,
+                "text"=>$commodity->commodity_id
+            );
+        }
+        return response()->json($response);
+    }
 }

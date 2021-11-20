@@ -10,6 +10,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\OrderTypes;
+use Yajra\DataTables\DataTables;
 
 class OrderTypesController extends Controller
 {
@@ -34,8 +35,8 @@ class OrderTypesController extends Controller
     public function index()
     {
         $ordertype = OrderTypes::all();
-        return view('ordertypes.index',compact('ordertype'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+
+        return view('ordertypes.index',compact('ordertype'));
     }
 
     /**
@@ -58,7 +59,7 @@ class OrderTypesController extends Controller
     {
 
         $request->validate([
-            'is_active' => 'required',
+            'status' => 'required',
             'order_type_id' => 'required|profanity|max:5|min:2|unique:order_types,order_type_id',
             'description' => 'required|profanity|max:50'
         ]);
@@ -104,7 +105,7 @@ class OrderTypesController extends Controller
     {
 
         $request->validate([
-            'is_active' => 'required',
+            'status' => 'required',
             'order_type_id' => 'required|profanity|max:5|min:2',
             'description' => 'required|profanity|max:50'
         ]);
@@ -112,5 +113,37 @@ class OrderTypesController extends Controller
         $ordertype->update($request->all());
 
         return redirect()->route('ordertypes.index');
+    }
+
+    //
+    public function getOrderTypes(Request $request)
+    {
+        $order_types = OrderTypes::latest()->get();
+
+        return Datatables::of($order_types)
+            ->addColumn('Actions', function ($order_types)  {
+                return '<button class="btn btn-light btn-active-light-info btn-sm" data-bs-toggle="modal" data-bs-target="#edit-order-type-'.$order_types->id.'" class="menu-link px-3">Edit</button>';
+            })
+            ->rawColumns(['Actions'])
+            ->make(true);
+    }
+
+    /* AJAX request */
+    public function showOrderTypesList(Request $request)
+    {
+        $search = $request->search;
+        if($search == ''){
+            $ordertypes = OrderTypes::orderby('order_type_id','asc')->select('id','order_type_id')->limit(5)->get();
+        }else{
+            $ordertypes = OrderTypes::orderby('order_type_id','asc')->select('id','order_type_id')->where('order_type_id', 'like', '%' .$search . '%')->limit(5)->get();
+        }
+        $response = array();
+        foreach($ordertypes as $ordertype){
+            $response[] = array(
+                "id"=>$ordertype->id,
+                "text"=>$ordertype->order_type_id
+            );
+        }
+        return response()->json($response);
     }
 }

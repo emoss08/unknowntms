@@ -364,3 +364,9 @@ Note - Artisan is usually inside of the application itself.
 4. Added Middleware to prevent throttling for Export files.
 5. Added Middleware to prevent throttling for Application Pages. (10000 request can be made per minute before user is kicked out of system)
 
+## Changelog 11/17/2021
+1. AJAX call added to Select2 element for Tractors master file search functionality.
+2. AJAX call added to Select2 element for Commodities master file search functionality.
+3. Updated database seeders to inject more base information.
+4. Completed Commodities MVC.
+5. 
