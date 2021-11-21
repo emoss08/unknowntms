@@ -179,6 +179,8 @@
             break;
     }
     @endif
+
+    @include('sweetalert::alert')
 </script>
 
 <!--

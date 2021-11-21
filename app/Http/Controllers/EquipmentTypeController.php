@@ -134,6 +134,8 @@ class EquipmentTypeController extends Controller
      */
     public function fileExport()
     {
+        // Notification varaiable
+        $notification = toast('Successfully ran command!', 'success')->hideCloseButton();
         return Excel::download(new EquipmentTypeExport(), 'equipment-type-collection.xlsx');
     }
 

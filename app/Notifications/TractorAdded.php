@@ -7,9 +7,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class TractorAdded extends Notification
+class TractorAdded extends Notification implements ShouldQueue
 {
     use Queueable;
+
     private $offerData;
 
 
@@ -42,11 +43,10 @@ class TractorAdded extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-            ->name($this->offerData['name'])
-            ->line($this->offerData['body'])
-            ->action($this->offerData['offerText'], $this->offerData['offerUrl'])
-            ->line($this->offerData['thanks']);
+//        return (new MailMessage)
+        //                    ->line('The introduction to the notification.')
+        //                    ->action('Notification Action', url('/'))
+        //                    ->line('Thank you for using our application!');
     }
 
     /**
@@ -58,7 +58,7 @@ class TractorAdded extends Notification
     public function toArray($notifiable)
     {
         return [
-            'offer_id' => $this->offerData['offer_id']
+            'Tractor_id' => 'TEST'
         ];
     }
 }

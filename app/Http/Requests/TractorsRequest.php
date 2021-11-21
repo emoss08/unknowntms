@@ -36,7 +36,7 @@ class TractorsRequest extends FormRequest
             'make' => 'required',
             'model' => 'required',
             'vin' => 'required|vin_code',
-            'comments' => 'profanity|max:500'
+            'comments' => 'max:500'
         ];
     }
 
@@ -52,7 +52,6 @@ class TractorsRequest extends FormRequest
             'model.required' => 'Model is required',
             'vin.required' => 'VIN is required',
             'vin.vin_code' => 'VIN must be a valid VIN code',
-            'comments.profanity' => 'Comments may not contain profanity',
             'comments.max' => 'Comments may not exceed 500 characters'
         ];
     }
