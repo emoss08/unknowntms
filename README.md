@@ -1,5 +1,5 @@
 reference changelog.md
 
-![alt text](https://werewlf.com/unknowntms.PNG "Unknown TMS")
+![alt text](https://werewlf.com/unknowntms.png "Unknown TMS")
 
 UI licensed from Keenthemes.com - Metronic Admin Dashboard.
