@@ -110,86 +110,69 @@
         /* end::Middleware to throttle Exports **/
 
         /**     begin::Artisan Control Center Command Paths      */
-        /**     begin::Throttling Middleware for Artisan commands  - Reference RouteServiceProvider.php for Policy    */
         // begin::Run System Scheduler
-        Route::middleware (['throttle:artisan'])->group (function () {
             Route::get ('system-schedule', function () {
                 Artisan::call ('schedule:run');
-
-                // Notification varaiable
-                $notification = toast('Successfully ran command!', 'success')->hideCloseButton();
                 // Getting the user id of the user who ran the command
                 $currentuser = auth()->user()->id;
-
                 // Logging the Command & User ID
                 Log::warning ('System Scheduled Task Artisan Command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('notification', $notification);
-            })->name ('system-schedule');
+                return redirect()->back()->with('success', 'Successfully ran command!');
+            })->name('system-schedule');
             // end::Run System Scheduler
 
             // begin::Clean Activity Log
             Route::get ('activity-log', function () {
                 Artisan::call ('activitylog:clean');
-                // Notification varaiable
-                $notification = toast('Successfully ran command!', 'success')->hideCloseButton();
                 // Storing the user id of the user who ran the command
                 $currentuser = auth ()->user()->id;
-
                 // Logging the Command & User ID
                 Log::warning ('Activity Log artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('notification', $notification);
+                return redirect()->back()->with('success', 'Successfully ran command!');
             })->name ('activity-log');
             // end::Clean Activity Log
 
             // begin::Restart Queued Jobs
             Route::get ('queue-restart', function () {
                 Artisan::call ('queue:restart');
-                // Notification varaiable
-                $notification = toast('Successfully ran command!', 'success')->hideCloseButton();
                 // Storing the user id of the user who ran the command
                 $currentuser = auth ()->user ()->id;
                 Log::warning ('Queue Restart artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('notification', $notification);
+                return redirect()->back()->with('success', 'Successfully ran command!');
             })->name ('queue-restart');
             // end::Restart Queued Jobs
+
             // begin::Flush Failed Jobs
             Route::get ('queue-flush', function () {
                 Artisan::call ('queue:flush');
-                // Notification varaiable
-                $notification = toast('Successfully ran command!', 'success')->hideCloseButton();
                 // Storing the user id of the user who ran the command
                 $currentuser = auth ()->user ()->id;
                 Log::warning ('Queue Flush artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('notification', $notification);
+                return redirect()->back()->with('success', 'Successfully ran command!');
             })->name ('queue-flush');
             // end::Flush Failed Jobs
+
             // begin::Cache View Files
             Route::get ('view-cache', function () {
                 Artisan::call ('view:cache');
-                // Notification varaiable
-                $notification = toast('Successfully ran command!', 'success')->hideCloseButton();
                 // Storing the user id of the user who ran the command
                 $currentuser = auth()->user()->id;
-
                 Log::warning ('View Cache artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('notification', $notification);
+                return redirect()->back()->with('success', 'Successfully ran command!');
             })->name ('view-cache');
             // end::Cache View Files
+
             // begin::Clear Cached View Files
             Route::get ('view-clear', function () {
                 Artisan::call ('view:cache');
-                // Notification varaiable
-                $notification = toast('Successfully ran command!', 'success')->hideCloseButton();
                 // Storing the user id of the user who ran the command
                 $currentuser = auth()->user ()->id;
 
                 Log::warning ('Clear Cache View Files artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('notification', $notification);
+                return redirect()->back()->with('success', 'Successfully ran command!');
             })->name ('view-clear');
             // end::Clear Cached View Files
-        });
         /**     end::Artisan Control Center Command Paths      */
-        /**     end::Throttling Middleware for Artisan commands  - Reference RouteServiceProvider.php for Policy    */
     });
     /* end::Auth Middleware */
 
