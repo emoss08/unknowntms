@@ -383,3 +383,4 @@ Note - Artisan is usually inside of the application itself.
 1. Removal of old Artisan Command routes.
 2. Fix Artisan Commands not firing from Artisan Control Center.
 3. LiveWire Components added to Artisan Control Center.
+4. Middleware for Artisan Command Center.
