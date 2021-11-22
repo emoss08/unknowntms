@@ -24,7 +24,7 @@
         </div>
         <!--end::Card body-->
         <!--begin::Card footer-->
-        <livewire:run-scheduler-command/>
+        <livewire:artisan.run-scheduler-command/>
         <!--end::Card footer-->
     </div>
     <!--end::Card-->

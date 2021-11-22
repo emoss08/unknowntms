@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Artisan;
 
-use Illuminate\Support\Facades\Artisan;
-use Livewire\Component;
-use Log;
-use Jantinnerezo\LivewireAlert\LivewireAlert;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use Illuminate\Support\Facades\Artisan;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Component;
+use Log;
 
 class RunSchedulerCommand extends Component
 {
@@ -25,15 +25,20 @@ class RunSchedulerCommand extends Component
             $currentuser = auth()->user ()->id;
             Artisan::call('schedule:run');
             Log::warning('Scheduler command ran!', ['Command Ran by User ID:' => $currentuser]);
-            $this->alert('success', 'Scheduler run successfully');
+            $this->alert('success', Artisan::output());
         } catch (TooManyRequestsException $e) {
             $this->alert( 'error', "Slow down! Please wait another $e->secondsUntilAvailable seconds to log in.");
             return;
         }
     }
 
+    public function learn()
+    {
+            $this->alert('error', 'Currently unavailable...');
+    }
+
     public function render()
     {
-        return view('livewire.run-scheduler-command');
+        return view('livewire.artisan.run-scheduler-command');
     }
 }
