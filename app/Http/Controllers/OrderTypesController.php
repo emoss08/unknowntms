@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateOrderTypeRequest;
 use App\Models\User;
 use Auth;
 use Illuminate\Contracts\Foundation\Application;
@@ -101,14 +102,8 @@ class OrderTypesController extends Controller
      * @param  \App\OrderTypes  $ordertype
      * @return RedirectResponse
      */
-    public function update(Request $request, OrderTypes $ordertype)
+    public function update(UpdateOrderTypeRequest $request, OrderTypes $ordertype)
     {
-
-        $request->validate([
-            'status' => 'required',
-            'order_type_id' => 'required|profanity|max:5|min:2',
-            'description' => 'required|profanity|max:50'
-        ]);
 
         $ordertype->update($request->all());
 

@@ -378,3 +378,8 @@ Note - Artisan is usually inside of the application itself.
 
 #### Snippet - Artisan Control Center
 ![alt text](https://werewlf.com/artisan.png "Artisan Control Center")
+
+## Changelog 11/22/2021
+1. Removal of old Artisan Command routes.
+2. Fix Artisan Commands not firing from Artisan Control Center.
+3. LiveWire Components added to Artisan Control Center.

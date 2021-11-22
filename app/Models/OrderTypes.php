@@ -20,7 +20,7 @@ class OrderTypes extends Model implements Auditable
      * @var array
      */
     protected $fillable = [
-        'is_active',
+        'status',
         'order_type_id',
         'description',
         'entered_by',
