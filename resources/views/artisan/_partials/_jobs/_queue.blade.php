@@ -24,10 +24,7 @@
         </div>
         <!--end::Card body-->
         <!--begin::Card footer-->
-        <div class="card-footer flex-wrap pt-0">
-            <a href="{{ route('queue-restart') }}" class="btn btn-dark btn-active-light my-1 me-2">Launch</a>
-            <a href="#" class="btn btn-light btn-active-light-dark my-1 me-2">Learn More</a>
-        </div>
+        <livewire:artisan.restart-queue-jobs/>
         <!--end::Card footer-->
     </div>
     <!--end::Card-->

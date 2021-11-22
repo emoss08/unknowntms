@@ -9,7 +9,7 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Log;
 
-class RunSchedulerCommand extends Component
+class RunCleanActivityLog extends Component
 {
     use LivewireAlert;
     use WithRateLimiting;
@@ -18,7 +18,7 @@ class RunSchedulerCommand extends Component
         'run'
     ];
 
-    public function runScheduler()
+    public function runCleanActivity()
     {
         $currentuser = auth()->user ()->id;
         try {
@@ -27,19 +27,19 @@ class RunSchedulerCommand extends Component
             $this->alert( 'error', "Slow down! Please wait another $e->secondsUntilAvailable seconds to log in.");
             return;
         }
-        $this->alert('info', 'Running Artisan command: run-scheduler');
-        Artisan::call('schedule:run');
-        Log::warning('Scheduler run artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-        $this->alert('success', 'Artisan command: run-scheduler ran successfully');
+        $this->alert('info', 'Running Artisan command: clean-activity-log');
+        Artisan::call('activitylog:clean');
+        Log::warning('Activity Log artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
+        $this->alert('success', 'Artisan command: clean-activity-log ran successfully');
     }
 
     public function learn()
     {
-            $this->alert('error', 'Currently unavailable...');
+        $this->alert('error', 'Currently unavailable...');
     }
 
     public function render()
     {
-        return view('livewire.artisan.run-scheduler-command');
+        return view('livewire.artisan.run-clean-activity-log');
     }
 }

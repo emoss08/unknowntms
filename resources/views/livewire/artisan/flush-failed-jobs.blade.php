@@ -5,6 +5,6 @@
 @endif
 
 <div class="card-footer flex-wrap pt-0">
-    <button wire:click="runScheduler" class="btn btn-dark my-1 me-2">Launch</button>
+    <button wire:click="runFlushJobs" class="btn btn-dark my-1 me-2">Launch</button>
     <button wire:click="learn" class="btn btn-light btn-active-light-dark my-1 me-2">Learn More</button>
 </div>

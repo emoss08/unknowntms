@@ -109,38 +109,6 @@
         });
         /* end::Middleware to throttle Exports **/
 
-        /**     begin::Artisan Control Center Command Paths      */
-            // begin::Clean Activity Log
-            Route::get('activity-log', function () {
-                Artisan::call('activitylog:clean');
-                // Storing the user id of the user who ran the command
-                $currentuser = auth ()->user()->id;
-                // Logging the Command & User ID
-                Log::warning('Activity Log artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('toast_success', Artisan::output());
-            })->name('activity-log');
-            // end::Clean Activity Log
-
-            // begin::Restart Queued Jobs
-            Route::get ('queue-restart', function () {
-                Artisan::call ('queue:restart');
-                // Storing the user id of the user who ran the command
-                $currentuser = auth ()->user ()->id;
-                Log::warning ('Queue Restart artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('toast_success', Artisan::output());
-            })->name ('queue-restart');
-            // end::Restart Queued Jobs
-
-            // begin::Flush Failed Jobs
-            Route::get ('queue-flush', function () {
-                Artisan::call ('queue:flush');
-                // Storing the user id of the user who ran the command
-                $currentuser = auth ()->user ()->id;
-                Log::warning ('Queue Flush artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('toast_success', Artisan::output());
-            })->name ('queue-flush');
-            // end::Flush Failed Jobs
-
             // begin::Cache View Files
             Route::get ('view-cache', function () {
                 Artisan::call ('view:cache');
