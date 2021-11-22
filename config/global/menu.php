@@ -411,18 +411,18 @@ return array(
                         'path'   => 'users',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),
-                    array(
-                        'title'  => 'Artisan Control Center',
-                        'path'   => 'artisan',
-                        'bullet' => '<span class="bullet bullet-dot"></span>',
-                    ),
-                    array(
-                        'title'  => 'Telescope',
-                        'path'   => 'telescope',
-                        'bullet' => '<span class="bullet bullet-dot"></span>',
-                    ),
                 ),
             ),
+        ),
+        array(
+            'title' => 'Artisan Control Center',
+            'path'  => 'artisan',
+            'icon'  => theme()->getSvgIcon("demo8/media/icons/duotune/general/gen002.svg", "svg-icon-2"),
+        ),
+        array(
+            'title' => 'Telescope',
+            'path'  => 'telescope',
+            'icon'  => theme()->getSvgIcon("demo8/media/icons/duotune/general/gen012.svg", "svg-icon-2"),
         ),
 
         // Separator

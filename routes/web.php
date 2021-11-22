@@ -111,13 +111,13 @@
 
         /**     begin::Artisan Control Center Command Paths      */
         // begin::Run System Scheduler
-            Route::get ('system-schedule', function () {
+            Route::get('system-schedule', function () {
                 Artisan::call ('schedule:run');
                 // Getting the user id of the user who ran the command
                 $currentuser = auth()->user()->id;
                 // Logging the Command & User ID
                 Log::warning ('System Scheduled Task Artisan Command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('toast_success', 'Successfully started system scheduler!');
+                return redirect()->back()->with('toast_success', Artisan::output());
             })->name('system-schedule');
             // end::Run System Scheduler
 
@@ -127,8 +127,8 @@
                 // Storing the user id of the user who ran the command
                 $currentuser = auth ()->user()->id;
                 // Logging the Command & User ID
-                Log::warning ('Activity Log artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('toast_success', 'Successfully cleared activity log!');
+                Log::warning('Activity Log artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
+                return redirect()->back()->with('toast_success', Artisan::output());
             })->name('activity-log');
             // end::Clean Activity Log
 
@@ -138,7 +138,7 @@
                 // Storing the user id of the user who ran the command
                 $currentuser = auth ()->user ()->id;
                 Log::warning ('Queue Restart artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('toast_success', 'Successfully restarted queue!');
+                return redirect()->back()->with('toast_success', Artisan::output());
             })->name ('queue-restart');
             // end::Restart Queued Jobs
 
@@ -148,7 +148,7 @@
                 // Storing the user id of the user who ran the command
                 $currentuser = auth ()->user ()->id;
                 Log::warning ('Queue Flush artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('toast_success', 'Successfully flushed failed jobs!');
+                return redirect()->back()->with('toast_success', Artisan::output());
             })->name ('queue-flush');
             // end::Flush Failed Jobs
 
@@ -158,7 +158,7 @@
                 // Storing the user id of the user who ran the command
                 $currentuser = auth()->user()->id;
                 Log::warning ('View Cache artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('toast_success', 'Successfully Cached Views!');
+                return redirect()->back()->with('toast_success', Artisan::output());
             })->name ('view-cache');
             // end::Cache View Files
 
@@ -168,9 +168,17 @@
                 // Storing the user id of the user who ran the command
                 $currentuser = auth()->user ()->id;
                 Log::warning ('Clear Cache View Files artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('toast_success', 'Successfully Clear Cached Views!');
+                return redirect()->back()->with('toast_success', Artisan::output());
             })->name ('view-clear');
             // end::Clear Cached View Files
+
+        // begin::Clear Cached View Files
+        Route::get ('inspire', function () {
+            Artisan::call ('inspire');
+            // Storing the user id of the user who ran the command
+            return redirect()->back()->with('success', Artisan::output());
+        })->name('inspire');
+        // end::Clear Cached View Files
         /**     end::Artisan Control Center Command Paths      */
         });
     /* end::Auth Middleware */
