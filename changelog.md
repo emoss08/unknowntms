@@ -369,4 +369,12 @@ Note - Artisan is usually inside of the application itself.
 2. AJAX call added to Select2 element for Commodities master file search functionality.
 3. Updated database seeders to inject more base information.
 4. Completed Commodities MVC.
-5. 
+
+## Changelog 11/20/2021
+1. Implementation of SweetAlert2 globally.
+
+## Changelog 11/21/2021
+1. New Design for Artisan Control Center.
+
+#### Snippet - Artisan Control Center
+![alt text](https://werewlf.com/artisan.png "Artisan Control Center")

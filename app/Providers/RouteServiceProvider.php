@@ -63,28 +63,13 @@ class RouteServiceProvider extends ServiceProvider
         // Throttle artisan commands
         RateLimiter::for('artisan', function (Request $request) {
             return Limit::perMinute(1)->response(function () {
-
-                // Notification variable
-                $notification = array(
-                    'message' => 'Too many attempts. Please wait..',
-                    'alert-type' => 'error',
-                    'closeButton' => true,
-                );
-
-                return redirect()->back()->with($notification);
+                return redirect()->back()->with('toast_error', 'This action has been rate limited.');
             });
         });
 
         RateLimiter::for('exports', function (Request $request) {
             return Limit::perMinute(5)->response(function() {
-
-                // Notification variable
-                $notification = array(
-                    'message' => 'Too many attempts. Please wait..',
-                    'alert-type' => 'error',
-                    'closeButton' => true,
-                );
-                return redirect()->back()->with($notification);
+                return redirect()->back()->with('errors', ['You have reached the maximum number of exports per minute.']);
             });
         });
 

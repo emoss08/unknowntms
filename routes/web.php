@@ -117,19 +117,19 @@
                 $currentuser = auth()->user()->id;
                 // Logging the Command & User ID
                 Log::warning ('System Scheduled Task Artisan Command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('success', 'Successfully ran command!');
+                return redirect()->back()->with('toast_success', 'Successfully started system scheduler!');
             })->name('system-schedule');
             // end::Run System Scheduler
 
             // begin::Clean Activity Log
-            Route::get ('activity-log', function () {
-                Artisan::call ('activitylog:clean');
+            Route::get('activity-log', function () {
+                Artisan::call('activitylog:clean');
                 // Storing the user id of the user who ran the command
                 $currentuser = auth ()->user()->id;
                 // Logging the Command & User ID
                 Log::warning ('Activity Log artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('success', 'Successfully ran command!');
-            })->name ('activity-log');
+                return redirect()->back()->with('toast_success', 'Successfully cleared activity log!');
+            })->name('activity-log');
             // end::Clean Activity Log
 
             // begin::Restart Queued Jobs
@@ -138,7 +138,7 @@
                 // Storing the user id of the user who ran the command
                 $currentuser = auth ()->user ()->id;
                 Log::warning ('Queue Restart artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('success', 'Successfully ran command!');
+                return redirect()->back()->with('toast_success', 'Successfully restarted queue!');
             })->name ('queue-restart');
             // end::Restart Queued Jobs
 
@@ -148,7 +148,7 @@
                 // Storing the user id of the user who ran the command
                 $currentuser = auth ()->user ()->id;
                 Log::warning ('Queue Flush artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('success', 'Successfully ran command!');
+                return redirect()->back()->with('toast_success', 'Successfully flushed failed jobs!');
             })->name ('queue-flush');
             // end::Flush Failed Jobs
 
@@ -158,7 +158,7 @@
                 // Storing the user id of the user who ran the command
                 $currentuser = auth()->user()->id;
                 Log::warning ('View Cache artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('success', 'Successfully ran command!');
+                return redirect()->back()->with('toast_success', 'Successfully Cached Views!');
             })->name ('view-cache');
             // end::Cache View Files
 
@@ -167,13 +167,12 @@
                 Artisan::call ('view:cache');
                 // Storing the user id of the user who ran the command
                 $currentuser = auth()->user ()->id;
-
                 Log::warning ('Clear Cache View Files artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('success', 'Successfully ran command!');
+                return redirect()->back()->with('toast_success', 'Successfully Clear Cached Views!');
             })->name ('view-clear');
             // end::Clear Cached View Files
         /**     end::Artisan Control Center Command Paths      */
-    });
+        });
     /* end::Auth Middleware */
 
     Route::get ('/auth/redirect/{provider}', [SocialiteLoginController::class, 'redirect']);
