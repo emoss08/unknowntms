@@ -34,7 +34,9 @@ class PermissionTableSeeder extends Seeder
             'equipment-type-list',
             'equipment-type-create',
             'equipment-type-edit',
-            'equipment-type-delete'
+            'equipment-type-delete',
+            'artisan-list',
+            'artisan-fire'
         ];
 
         foreach ($permissions as $permission) {

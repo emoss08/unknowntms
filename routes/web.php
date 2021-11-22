@@ -97,6 +97,9 @@
         Route::get ('ordertype/list', [OrderTypesController::class, 'getOrderTypes'])->name ('ordertype.list');
         /** end::GET for DataTables to produce data */
 
+        Route::get('artisan', [ArtisanController::class, 'index'])->name('artisan.index');
+
+
         /* begin::Middleware to throttle Exports **/
         Route::middleware (['throttle:exports'])->group(function () {
             /** begin::Export records to excel and pdf */
