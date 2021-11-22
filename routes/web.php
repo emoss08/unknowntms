@@ -108,35 +108,6 @@
             /** end::Export records to excel and pdf */
         });
         /* end::Middleware to throttle Exports **/
-
-            // begin::Cache View Files
-            Route::get ('view-cache', function () {
-                Artisan::call ('view:cache');
-                // Storing the user id of the user who ran the command
-                $currentuser = auth()->user()->id;
-                Log::warning ('View Cache artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('toast_success', Artisan::output());
-            })->name ('view-cache');
-            // end::Cache View Files
-
-            // begin::Clear Cached View Files
-            Route::get ('view-clear', function () {
-                Artisan::call ('view:cache');
-                // Storing the user id of the user who ran the command
-                $currentuser = auth()->user ()->id;
-                Log::warning ('Clear Cache View Files artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('toast_success', Artisan::output());
-            })->name ('view-clear');
-            // end::Clear Cached View Files
-
-        // begin::Clear Cached View Files
-        Route::get ('inspire', function () {
-            Artisan::call ('inspire');
-            // Storing the user id of the user who ran the command
-            return redirect()->back()->with('success', Artisan::output());
-        })->name('inspire');
-        // end::Clear Cached View Files
-        /**     end::Artisan Control Center Command Paths      */
         });
     /* end::Auth Middleware */
 

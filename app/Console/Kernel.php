@@ -7,6 +7,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Console\Commands\ScheduleRunner;
 
 class Kernel extends ConsoleKernel
 {
@@ -16,7 +17,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+//
     ];
 
     /**
@@ -75,9 +76,6 @@ class Kernel extends ConsoleKernel
             ->name('delete_inactive_tractors')
             ->runInBackground()
             ->evenInMaintenanceMode();
-
-
-
     }
 
 

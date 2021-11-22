@@ -3,19 +3,16 @@
 namespace App\Exports;
 
 use App\Models\Tractors;
+use Maatwebsite\Excel\Excel;
+use Illuminate\Contracts\Support\Responsable;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class TractorsExport implements FromCollection, ShouldAutoSize, WithHeadings
+class TractorsExport implements FromCollection, Responsable, ShouldAutoSize, WithHeadings
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    public function collection()
-    {
-        return Tractors::all();
-    }
+    use Exportable;
 
     public function headings(): array
     {
@@ -37,5 +34,28 @@ class TractorsExport implements FromCollection, ShouldAutoSize, WithHeadings
             'Comments',
             'Entered by (User ID)',
         ];
+    }
+
+    /**
+     * It's required to define the fileName within
+     * the export class when making use of Responsable.
+     */
+    private $fileName = 'invoices.xlsx';
+
+    /**
+     * Optional Writer Type
+     */
+    private $writerType = Excel::XLSX;
+
+    /**
+     * Optional headers
+     */
+    private $headers = [
+        'Content-Type' => 'text/csv',
+    ];
+
+    public function collection()
+    {
+        return Tractors::all();
     }
 }

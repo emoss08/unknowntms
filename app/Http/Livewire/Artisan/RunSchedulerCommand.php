@@ -22,13 +22,12 @@ class RunSchedulerCommand extends Component
     {
         $currentuser = auth()->user ()->id;
         try {
-            $this->rateLimit(1);
+            $this->rateLimit(1, 1,         Artisan::call('schedule:run'));
         } catch (TooManyRequestsException $e) {
             $this->alert( 'error', "Slow down! Please wait another $e->secondsUntilAvailable seconds to log in.");
             return;
         }
         $this->alert('info', 'Running Artisan command: run-scheduler');
-        Artisan::call('schedule:run');
         Log::warning('Scheduler run artisan command ran!', ['Command Ran by User ID:' => $currentuser]);
         $this->alert('success', 'Artisan command: run-scheduler ran successfully');
     }
