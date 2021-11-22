@@ -15,6 +15,7 @@
     use App\Http\Controllers\RoleController;
     use App\Http\Controllers\TestQueueEmails;
     use App\Http\Controllers\TractorsController;
+    use App\Http\Controllers\TrailersController;
     use App\Http\Controllers\UsersController;
     use Illuminate\Support\Facades\Route;
     use SebastianBergmann\Environment\Console;
@@ -77,6 +78,7 @@
             Route::resource ('users', UsersController::class);
             Route::resource ('commodities', CommoditiesController::class);
             Route::resource ('tractors', TractorsController::class);
+            Route::resource ('trailers', TrailersController::class);
             Route::resource ('equipmenttypes', EquipmentTypeController::class);
             Route::resource ('artisan', ArtisanController::class);
             /** end::Application Pages ( DO NOT CHANGE OR REMOVE OR PAGES WILL NOT WORK */
@@ -88,6 +90,7 @@
         Route::post ('tractor/showTractorList', [TractorsController::class, 'showTractorList'])->name ('tractors.showTractors');
         Route::post ('commodity/showCommoditiesList', [CommoditiesController::class, 'showCommoditiesList'])->name ('commodity.showCommoditiesList');
         Route::post ('ordertype/showOrderTypesList', [OrderTypesController::class, 'showOrderTypesList'])->name ('ordertypes.showOrderTypesList');
+        Route::post ('trailer/showTrailerList', [TrailersController::class, 'showTrailerList'])->name ('trailer.showTrailerList');
         /** end::Ajax Calls */
 
         /** begin::GET for DataTables to produce data */
@@ -95,6 +98,7 @@
         Route::get ('tractor/list', [TractorsController::class, 'getTractors'])->name ('tractors.list');
         Route::get ('commodity/list', [CommoditiesController::class, 'getCommodities'])->name ('commodity.list');
         Route::get ('ordertype/list', [OrderTypesController::class, 'getOrderTypes'])->name ('ordertype.list');
+        Route::get ('trailer/list', [TrailersController::class, 'getTrailers'])->name ('trailers.list');
         /** end::GET for DataTables to produce data */
 
         Route::get('artisan', [ArtisanController::class, 'index'])->name('artisan.index');

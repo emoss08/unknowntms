@@ -291,7 +291,7 @@ Argument - /path/to/artisan schedule:run
 Cron Job command -
 * * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
   
-Note - Artisan is usually inside of the application itself.
+Note - Artisan is usually inside of the application file.
 
 ```
 
@@ -384,3 +384,4 @@ Note - Artisan is usually inside of the application itself.
 2. Fix Artisan Commands not firing from Artisan Control Center.
 3. LiveWire Components added to Artisan Control Center.
 4. Middleware for Artisan Control Center.
+5. Trailer Master file added.

@@ -15,6 +15,21 @@ class CreateTrailersTable extends Migration
     {
         Schema::create('trailers', function (Blueprint $table) {
             $table->id();
+            $table->string('status');
+            $table->string('trailer_id')->unique();
+            $table->string('year');
+            $table->string('make');
+            $table->string('model');
+            $table->string('vin');
+            $table->string('owned_by')->nullable();
+            $table->string('equip_type_id')->nullable();
+            $table->string('tag')->nullable();
+            $table->string('tag_state')->nullable();
+            $table->string('tag_expiration')->nullable();
+            $table->string('last_inspection')->nullable();
+            $table->string('comments')->nullable();
+            $table->integer('entered_by')->nullable();
+            $table->string('attachments')->nullable();
             $table->timestamps();
         });
     }

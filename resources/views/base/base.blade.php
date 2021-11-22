@@ -45,7 +45,7 @@
     @endif
 
     @yield('styles')
-    @livewireStyles
+    <livewire:styles />
 </head>
 {{-- end::Head --}}
 
@@ -199,7 +199,7 @@ return false;
 });
 </script> -->
 {{--end::TOASTR options --}}
-@livewireScripts
+<livewire:scripts />
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <x-livewire-alert::scripts />
 <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>

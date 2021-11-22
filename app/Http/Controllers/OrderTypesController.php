@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrderTypeStoreRequest;
 use App\Http\Requests\UpdateOrderTypeRequest;
 use App\Models\User;
 use Auth;
@@ -56,14 +57,8 @@ class OrderTypesController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OrderTypeStoreRequest $request)
     {
-
-        $request->validate([
-            'status' => 'required',
-            'order_type_id' => 'required|profanity|max:5|min:2|unique:order_types,order_type_id',
-            'description' => 'required|profanity|max:50'
-        ]);
 
         $input = $request->all();
         $input['entered_by'] = auth()->user()->id;

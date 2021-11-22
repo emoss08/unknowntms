@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             TractorSeeder::class,
             EquipmentTypeSeeder::class,
             OrderTypeSeeder::class,
+            TrailerSeeder::class,
         ]);
     }
 }

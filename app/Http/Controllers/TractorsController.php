@@ -43,8 +43,7 @@ class TractorsController extends Controller
     public function index()
     {
     $tractor = Tractors::latest()->paginate(11);
-    return view('tractors.index',compact('tractor'))
-        ->with('i', (request()->input('page', 1) - 1) * 5);
+    return view('tractors.index',compact('tractor'));
     }
 
     /**
@@ -106,19 +105,12 @@ class TractorsController extends Controller
 
     public function update(TractorsRequest $request, Tractors $tractor)
     {
-        $notification = array(
-            'message' => 'Record Successfully Updated!',
-            'alert-type' => 'success',
-            'closeButton' => true,
-
-        );
-
         if ($request->user()->cannot('tractor-edit', $tractor)) {
             abort (403);
         }
         $tractor->update($request->all());
 
-        return redirect()->route('tractors.index')->with($notification);
+        return redirect()->route('tractors.index');
     }
 
     /**
@@ -195,23 +187,6 @@ class TractorsController extends Controller
         // download PDF file with download method
 
         return $pdf->download('tractors.pdf');
-    }
-
-    public function sendTractorNotification() {
-        $userSchema = User::first();
-
-        $offerData = [
-            'name' => 'BOGO',
-            'body' => 'You received an offer.',
-            'thanks' => 'Thank you',
-            'offerText' => 'Check out the offer',
-            'offerUrl' => url('/'),
-            'offer_id' => 007
-        ];
-
-        Notification::send($userSchema, new TractorAdded($offerData));
-
-        dd('Task completed!');
     }
 
 }
