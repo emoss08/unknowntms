@@ -24,10 +24,7 @@
         </div>
         <!--end::Card body-->
         <!--begin::Card footer-->
-        <div class="card-footer flex-wrap pt-0">
-            <a href="{{ route('system-schedule') }}" class="btn btn-dark my-1 me-2">Launch</a>
-            <a href="#" class="btn btn-light btn-active-light-dark my-1 me-2">Learn More</a>
-        </div>
+        <livewire:run-scheduler-command/>
         <!--end::Card footer-->
     </div>
     <!--end::Card-->

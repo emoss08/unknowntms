@@ -5,7 +5,7 @@
 		<!--begin::Copyright-->
 		<div class="text-dark order-2 order-md-1">
 			<span class="text-muted fw-bold me-1">{{ date("Y") }}&copy;</span>
-			<a href="{{ theme()->getOption('general', 'website') }}" rel="noreferrer" target="_blank" class="text-gray-800 text-hover-primary">Unknown TMS</a>
+			<a href="{{ theme()->getOption('general', 'website') }}" rel="noreferrer" target="_blank" class="text-gray-800 text-hover-primary">Unknown TMS - Environment: {{App::environment()}}</a>
 		</div>
 		<!--end::Copyright-->
 

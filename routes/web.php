@@ -110,17 +110,6 @@
         /* end::Middleware to throttle Exports **/
 
         /**     begin::Artisan Control Center Command Paths      */
-        // begin::Run System Scheduler
-            Route::get('system-schedule', function () {
-                Artisan::call ('schedule:run');
-                // Getting the user id of the user who ran the command
-                $currentuser = auth()->user()->id;
-                // Logging the Command & User ID
-                Log::warning ('System Scheduled Task Artisan Command ran!', ['Command Ran by User ID:' => $currentuser]);
-                return redirect()->back()->with('toast_success', Artisan::output());
-            })->name('system-schedule');
-            // end::Run System Scheduler
-
             // begin::Clean Activity Log
             Route::get('activity-log', function () {
                 Artisan::call('activitylog:clean');
