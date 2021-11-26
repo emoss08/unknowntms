@@ -39,7 +39,7 @@
                 <div class="mb-5">
                     <label class="fs-6 form-label fw-bolder text-dark">Tractor ID</label>
                     <select class="form-select form-select-solid select2-hidden-accessible" id='selTractors'>
-                        <option value='0'>-- Select Tractor --</option>
+                        <option value='0'>Select an option</option>
                     </select>
                 </div>
                 <!--end::Input group-->
