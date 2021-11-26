@@ -33706,6 +33706,8 @@ a:hover {
 
 .page-item {
   margin-right: 0.5rem;
+  /*rtl:options:{"autoRename":false}*/
+  /*rtl:end:ignore*/
 }
 .page-item:last-child {
   margin-right: 0;
@@ -33719,6 +33721,9 @@ a:hover {
   min-width: 2.5rem;
   font-weight: 500;
   font-size: 1.075rem;
+  /*rtl:options:{"autoRename":false}*/
+  /*rtl:end:ignore*/
+  /*rtl:options:{"autoRename":false}*/
 }
 .page-item .page-link i {
   font-size: 0.85rem;
@@ -33728,75 +33733,85 @@ a:hover {
   display: block;
   height: 0.875rem;
   width: 0.875rem;
+  /*rtl:raw:transform: rotateZ(-180deg);*/
 }
-.page-item.next:not(:hover):not(:focus):not(.disabled) .page-link, .page-item.previous:not(:hover):not(:focus):not(.disabled) .page-link {
-  background-color: #1E1E2D;
-}
-.page-item.next:not(:hover):not(:focus):not(.disabled) .page-link i, .page-item.previous:not(:hover):not(:focus):not(.disabled) .page-link i {
-  color: #92929F;
-}
-.page-item.next:not(:hover):not(:focus):not(.disabled) .page-link .svg-icon svg [fill]:not(.permanent):not(g), .page-item.previous:not(:hover):not(:focus):not(.disabled) .page-link .svg-icon svg [fill]:not(.permanent):not(g) {
-  transition: fill 0.3s ease;
-  fill: #92929F;
-}
-.page-item.next:not(:hover):not(:focus):not(.disabled) .page-link .svg-icon svg:hover [fill]:not(.permanent):not(g), .page-item.previous:not(:hover):not(:focus):not(.disabled) .page-link .svg-icon svg:hover [fill]:not(.permanent):not(g) {
-  transition: fill 0.3s ease;
-}
-.page-item.next:not(:hover):not(:focus):not(.disabled) .page-link .previous, .page-item.previous:not(:hover):not(:focus):not(.disabled) .page-link .previous {
+.page-item .page-link .previous {
   background-repeat: no-repeat;
   background-position: center;
   background-color: transparent;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 9' fill='%2392929F'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M2.06463 4.42111C1.96161 4.22088 1.9809 3.9637 2.12863 3.78597L5.12847 0.177181C5.31402 -0.046034 5.63049 -0.060261 5.83532 0.145404C6.04015 0.351069 6.05578 0.698744 5.87023 0.921959L3.19406 4.14137L5.84414 7.06417C6.03896 7.27904 6.03835 7.62686 5.84278 7.84105C5.64721 8.05524 5.33073 8.05469 5.13591 7.83982L2.14806 4.54449C2.1141 4.50704 2.08629 4.46541 2.06463 4.42111Z'/%3e%3c/svg%3e");
 }
-.page-item.next:not(:hover):not(:focus):not(.disabled) .page-link .next, .page-item.previous:not(:hover):not(:focus):not(.disabled) .page-link .next {
+.page-item .page-link .next {
   background-repeat: no-repeat;
   background-position: center;
   background-color: transparent;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 9' fill='%2392929F'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.93537 4.57889C6.03839 4.77912 6.0191 5.0363 5.87137 5.21403L2.87153 8.82282C2.68598 9.04603 2.36951 9.06026 2.16468 8.8546C1.95985 8.64893 1.94422 8.30126 2.12977 8.07804L4.80594 4.85863L2.15586 1.93583C1.96104 1.72096 1.96165 1.37314 2.15722 1.15895C2.35279 0.944757 2.66927 0.945311 2.86409 1.16018L5.85194 4.45551C5.8859 4.49296 5.91371 4.53459 5.93537 4.57889Z'/%3e%3c/svg%3e");
 }
-.page-item:focus:not(.disabled) .page-link i {
+.page-item.next .page-link, .page-item.previous .page-link {
+  background-color: #1E1E2D;
+}
+.page-item.next .page-link i, .page-item.previous .page-link i {
+  color: #92929F;
+}
+.page-item.next .page-link .svg-icon svg [fill]:not(.permanent):not(g), .page-item.previous .page-link .svg-icon svg [fill]:not(.permanent):not(g) {
+  transition: fill 0.3s ease;
+  fill: #92929F;
+}
+.page-item.next .page-link .svg-icon svg:hover [fill]:not(.permanent):not(g), .page-item.previous .page-link .svg-icon svg:hover [fill]:not(.permanent):not(g) {
+  transition: fill 0.3s ease;
+}
+.page-item:focus .page-link {
+  /*rtl:options:{"autoRename":false}*/
+}
+.page-item:focus .page-link i {
   color: #3699FF;
 }
-.page-item:focus:not(.disabled) .page-link .svg-icon svg [fill]:not(.permanent):not(g) {
+.page-item:focus .page-link .svg-icon svg [fill]:not(.permanent):not(g) {
   transition: fill 0.3s ease;
   fill: #3699FF;
 }
-.page-item:focus:not(.disabled) .page-link .svg-icon svg:hover [fill]:not(.permanent):not(g) {
+.page-item:focus .page-link .svg-icon svg:hover [fill]:not(.permanent):not(g) {
   transition: fill 0.3s ease;
 }
-.page-item:focus:not(.disabled) .page-link .previous {
+.page-item:focus .page-link .previous {
   background-repeat: no-repeat;
   background-position: center;
   background-color: transparent;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 9' fill='%233699FF'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M2.06463 4.42111C1.96161 4.22088 1.9809 3.9637 2.12863 3.78597L5.12847 0.177181C5.31402 -0.046034 5.63049 -0.060261 5.83532 0.145404C6.04015 0.351069 6.05578 0.698744 5.87023 0.921959L3.19406 4.14137L5.84414 7.06417C6.03896 7.27904 6.03835 7.62686 5.84278 7.84105C5.64721 8.05524 5.33073 8.05469 5.13591 7.83982L2.14806 4.54449C2.1141 4.50704 2.08629 4.46541 2.06463 4.42111Z'/%3e%3c/svg%3e");
 }
-.page-item:focus:not(.disabled) .page-link .next {
+.page-item:focus .page-link .next {
   background-repeat: no-repeat;
   background-position: center;
   background-color: transparent;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 9' fill='%233699FF'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.93537 4.57889C6.03839 4.77912 6.0191 5.0363 5.87137 5.21403L2.87153 8.82282C2.68598 9.04603 2.36951 9.06026 2.16468 8.8546C1.95985 8.64893 1.94422 8.30126 2.12977 8.07804L4.80594 4.85863L2.15586 1.93583C1.96104 1.72096 1.96165 1.37314 2.15722 1.15895C2.35279 0.944757 2.66927 0.945311 2.86409 1.16018L5.85194 4.45551C5.8859 4.49296 5.91371 4.53459 5.93537 4.57889Z'/%3e%3c/svg%3e");
 }
-.page-item:hover:not(.disabled) .page-link i {
+.page-item:hover .page-link {
+  /*rtl:options:{"autoRename":false}*/
+}
+.page-item:hover .page-link i {
   color: #3699FF;
 }
-.page-item:hover:not(.disabled) .page-link .svg-icon svg [fill]:not(.permanent):not(g) {
+.page-item:hover .page-link .svg-icon svg [fill]:not(.permanent):not(g) {
   transition: fill 0.3s ease;
   fill: #3699FF;
 }
-.page-item:hover:not(.disabled) .page-link .svg-icon svg:hover [fill]:not(.permanent):not(g) {
+.page-item:hover .page-link .svg-icon svg:hover [fill]:not(.permanent):not(g) {
   transition: fill 0.3s ease;
 }
-.page-item:hover:not(.disabled) .page-link .previous {
+.page-item:hover .page-link .previous {
   background-repeat: no-repeat;
   background-position: center;
   background-color: transparent;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 9' fill='%233699FF'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M2.06463 4.42111C1.96161 4.22088 1.9809 3.9637 2.12863 3.78597L5.12847 0.177181C5.31402 -0.046034 5.63049 -0.060261 5.83532 0.145404C6.04015 0.351069 6.05578 0.698744 5.87023 0.921959L3.19406 4.14137L5.84414 7.06417C6.03896 7.27904 6.03835 7.62686 5.84278 7.84105C5.64721 8.05524 5.33073 8.05469 5.13591 7.83982L2.14806 4.54449C2.1141 4.50704 2.08629 4.46541 2.06463 4.42111Z'/%3e%3c/svg%3e");
 }
-.page-item:hover:not(.disabled) .page-link .next {
+.page-item:hover .page-link .next {
   background-repeat: no-repeat;
   background-position: center;
   background-color: transparent;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 9' fill='%233699FF'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.93537 4.57889C6.03839 4.77912 6.0191 5.0363 5.87137 5.21403L2.87153 8.82282C2.68598 9.04603 2.36951 9.06026 2.16468 8.8546C1.95985 8.64893 1.94422 8.30126 2.12977 8.07804L4.80594 4.85863L2.15586 1.93583C1.96104 1.72096 1.96165 1.37314 2.15722 1.15895C2.35279 0.944757 2.66927 0.945311 2.86409 1.16018L5.85194 4.45551C5.8859 4.49296 5.91371 4.53459 5.93537 4.57889Z'/%3e%3c/svg%3e");
+}
+.page-item.active .page-link {
+  /*rtl:options:{"autoRename":false}*/
 }
 .page-item.active .page-link i {
   color: #FFFFFF;
@@ -33819,6 +33834,9 @@ a:hover {
   background-position: center;
   background-color: transparent;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 9' fill='%23FFFFFF'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.93537 4.57889C6.03839 4.77912 6.0191 5.0363 5.87137 5.21403L2.87153 8.82282C2.68598 9.04603 2.36951 9.06026 2.16468 8.8546C1.95985 8.64893 1.94422 8.30126 2.12977 8.07804L4.80594 4.85863L2.15586 1.93583C1.96104 1.72096 1.96165 1.37314 2.15722 1.15895C2.35279 0.944757 2.66927 0.945311 2.86409 1.16018L5.85194 4.45551C5.8859 4.49296 5.91371 4.53459 5.93537 4.57889Z'/%3e%3c/svg%3e");
+}
+.page-item.disabled .page-link {
+  /*rtl:options:{"autoRename":false}*/
 }
 .page-item.disabled .page-link i {
   color: #474761;
@@ -33863,6 +33881,58 @@ a:hover {
 .separator.separator-dashed {
   border-bottom-style: dashed;
   border-bottom-color: #323248;
+}
+.separator.separator-content {
+  display: flex;
+  align-items: center;
+  border-bottom: 0;
+  text-align: center;
+}
+.separator.separator-content::before, .separator.separator-content::after {
+  content: " ";
+  width: 50%;
+  border-bottom: 1px solid #2B2B40;
+}
+.separator.separator-content::before {
+  margin-right: 1.25rem;
+}
+.separator.separator-content::after {
+  margin-left: 1.25rem;
+}
+.separator.separator-content.separator-dotted::before, .separator.separator-content.separator-dotted::after {
+  border-bottom-style: dotted;
+  border-bottom-color: #323248;
+}
+.separator.separator-content.separator-dashed::before, .separator.separator-content.separator-dashed::after {
+  border-bottom-style: dashed;
+  border-bottom-color: #323248;
+}
+.separator.separator-content.border-white::before, .separator.separator-content.border-white::after {
+  border-color: #ffffff !important;
+}
+.separator.separator-content.border-light::before, .separator.separator-content.border-light::after {
+  border-color: #1b1b29 !important;
+}
+.separator.separator-content.border-primary::before, .separator.separator-content.border-primary::after {
+  border-color: #3699FF !important;
+}
+.separator.separator-content.border-secondary::before, .separator.separator-content.border-secondary::after {
+  border-color: #323248 !important;
+}
+.separator.separator-content.border-success::before, .separator.separator-content.border-success::after {
+  border-color: #0BB783 !important;
+}
+.separator.separator-content.border-info::before, .separator.separator-content.border-info::after {
+  border-color: #8950FC !important;
+}
+.separator.separator-content.border-warning::before, .separator.separator-content.border-warning::after {
+  border-color: #FFA800 !important;
+}
+.separator.separator-content.border-danger::before, .separator.separator-content.border-danger::after {
+  border-color: #F64E60 !important;
+}
+.separator.separator-content.border-dark::before, .separator.separator-content.border-dark::after {
+  border-color: #FFFFFF !important;
 }
 
 .carousel.carousel-custom .carousel-indicators {
@@ -40249,6 +40319,14 @@ a:hover {
   color: #ffffff;
 }
 
+.btn.btn-outline.btn-outline-dashed {
+  border-width: 1px;
+  border-style: dashed;
+}
+.btn-check:checked + .btn.btn-outline.btn-outline-dashed, .btn-check:active + .btn.btn-outline.btn-outline-dashed, .btn.btn-outline.btn-outline-dashed:focus:not(.btn-active), .btn.btn-outline.btn-outline-dashed:hover:not(.btn-active), .btn.btn-outline.btn-outline-dashed:active:not(.btn-active), .btn.btn-outline.btn-outline-dashed.active, .btn.btn-outline.btn-outline-dashed.show, .show > .btn.btn-outline.btn-outline-dashed {
+  border-color: #3699FF;
+}
+
 .btn.btn-outline.btn-outline-dashed.btn-outline-default {
   border-width: 1px;
   border-style: dashed;
@@ -40528,9 +40606,15 @@ code:not([class*=language-]) {
   background-color: transparent;
   border-color: transparent;
 }
+.input-group.input-group-solid .input-group-text + .form-control {
+  border-left-color: #323248;
+}
 .input-group.input-group-solid .form-control {
   background-color: transparent;
   border-color: transparent;
+}
+.input-group.input-group-solid .form-control + .input-group-text {
+  border-left-color: #323248;
 }
 
 .required:after {
@@ -40614,8 +40698,10 @@ code:not([class*=language-]) {
   border-radius: 0.475rem;
 }
 
-.table {
-  width: 100%;
+.table > :not(:first-child) {
+  border-color: transparent;
+  border-width: 0;
+  border-style: none;
 }
 .table > :not(:last-child) > :last-child > * {
   border-bottom-color: inherit;
@@ -40704,6 +40790,9 @@ code:not([class*=language-]) {
 .table.g-0 th, .table.g-0 td {
   padding: 0rem;
 }
+.table.g-0 th.dtr-control, .table.g-0 td.dtr-control {
+  padding-left: 0rem !important;
+}
 
 .table.gy-0 th, .table.gy-0 td {
   padding-top: 0rem;
@@ -40714,6 +40803,9 @@ code:not([class*=language-]) {
   padding-left: 0rem;
   padding-right: 0rem;
 }
+.table.gx-0 th.dtr-control, .table.gx-0 td.dtr-control {
+  padding-left: 0rem !important;
+}
 
 .table.gs-0 th:first-child, .table.gs-0 td:first-child {
   padding-left: 0rem;
@@ -40721,9 +40813,15 @@ code:not([class*=language-]) {
 .table.gs-0 th:last-child, .table.gs-0 td:last-child {
   padding-right: 0rem;
 }
+.table.gs-0 th.dtr-control:first-child, .table.gs-0 td.dtr-control:first-child {
+  padding-left: 0rem !important;
+}
 
 .table.g-1 th, .table.g-1 td {
   padding: 0.25rem;
+}
+.table.g-1 th.dtr-control, .table.g-1 td.dtr-control {
+  padding-left: 0.25rem !important;
 }
 
 .table.gy-1 th, .table.gy-1 td {
@@ -40735,6 +40833,9 @@ code:not([class*=language-]) {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }
+.table.gx-1 th.dtr-control, .table.gx-1 td.dtr-control {
+  padding-left: 0.25rem !important;
+}
 
 .table.gs-1 th:first-child, .table.gs-1 td:first-child {
   padding-left: 0.25rem;
@@ -40742,9 +40843,15 @@ code:not([class*=language-]) {
 .table.gs-1 th:last-child, .table.gs-1 td:last-child {
   padding-right: 0.25rem;
 }
+.table.gs-1 th.dtr-control:first-child, .table.gs-1 td.dtr-control:first-child {
+  padding-left: 0.25rem !important;
+}
 
 .table.g-2 th, .table.g-2 td {
   padding: 0.5rem;
+}
+.table.g-2 th.dtr-control, .table.g-2 td.dtr-control {
+  padding-left: 0.5rem !important;
 }
 
 .table.gy-2 th, .table.gy-2 td {
@@ -40756,6 +40863,9 @@ code:not([class*=language-]) {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
+.table.gx-2 th.dtr-control, .table.gx-2 td.dtr-control {
+  padding-left: 0.5rem !important;
+}
 
 .table.gs-2 th:first-child, .table.gs-2 td:first-child {
   padding-left: 0.5rem;
@@ -40763,9 +40873,15 @@ code:not([class*=language-]) {
 .table.gs-2 th:last-child, .table.gs-2 td:last-child {
   padding-right: 0.5rem;
 }
+.table.gs-2 th.dtr-control:first-child, .table.gs-2 td.dtr-control:first-child {
+  padding-left: 0.5rem !important;
+}
 
 .table.g-3 th, .table.g-3 td {
   padding: 0.75rem;
+}
+.table.g-3 th.dtr-control, .table.g-3 td.dtr-control {
+  padding-left: 0.75rem !important;
 }
 
 .table.gy-3 th, .table.gy-3 td {
@@ -40777,6 +40893,9 @@ code:not([class*=language-]) {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
+.table.gx-3 th.dtr-control, .table.gx-3 td.dtr-control {
+  padding-left: 0.75rem !important;
+}
 
 .table.gs-3 th:first-child, .table.gs-3 td:first-child {
   padding-left: 0.75rem;
@@ -40784,9 +40903,15 @@ code:not([class*=language-]) {
 .table.gs-3 th:last-child, .table.gs-3 td:last-child {
   padding-right: 0.75rem;
 }
+.table.gs-3 th.dtr-control:first-child, .table.gs-3 td.dtr-control:first-child {
+  padding-left: 0.75rem !important;
+}
 
 .table.g-4 th, .table.g-4 td {
   padding: 1rem;
+}
+.table.g-4 th.dtr-control, .table.g-4 td.dtr-control {
+  padding-left: 1rem !important;
 }
 
 .table.gy-4 th, .table.gy-4 td {
@@ -40798,6 +40923,9 @@ code:not([class*=language-]) {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+.table.gx-4 th.dtr-control, .table.gx-4 td.dtr-control {
+  padding-left: 1rem !important;
+}
 
 .table.gs-4 th:first-child, .table.gs-4 td:first-child {
   padding-left: 1rem;
@@ -40805,9 +40933,15 @@ code:not([class*=language-]) {
 .table.gs-4 th:last-child, .table.gs-4 td:last-child {
   padding-right: 1rem;
 }
+.table.gs-4 th.dtr-control:first-child, .table.gs-4 td.dtr-control:first-child {
+  padding-left: 1rem !important;
+}
 
 .table.g-5 th, .table.g-5 td {
   padding: 1.25rem;
+}
+.table.g-5 th.dtr-control, .table.g-5 td.dtr-control {
+  padding-left: 1.25rem !important;
 }
 
 .table.gy-5 th, .table.gy-5 td {
@@ -40819,6 +40953,9 @@ code:not([class*=language-]) {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
+.table.gx-5 th.dtr-control, .table.gx-5 td.dtr-control {
+  padding-left: 1.25rem !important;
+}
 
 .table.gs-5 th:first-child, .table.gs-5 td:first-child {
   padding-left: 1.25rem;
@@ -40826,9 +40963,15 @@ code:not([class*=language-]) {
 .table.gs-5 th:last-child, .table.gs-5 td:last-child {
   padding-right: 1.25rem;
 }
+.table.gs-5 th.dtr-control:first-child, .table.gs-5 td.dtr-control:first-child {
+  padding-left: 1.25rem !important;
+}
 
 .table.g-6 th, .table.g-6 td {
   padding: 1.5rem;
+}
+.table.g-6 th.dtr-control, .table.g-6 td.dtr-control {
+  padding-left: 1.5rem !important;
 }
 
 .table.gy-6 th, .table.gy-6 td {
@@ -40840,6 +40983,9 @@ code:not([class*=language-]) {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+.table.gx-6 th.dtr-control, .table.gx-6 td.dtr-control {
+  padding-left: 1.5rem !important;
+}
 
 .table.gs-6 th:first-child, .table.gs-6 td:first-child {
   padding-left: 1.5rem;
@@ -40847,9 +40993,15 @@ code:not([class*=language-]) {
 .table.gs-6 th:last-child, .table.gs-6 td:last-child {
   padding-right: 1.5rem;
 }
+.table.gs-6 th.dtr-control:first-child, .table.gs-6 td.dtr-control:first-child {
+  padding-left: 1.5rem !important;
+}
 
 .table.g-7 th, .table.g-7 td {
   padding: 1.75rem;
+}
+.table.g-7 th.dtr-control, .table.g-7 td.dtr-control {
+  padding-left: 1.75rem !important;
 }
 
 .table.gy-7 th, .table.gy-7 td {
@@ -40861,6 +41013,9 @@ code:not([class*=language-]) {
   padding-left: 1.75rem;
   padding-right: 1.75rem;
 }
+.table.gx-7 th.dtr-control, .table.gx-7 td.dtr-control {
+  padding-left: 1.75rem !important;
+}
 
 .table.gs-7 th:first-child, .table.gs-7 td:first-child {
   padding-left: 1.75rem;
@@ -40868,9 +41023,15 @@ code:not([class*=language-]) {
 .table.gs-7 th:last-child, .table.gs-7 td:last-child {
   padding-right: 1.75rem;
 }
+.table.gs-7 th.dtr-control:first-child, .table.gs-7 td.dtr-control:first-child {
+  padding-left: 1.75rem !important;
+}
 
 .table.g-8 th, .table.g-8 td {
   padding: 2rem;
+}
+.table.g-8 th.dtr-control, .table.g-8 td.dtr-control {
+  padding-left: 2rem !important;
 }
 
 .table.gy-8 th, .table.gy-8 td {
@@ -40882,6 +41043,9 @@ code:not([class*=language-]) {
   padding-left: 2rem;
   padding-right: 2rem;
 }
+.table.gx-8 th.dtr-control, .table.gx-8 td.dtr-control {
+  padding-left: 2rem !important;
+}
 
 .table.gs-8 th:first-child, .table.gs-8 td:first-child {
   padding-left: 2rem;
@@ -40889,9 +41053,15 @@ code:not([class*=language-]) {
 .table.gs-8 th:last-child, .table.gs-8 td:last-child {
   padding-right: 2rem;
 }
+.table.gs-8 th.dtr-control:first-child, .table.gs-8 td.dtr-control:first-child {
+  padding-left: 2rem !important;
+}
 
 .table.g-9 th, .table.g-9 td {
   padding: 2.25rem;
+}
+.table.g-9 th.dtr-control, .table.g-9 td.dtr-control {
+  padding-left: 2.25rem !important;
 }
 
 .table.gy-9 th, .table.gy-9 td {
@@ -40903,6 +41073,9 @@ code:not([class*=language-]) {
   padding-left: 2.25rem;
   padding-right: 2.25rem;
 }
+.table.gx-9 th.dtr-control, .table.gx-9 td.dtr-control {
+  padding-left: 2.25rem !important;
+}
 
 .table.gs-9 th:first-child, .table.gs-9 td:first-child {
   padding-left: 2.25rem;
@@ -40910,9 +41083,15 @@ code:not([class*=language-]) {
 .table.gs-9 th:last-child, .table.gs-9 td:last-child {
   padding-right: 2.25rem;
 }
+.table.gs-9 th.dtr-control:first-child, .table.gs-9 td.dtr-control:first-child {
+  padding-left: 2.25rem !important;
+}
 
 .table.g-10 th, .table.g-10 td {
   padding: 2.5rem;
+}
+.table.g-10 th.dtr-control, .table.g-10 td.dtr-control {
+  padding-left: 2.5rem !important;
 }
 
 .table.gy-10 th, .table.gy-10 td {
@@ -40924,6 +41103,9 @@ code:not([class*=language-]) {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
 }
+.table.gx-10 th.dtr-control, .table.gx-10 td.dtr-control {
+  padding-left: 2.5rem !important;
+}
 
 .table.gs-10 th:first-child, .table.gs-10 td:first-child {
   padding-left: 2.5rem;
@@ -40931,10 +41113,16 @@ code:not([class*=language-]) {
 .table.gs-10 th:last-child, .table.gs-10 td:last-child {
   padding-right: 2.5rem;
 }
+.table.gs-10 th.dtr-control:first-child, .table.gs-10 td.dtr-control:first-child {
+  padding-left: 2.5rem !important;
+}
 
 @media (min-width: 576px) {
   .table.g-sm-0 th, .table.g-sm-0 td {
     padding: 0rem;
+  }
+  .table.g-sm-0 th.dtr-control, .table.g-sm-0 td.dtr-control {
+    padding-left: 0rem !important;
   }
 
   .table.gy-sm-0 th, .table.gy-sm-0 td {
@@ -40946,6 +41134,9 @@ code:not([class*=language-]) {
     padding-left: 0rem;
     padding-right: 0rem;
   }
+  .table.gx-sm-0 th.dtr-control, .table.gx-sm-0 td.dtr-control {
+    padding-left: 0rem !important;
+  }
 
   .table.gs-sm-0 th:first-child, .table.gs-sm-0 td:first-child {
     padding-left: 0rem;
@@ -40953,9 +41144,15 @@ code:not([class*=language-]) {
   .table.gs-sm-0 th:last-child, .table.gs-sm-0 td:last-child {
     padding-right: 0rem;
   }
+  .table.gs-sm-0 th.dtr-control:first-child, .table.gs-sm-0 td.dtr-control:first-child {
+    padding-left: 0rem !important;
+  }
 
   .table.g-sm-1 th, .table.g-sm-1 td {
     padding: 0.25rem;
+  }
+  .table.g-sm-1 th.dtr-control, .table.g-sm-1 td.dtr-control {
+    padding-left: 0.25rem !important;
   }
 
   .table.gy-sm-1 th, .table.gy-sm-1 td {
@@ -40967,6 +41164,9 @@ code:not([class*=language-]) {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
   }
+  .table.gx-sm-1 th.dtr-control, .table.gx-sm-1 td.dtr-control {
+    padding-left: 0.25rem !important;
+  }
 
   .table.gs-sm-1 th:first-child, .table.gs-sm-1 td:first-child {
     padding-left: 0.25rem;
@@ -40974,9 +41174,15 @@ code:not([class*=language-]) {
   .table.gs-sm-1 th:last-child, .table.gs-sm-1 td:last-child {
     padding-right: 0.25rem;
   }
+  .table.gs-sm-1 th.dtr-control:first-child, .table.gs-sm-1 td.dtr-control:first-child {
+    padding-left: 0.25rem !important;
+  }
 
   .table.g-sm-2 th, .table.g-sm-2 td {
     padding: 0.5rem;
+  }
+  .table.g-sm-2 th.dtr-control, .table.g-sm-2 td.dtr-control {
+    padding-left: 0.5rem !important;
   }
 
   .table.gy-sm-2 th, .table.gy-sm-2 td {
@@ -40988,6 +41194,9 @@ code:not([class*=language-]) {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
+  .table.gx-sm-2 th.dtr-control, .table.gx-sm-2 td.dtr-control {
+    padding-left: 0.5rem !important;
+  }
 
   .table.gs-sm-2 th:first-child, .table.gs-sm-2 td:first-child {
     padding-left: 0.5rem;
@@ -40995,9 +41204,15 @@ code:not([class*=language-]) {
   .table.gs-sm-2 th:last-child, .table.gs-sm-2 td:last-child {
     padding-right: 0.5rem;
   }
+  .table.gs-sm-2 th.dtr-control:first-child, .table.gs-sm-2 td.dtr-control:first-child {
+    padding-left: 0.5rem !important;
+  }
 
   .table.g-sm-3 th, .table.g-sm-3 td {
     padding: 0.75rem;
+  }
+  .table.g-sm-3 th.dtr-control, .table.g-sm-3 td.dtr-control {
+    padding-left: 0.75rem !important;
   }
 
   .table.gy-sm-3 th, .table.gy-sm-3 td {
@@ -41009,6 +41224,9 @@ code:not([class*=language-]) {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
   }
+  .table.gx-sm-3 th.dtr-control, .table.gx-sm-3 td.dtr-control {
+    padding-left: 0.75rem !important;
+  }
 
   .table.gs-sm-3 th:first-child, .table.gs-sm-3 td:first-child {
     padding-left: 0.75rem;
@@ -41016,9 +41234,15 @@ code:not([class*=language-]) {
   .table.gs-sm-3 th:last-child, .table.gs-sm-3 td:last-child {
     padding-right: 0.75rem;
   }
+  .table.gs-sm-3 th.dtr-control:first-child, .table.gs-sm-3 td.dtr-control:first-child {
+    padding-left: 0.75rem !important;
+  }
 
   .table.g-sm-4 th, .table.g-sm-4 td {
     padding: 1rem;
+  }
+  .table.g-sm-4 th.dtr-control, .table.g-sm-4 td.dtr-control {
+    padding-left: 1rem !important;
   }
 
   .table.gy-sm-4 th, .table.gy-sm-4 td {
@@ -41030,6 +41254,9 @@ code:not([class*=language-]) {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  .table.gx-sm-4 th.dtr-control, .table.gx-sm-4 td.dtr-control {
+    padding-left: 1rem !important;
+  }
 
   .table.gs-sm-4 th:first-child, .table.gs-sm-4 td:first-child {
     padding-left: 1rem;
@@ -41037,9 +41264,15 @@ code:not([class*=language-]) {
   .table.gs-sm-4 th:last-child, .table.gs-sm-4 td:last-child {
     padding-right: 1rem;
   }
+  .table.gs-sm-4 th.dtr-control:first-child, .table.gs-sm-4 td.dtr-control:first-child {
+    padding-left: 1rem !important;
+  }
 
   .table.g-sm-5 th, .table.g-sm-5 td {
     padding: 1.25rem;
+  }
+  .table.g-sm-5 th.dtr-control, .table.g-sm-5 td.dtr-control {
+    padding-left: 1.25rem !important;
   }
 
   .table.gy-sm-5 th, .table.gy-sm-5 td {
@@ -41051,6 +41284,9 @@ code:not([class*=language-]) {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
+  .table.gx-sm-5 th.dtr-control, .table.gx-sm-5 td.dtr-control {
+    padding-left: 1.25rem !important;
+  }
 
   .table.gs-sm-5 th:first-child, .table.gs-sm-5 td:first-child {
     padding-left: 1.25rem;
@@ -41058,9 +41294,15 @@ code:not([class*=language-]) {
   .table.gs-sm-5 th:last-child, .table.gs-sm-5 td:last-child {
     padding-right: 1.25rem;
   }
+  .table.gs-sm-5 th.dtr-control:first-child, .table.gs-sm-5 td.dtr-control:first-child {
+    padding-left: 1.25rem !important;
+  }
 
   .table.g-sm-6 th, .table.g-sm-6 td {
     padding: 1.5rem;
+  }
+  .table.g-sm-6 th.dtr-control, .table.g-sm-6 td.dtr-control {
+    padding-left: 1.5rem !important;
   }
 
   .table.gy-sm-6 th, .table.gy-sm-6 td {
@@ -41072,6 +41314,9 @@ code:not([class*=language-]) {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+  .table.gx-sm-6 th.dtr-control, .table.gx-sm-6 td.dtr-control {
+    padding-left: 1.5rem !important;
+  }
 
   .table.gs-sm-6 th:first-child, .table.gs-sm-6 td:first-child {
     padding-left: 1.5rem;
@@ -41079,9 +41324,15 @@ code:not([class*=language-]) {
   .table.gs-sm-6 th:last-child, .table.gs-sm-6 td:last-child {
     padding-right: 1.5rem;
   }
+  .table.gs-sm-6 th.dtr-control:first-child, .table.gs-sm-6 td.dtr-control:first-child {
+    padding-left: 1.5rem !important;
+  }
 
   .table.g-sm-7 th, .table.g-sm-7 td {
     padding: 1.75rem;
+  }
+  .table.g-sm-7 th.dtr-control, .table.g-sm-7 td.dtr-control {
+    padding-left: 1.75rem !important;
   }
 
   .table.gy-sm-7 th, .table.gy-sm-7 td {
@@ -41093,6 +41344,9 @@ code:not([class*=language-]) {
     padding-left: 1.75rem;
     padding-right: 1.75rem;
   }
+  .table.gx-sm-7 th.dtr-control, .table.gx-sm-7 td.dtr-control {
+    padding-left: 1.75rem !important;
+  }
 
   .table.gs-sm-7 th:first-child, .table.gs-sm-7 td:first-child {
     padding-left: 1.75rem;
@@ -41100,9 +41354,15 @@ code:not([class*=language-]) {
   .table.gs-sm-7 th:last-child, .table.gs-sm-7 td:last-child {
     padding-right: 1.75rem;
   }
+  .table.gs-sm-7 th.dtr-control:first-child, .table.gs-sm-7 td.dtr-control:first-child {
+    padding-left: 1.75rem !important;
+  }
 
   .table.g-sm-8 th, .table.g-sm-8 td {
     padding: 2rem;
+  }
+  .table.g-sm-8 th.dtr-control, .table.g-sm-8 td.dtr-control {
+    padding-left: 2rem !important;
   }
 
   .table.gy-sm-8 th, .table.gy-sm-8 td {
@@ -41114,6 +41374,9 @@ code:not([class*=language-]) {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+  .table.gx-sm-8 th.dtr-control, .table.gx-sm-8 td.dtr-control {
+    padding-left: 2rem !important;
+  }
 
   .table.gs-sm-8 th:first-child, .table.gs-sm-8 td:first-child {
     padding-left: 2rem;
@@ -41121,9 +41384,15 @@ code:not([class*=language-]) {
   .table.gs-sm-8 th:last-child, .table.gs-sm-8 td:last-child {
     padding-right: 2rem;
   }
+  .table.gs-sm-8 th.dtr-control:first-child, .table.gs-sm-8 td.dtr-control:first-child {
+    padding-left: 2rem !important;
+  }
 
   .table.g-sm-9 th, .table.g-sm-9 td {
     padding: 2.25rem;
+  }
+  .table.g-sm-9 th.dtr-control, .table.g-sm-9 td.dtr-control {
+    padding-left: 2.25rem !important;
   }
 
   .table.gy-sm-9 th, .table.gy-sm-9 td {
@@ -41135,6 +41404,9 @@ code:not([class*=language-]) {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
   }
+  .table.gx-sm-9 th.dtr-control, .table.gx-sm-9 td.dtr-control {
+    padding-left: 2.25rem !important;
+  }
 
   .table.gs-sm-9 th:first-child, .table.gs-sm-9 td:first-child {
     padding-left: 2.25rem;
@@ -41142,9 +41414,15 @@ code:not([class*=language-]) {
   .table.gs-sm-9 th:last-child, .table.gs-sm-9 td:last-child {
     padding-right: 2.25rem;
   }
+  .table.gs-sm-9 th.dtr-control:first-child, .table.gs-sm-9 td.dtr-control:first-child {
+    padding-left: 2.25rem !important;
+  }
 
   .table.g-sm-10 th, .table.g-sm-10 td {
     padding: 2.5rem;
+  }
+  .table.g-sm-10 th.dtr-control, .table.g-sm-10 td.dtr-control {
+    padding-left: 2.5rem !important;
   }
 
   .table.gy-sm-10 th, .table.gy-sm-10 td {
@@ -41156,6 +41434,9 @@ code:not([class*=language-]) {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
+  .table.gx-sm-10 th.dtr-control, .table.gx-sm-10 td.dtr-control {
+    padding-left: 2.5rem !important;
+  }
 
   .table.gs-sm-10 th:first-child, .table.gs-sm-10 td:first-child {
     padding-left: 2.5rem;
@@ -41163,10 +41444,16 @@ code:not([class*=language-]) {
   .table.gs-sm-10 th:last-child, .table.gs-sm-10 td:last-child {
     padding-right: 2.5rem;
   }
+  .table.gs-sm-10 th.dtr-control:first-child, .table.gs-sm-10 td.dtr-control:first-child {
+    padding-left: 2.5rem !important;
+  }
 }
 @media (min-width: 768px) {
   .table.g-md-0 th, .table.g-md-0 td {
     padding: 0rem;
+  }
+  .table.g-md-0 th.dtr-control, .table.g-md-0 td.dtr-control {
+    padding-left: 0rem !important;
   }
 
   .table.gy-md-0 th, .table.gy-md-0 td {
@@ -41178,6 +41465,9 @@ code:not([class*=language-]) {
     padding-left: 0rem;
     padding-right: 0rem;
   }
+  .table.gx-md-0 th.dtr-control, .table.gx-md-0 td.dtr-control {
+    padding-left: 0rem !important;
+  }
 
   .table.gs-md-0 th:first-child, .table.gs-md-0 td:first-child {
     padding-left: 0rem;
@@ -41185,9 +41475,15 @@ code:not([class*=language-]) {
   .table.gs-md-0 th:last-child, .table.gs-md-0 td:last-child {
     padding-right: 0rem;
   }
+  .table.gs-md-0 th.dtr-control:first-child, .table.gs-md-0 td.dtr-control:first-child {
+    padding-left: 0rem !important;
+  }
 
   .table.g-md-1 th, .table.g-md-1 td {
     padding: 0.25rem;
+  }
+  .table.g-md-1 th.dtr-control, .table.g-md-1 td.dtr-control {
+    padding-left: 0.25rem !important;
   }
 
   .table.gy-md-1 th, .table.gy-md-1 td {
@@ -41199,6 +41495,9 @@ code:not([class*=language-]) {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
   }
+  .table.gx-md-1 th.dtr-control, .table.gx-md-1 td.dtr-control {
+    padding-left: 0.25rem !important;
+  }
 
   .table.gs-md-1 th:first-child, .table.gs-md-1 td:first-child {
     padding-left: 0.25rem;
@@ -41206,9 +41505,15 @@ code:not([class*=language-]) {
   .table.gs-md-1 th:last-child, .table.gs-md-1 td:last-child {
     padding-right: 0.25rem;
   }
+  .table.gs-md-1 th.dtr-control:first-child, .table.gs-md-1 td.dtr-control:first-child {
+    padding-left: 0.25rem !important;
+  }
 
   .table.g-md-2 th, .table.g-md-2 td {
     padding: 0.5rem;
+  }
+  .table.g-md-2 th.dtr-control, .table.g-md-2 td.dtr-control {
+    padding-left: 0.5rem !important;
   }
 
   .table.gy-md-2 th, .table.gy-md-2 td {
@@ -41220,6 +41525,9 @@ code:not([class*=language-]) {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
+  .table.gx-md-2 th.dtr-control, .table.gx-md-2 td.dtr-control {
+    padding-left: 0.5rem !important;
+  }
 
   .table.gs-md-2 th:first-child, .table.gs-md-2 td:first-child {
     padding-left: 0.5rem;
@@ -41227,9 +41535,15 @@ code:not([class*=language-]) {
   .table.gs-md-2 th:last-child, .table.gs-md-2 td:last-child {
     padding-right: 0.5rem;
   }
+  .table.gs-md-2 th.dtr-control:first-child, .table.gs-md-2 td.dtr-control:first-child {
+    padding-left: 0.5rem !important;
+  }
 
   .table.g-md-3 th, .table.g-md-3 td {
     padding: 0.75rem;
+  }
+  .table.g-md-3 th.dtr-control, .table.g-md-3 td.dtr-control {
+    padding-left: 0.75rem !important;
   }
 
   .table.gy-md-3 th, .table.gy-md-3 td {
@@ -41241,6 +41555,9 @@ code:not([class*=language-]) {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
   }
+  .table.gx-md-3 th.dtr-control, .table.gx-md-3 td.dtr-control {
+    padding-left: 0.75rem !important;
+  }
 
   .table.gs-md-3 th:first-child, .table.gs-md-3 td:first-child {
     padding-left: 0.75rem;
@@ -41248,9 +41565,15 @@ code:not([class*=language-]) {
   .table.gs-md-3 th:last-child, .table.gs-md-3 td:last-child {
     padding-right: 0.75rem;
   }
+  .table.gs-md-3 th.dtr-control:first-child, .table.gs-md-3 td.dtr-control:first-child {
+    padding-left: 0.75rem !important;
+  }
 
   .table.g-md-4 th, .table.g-md-4 td {
     padding: 1rem;
+  }
+  .table.g-md-4 th.dtr-control, .table.g-md-4 td.dtr-control {
+    padding-left: 1rem !important;
   }
 
   .table.gy-md-4 th, .table.gy-md-4 td {
@@ -41262,6 +41585,9 @@ code:not([class*=language-]) {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  .table.gx-md-4 th.dtr-control, .table.gx-md-4 td.dtr-control {
+    padding-left: 1rem !important;
+  }
 
   .table.gs-md-4 th:first-child, .table.gs-md-4 td:first-child {
     padding-left: 1rem;
@@ -41269,9 +41595,15 @@ code:not([class*=language-]) {
   .table.gs-md-4 th:last-child, .table.gs-md-4 td:last-child {
     padding-right: 1rem;
   }
+  .table.gs-md-4 th.dtr-control:first-child, .table.gs-md-4 td.dtr-control:first-child {
+    padding-left: 1rem !important;
+  }
 
   .table.g-md-5 th, .table.g-md-5 td {
     padding: 1.25rem;
+  }
+  .table.g-md-5 th.dtr-control, .table.g-md-5 td.dtr-control {
+    padding-left: 1.25rem !important;
   }
 
   .table.gy-md-5 th, .table.gy-md-5 td {
@@ -41283,6 +41615,9 @@ code:not([class*=language-]) {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
+  .table.gx-md-5 th.dtr-control, .table.gx-md-5 td.dtr-control {
+    padding-left: 1.25rem !important;
+  }
 
   .table.gs-md-5 th:first-child, .table.gs-md-5 td:first-child {
     padding-left: 1.25rem;
@@ -41290,9 +41625,15 @@ code:not([class*=language-]) {
   .table.gs-md-5 th:last-child, .table.gs-md-5 td:last-child {
     padding-right: 1.25rem;
   }
+  .table.gs-md-5 th.dtr-control:first-child, .table.gs-md-5 td.dtr-control:first-child {
+    padding-left: 1.25rem !important;
+  }
 
   .table.g-md-6 th, .table.g-md-6 td {
     padding: 1.5rem;
+  }
+  .table.g-md-6 th.dtr-control, .table.g-md-6 td.dtr-control {
+    padding-left: 1.5rem !important;
   }
 
   .table.gy-md-6 th, .table.gy-md-6 td {
@@ -41304,6 +41645,9 @@ code:not([class*=language-]) {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+  .table.gx-md-6 th.dtr-control, .table.gx-md-6 td.dtr-control {
+    padding-left: 1.5rem !important;
+  }
 
   .table.gs-md-6 th:first-child, .table.gs-md-6 td:first-child {
     padding-left: 1.5rem;
@@ -41311,9 +41655,15 @@ code:not([class*=language-]) {
   .table.gs-md-6 th:last-child, .table.gs-md-6 td:last-child {
     padding-right: 1.5rem;
   }
+  .table.gs-md-6 th.dtr-control:first-child, .table.gs-md-6 td.dtr-control:first-child {
+    padding-left: 1.5rem !important;
+  }
 
   .table.g-md-7 th, .table.g-md-7 td {
     padding: 1.75rem;
+  }
+  .table.g-md-7 th.dtr-control, .table.g-md-7 td.dtr-control {
+    padding-left: 1.75rem !important;
   }
 
   .table.gy-md-7 th, .table.gy-md-7 td {
@@ -41325,6 +41675,9 @@ code:not([class*=language-]) {
     padding-left: 1.75rem;
     padding-right: 1.75rem;
   }
+  .table.gx-md-7 th.dtr-control, .table.gx-md-7 td.dtr-control {
+    padding-left: 1.75rem !important;
+  }
 
   .table.gs-md-7 th:first-child, .table.gs-md-7 td:first-child {
     padding-left: 1.75rem;
@@ -41332,9 +41685,15 @@ code:not([class*=language-]) {
   .table.gs-md-7 th:last-child, .table.gs-md-7 td:last-child {
     padding-right: 1.75rem;
   }
+  .table.gs-md-7 th.dtr-control:first-child, .table.gs-md-7 td.dtr-control:first-child {
+    padding-left: 1.75rem !important;
+  }
 
   .table.g-md-8 th, .table.g-md-8 td {
     padding: 2rem;
+  }
+  .table.g-md-8 th.dtr-control, .table.g-md-8 td.dtr-control {
+    padding-left: 2rem !important;
   }
 
   .table.gy-md-8 th, .table.gy-md-8 td {
@@ -41346,6 +41705,9 @@ code:not([class*=language-]) {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+  .table.gx-md-8 th.dtr-control, .table.gx-md-8 td.dtr-control {
+    padding-left: 2rem !important;
+  }
 
   .table.gs-md-8 th:first-child, .table.gs-md-8 td:first-child {
     padding-left: 2rem;
@@ -41353,9 +41715,15 @@ code:not([class*=language-]) {
   .table.gs-md-8 th:last-child, .table.gs-md-8 td:last-child {
     padding-right: 2rem;
   }
+  .table.gs-md-8 th.dtr-control:first-child, .table.gs-md-8 td.dtr-control:first-child {
+    padding-left: 2rem !important;
+  }
 
   .table.g-md-9 th, .table.g-md-9 td {
     padding: 2.25rem;
+  }
+  .table.g-md-9 th.dtr-control, .table.g-md-9 td.dtr-control {
+    padding-left: 2.25rem !important;
   }
 
   .table.gy-md-9 th, .table.gy-md-9 td {
@@ -41367,6 +41735,9 @@ code:not([class*=language-]) {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
   }
+  .table.gx-md-9 th.dtr-control, .table.gx-md-9 td.dtr-control {
+    padding-left: 2.25rem !important;
+  }
 
   .table.gs-md-9 th:first-child, .table.gs-md-9 td:first-child {
     padding-left: 2.25rem;
@@ -41374,9 +41745,15 @@ code:not([class*=language-]) {
   .table.gs-md-9 th:last-child, .table.gs-md-9 td:last-child {
     padding-right: 2.25rem;
   }
+  .table.gs-md-9 th.dtr-control:first-child, .table.gs-md-9 td.dtr-control:first-child {
+    padding-left: 2.25rem !important;
+  }
 
   .table.g-md-10 th, .table.g-md-10 td {
     padding: 2.5rem;
+  }
+  .table.g-md-10 th.dtr-control, .table.g-md-10 td.dtr-control {
+    padding-left: 2.5rem !important;
   }
 
   .table.gy-md-10 th, .table.gy-md-10 td {
@@ -41388,6 +41765,9 @@ code:not([class*=language-]) {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
+  .table.gx-md-10 th.dtr-control, .table.gx-md-10 td.dtr-control {
+    padding-left: 2.5rem !important;
+  }
 
   .table.gs-md-10 th:first-child, .table.gs-md-10 td:first-child {
     padding-left: 2.5rem;
@@ -41395,10 +41775,16 @@ code:not([class*=language-]) {
   .table.gs-md-10 th:last-child, .table.gs-md-10 td:last-child {
     padding-right: 2.5rem;
   }
+  .table.gs-md-10 th.dtr-control:first-child, .table.gs-md-10 td.dtr-control:first-child {
+    padding-left: 2.5rem !important;
+  }
 }
 @media (min-width: 992px) {
   .table.g-lg-0 th, .table.g-lg-0 td {
     padding: 0rem;
+  }
+  .table.g-lg-0 th.dtr-control, .table.g-lg-0 td.dtr-control {
+    padding-left: 0rem !important;
   }
 
   .table.gy-lg-0 th, .table.gy-lg-0 td {
@@ -41410,6 +41796,9 @@ code:not([class*=language-]) {
     padding-left: 0rem;
     padding-right: 0rem;
   }
+  .table.gx-lg-0 th.dtr-control, .table.gx-lg-0 td.dtr-control {
+    padding-left: 0rem !important;
+  }
 
   .table.gs-lg-0 th:first-child, .table.gs-lg-0 td:first-child {
     padding-left: 0rem;
@@ -41417,9 +41806,15 @@ code:not([class*=language-]) {
   .table.gs-lg-0 th:last-child, .table.gs-lg-0 td:last-child {
     padding-right: 0rem;
   }
+  .table.gs-lg-0 th.dtr-control:first-child, .table.gs-lg-0 td.dtr-control:first-child {
+    padding-left: 0rem !important;
+  }
 
   .table.g-lg-1 th, .table.g-lg-1 td {
     padding: 0.25rem;
+  }
+  .table.g-lg-1 th.dtr-control, .table.g-lg-1 td.dtr-control {
+    padding-left: 0.25rem !important;
   }
 
   .table.gy-lg-1 th, .table.gy-lg-1 td {
@@ -41431,6 +41826,9 @@ code:not([class*=language-]) {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
   }
+  .table.gx-lg-1 th.dtr-control, .table.gx-lg-1 td.dtr-control {
+    padding-left: 0.25rem !important;
+  }
 
   .table.gs-lg-1 th:first-child, .table.gs-lg-1 td:first-child {
     padding-left: 0.25rem;
@@ -41438,9 +41836,15 @@ code:not([class*=language-]) {
   .table.gs-lg-1 th:last-child, .table.gs-lg-1 td:last-child {
     padding-right: 0.25rem;
   }
+  .table.gs-lg-1 th.dtr-control:first-child, .table.gs-lg-1 td.dtr-control:first-child {
+    padding-left: 0.25rem !important;
+  }
 
   .table.g-lg-2 th, .table.g-lg-2 td {
     padding: 0.5rem;
+  }
+  .table.g-lg-2 th.dtr-control, .table.g-lg-2 td.dtr-control {
+    padding-left: 0.5rem !important;
   }
 
   .table.gy-lg-2 th, .table.gy-lg-2 td {
@@ -41452,6 +41856,9 @@ code:not([class*=language-]) {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
+  .table.gx-lg-2 th.dtr-control, .table.gx-lg-2 td.dtr-control {
+    padding-left: 0.5rem !important;
+  }
 
   .table.gs-lg-2 th:first-child, .table.gs-lg-2 td:first-child {
     padding-left: 0.5rem;
@@ -41459,9 +41866,15 @@ code:not([class*=language-]) {
   .table.gs-lg-2 th:last-child, .table.gs-lg-2 td:last-child {
     padding-right: 0.5rem;
   }
+  .table.gs-lg-2 th.dtr-control:first-child, .table.gs-lg-2 td.dtr-control:first-child {
+    padding-left: 0.5rem !important;
+  }
 
   .table.g-lg-3 th, .table.g-lg-3 td {
     padding: 0.75rem;
+  }
+  .table.g-lg-3 th.dtr-control, .table.g-lg-3 td.dtr-control {
+    padding-left: 0.75rem !important;
   }
 
   .table.gy-lg-3 th, .table.gy-lg-3 td {
@@ -41473,6 +41886,9 @@ code:not([class*=language-]) {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
   }
+  .table.gx-lg-3 th.dtr-control, .table.gx-lg-3 td.dtr-control {
+    padding-left: 0.75rem !important;
+  }
 
   .table.gs-lg-3 th:first-child, .table.gs-lg-3 td:first-child {
     padding-left: 0.75rem;
@@ -41480,9 +41896,15 @@ code:not([class*=language-]) {
   .table.gs-lg-3 th:last-child, .table.gs-lg-3 td:last-child {
     padding-right: 0.75rem;
   }
+  .table.gs-lg-3 th.dtr-control:first-child, .table.gs-lg-3 td.dtr-control:first-child {
+    padding-left: 0.75rem !important;
+  }
 
   .table.g-lg-4 th, .table.g-lg-4 td {
     padding: 1rem;
+  }
+  .table.g-lg-4 th.dtr-control, .table.g-lg-4 td.dtr-control {
+    padding-left: 1rem !important;
   }
 
   .table.gy-lg-4 th, .table.gy-lg-4 td {
@@ -41494,6 +41916,9 @@ code:not([class*=language-]) {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  .table.gx-lg-4 th.dtr-control, .table.gx-lg-4 td.dtr-control {
+    padding-left: 1rem !important;
+  }
 
   .table.gs-lg-4 th:first-child, .table.gs-lg-4 td:first-child {
     padding-left: 1rem;
@@ -41501,9 +41926,15 @@ code:not([class*=language-]) {
   .table.gs-lg-4 th:last-child, .table.gs-lg-4 td:last-child {
     padding-right: 1rem;
   }
+  .table.gs-lg-4 th.dtr-control:first-child, .table.gs-lg-4 td.dtr-control:first-child {
+    padding-left: 1rem !important;
+  }
 
   .table.g-lg-5 th, .table.g-lg-5 td {
     padding: 1.25rem;
+  }
+  .table.g-lg-5 th.dtr-control, .table.g-lg-5 td.dtr-control {
+    padding-left: 1.25rem !important;
   }
 
   .table.gy-lg-5 th, .table.gy-lg-5 td {
@@ -41515,6 +41946,9 @@ code:not([class*=language-]) {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
+  .table.gx-lg-5 th.dtr-control, .table.gx-lg-5 td.dtr-control {
+    padding-left: 1.25rem !important;
+  }
 
   .table.gs-lg-5 th:first-child, .table.gs-lg-5 td:first-child {
     padding-left: 1.25rem;
@@ -41522,9 +41956,15 @@ code:not([class*=language-]) {
   .table.gs-lg-5 th:last-child, .table.gs-lg-5 td:last-child {
     padding-right: 1.25rem;
   }
+  .table.gs-lg-5 th.dtr-control:first-child, .table.gs-lg-5 td.dtr-control:first-child {
+    padding-left: 1.25rem !important;
+  }
 
   .table.g-lg-6 th, .table.g-lg-6 td {
     padding: 1.5rem;
+  }
+  .table.g-lg-6 th.dtr-control, .table.g-lg-6 td.dtr-control {
+    padding-left: 1.5rem !important;
   }
 
   .table.gy-lg-6 th, .table.gy-lg-6 td {
@@ -41536,6 +41976,9 @@ code:not([class*=language-]) {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+  .table.gx-lg-6 th.dtr-control, .table.gx-lg-6 td.dtr-control {
+    padding-left: 1.5rem !important;
+  }
 
   .table.gs-lg-6 th:first-child, .table.gs-lg-6 td:first-child {
     padding-left: 1.5rem;
@@ -41543,9 +41986,15 @@ code:not([class*=language-]) {
   .table.gs-lg-6 th:last-child, .table.gs-lg-6 td:last-child {
     padding-right: 1.5rem;
   }
+  .table.gs-lg-6 th.dtr-control:first-child, .table.gs-lg-6 td.dtr-control:first-child {
+    padding-left: 1.5rem !important;
+  }
 
   .table.g-lg-7 th, .table.g-lg-7 td {
     padding: 1.75rem;
+  }
+  .table.g-lg-7 th.dtr-control, .table.g-lg-7 td.dtr-control {
+    padding-left: 1.75rem !important;
   }
 
   .table.gy-lg-7 th, .table.gy-lg-7 td {
@@ -41557,6 +42006,9 @@ code:not([class*=language-]) {
     padding-left: 1.75rem;
     padding-right: 1.75rem;
   }
+  .table.gx-lg-7 th.dtr-control, .table.gx-lg-7 td.dtr-control {
+    padding-left: 1.75rem !important;
+  }
 
   .table.gs-lg-7 th:first-child, .table.gs-lg-7 td:first-child {
     padding-left: 1.75rem;
@@ -41564,9 +42016,15 @@ code:not([class*=language-]) {
   .table.gs-lg-7 th:last-child, .table.gs-lg-7 td:last-child {
     padding-right: 1.75rem;
   }
+  .table.gs-lg-7 th.dtr-control:first-child, .table.gs-lg-7 td.dtr-control:first-child {
+    padding-left: 1.75rem !important;
+  }
 
   .table.g-lg-8 th, .table.g-lg-8 td {
     padding: 2rem;
+  }
+  .table.g-lg-8 th.dtr-control, .table.g-lg-8 td.dtr-control {
+    padding-left: 2rem !important;
   }
 
   .table.gy-lg-8 th, .table.gy-lg-8 td {
@@ -41578,6 +42036,9 @@ code:not([class*=language-]) {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+  .table.gx-lg-8 th.dtr-control, .table.gx-lg-8 td.dtr-control {
+    padding-left: 2rem !important;
+  }
 
   .table.gs-lg-8 th:first-child, .table.gs-lg-8 td:first-child {
     padding-left: 2rem;
@@ -41585,9 +42046,15 @@ code:not([class*=language-]) {
   .table.gs-lg-8 th:last-child, .table.gs-lg-8 td:last-child {
     padding-right: 2rem;
   }
+  .table.gs-lg-8 th.dtr-control:first-child, .table.gs-lg-8 td.dtr-control:first-child {
+    padding-left: 2rem !important;
+  }
 
   .table.g-lg-9 th, .table.g-lg-9 td {
     padding: 2.25rem;
+  }
+  .table.g-lg-9 th.dtr-control, .table.g-lg-9 td.dtr-control {
+    padding-left: 2.25rem !important;
   }
 
   .table.gy-lg-9 th, .table.gy-lg-9 td {
@@ -41599,6 +42066,9 @@ code:not([class*=language-]) {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
   }
+  .table.gx-lg-9 th.dtr-control, .table.gx-lg-9 td.dtr-control {
+    padding-left: 2.25rem !important;
+  }
 
   .table.gs-lg-9 th:first-child, .table.gs-lg-9 td:first-child {
     padding-left: 2.25rem;
@@ -41606,9 +42076,15 @@ code:not([class*=language-]) {
   .table.gs-lg-9 th:last-child, .table.gs-lg-9 td:last-child {
     padding-right: 2.25rem;
   }
+  .table.gs-lg-9 th.dtr-control:first-child, .table.gs-lg-9 td.dtr-control:first-child {
+    padding-left: 2.25rem !important;
+  }
 
   .table.g-lg-10 th, .table.g-lg-10 td {
     padding: 2.5rem;
+  }
+  .table.g-lg-10 th.dtr-control, .table.g-lg-10 td.dtr-control {
+    padding-left: 2.5rem !important;
   }
 
   .table.gy-lg-10 th, .table.gy-lg-10 td {
@@ -41620,6 +42096,9 @@ code:not([class*=language-]) {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
+  .table.gx-lg-10 th.dtr-control, .table.gx-lg-10 td.dtr-control {
+    padding-left: 2.5rem !important;
+  }
 
   .table.gs-lg-10 th:first-child, .table.gs-lg-10 td:first-child {
     padding-left: 2.5rem;
@@ -41627,10 +42106,16 @@ code:not([class*=language-]) {
   .table.gs-lg-10 th:last-child, .table.gs-lg-10 td:last-child {
     padding-right: 2.5rem;
   }
+  .table.gs-lg-10 th.dtr-control:first-child, .table.gs-lg-10 td.dtr-control:first-child {
+    padding-left: 2.5rem !important;
+  }
 }
 @media (min-width: 1200px) {
   .table.g-xl-0 th, .table.g-xl-0 td {
     padding: 0rem;
+  }
+  .table.g-xl-0 th.dtr-control, .table.g-xl-0 td.dtr-control {
+    padding-left: 0rem !important;
   }
 
   .table.gy-xl-0 th, .table.gy-xl-0 td {
@@ -41642,6 +42127,9 @@ code:not([class*=language-]) {
     padding-left: 0rem;
     padding-right: 0rem;
   }
+  .table.gx-xl-0 th.dtr-control, .table.gx-xl-0 td.dtr-control {
+    padding-left: 0rem !important;
+  }
 
   .table.gs-xl-0 th:first-child, .table.gs-xl-0 td:first-child {
     padding-left: 0rem;
@@ -41649,9 +42137,15 @@ code:not([class*=language-]) {
   .table.gs-xl-0 th:last-child, .table.gs-xl-0 td:last-child {
     padding-right: 0rem;
   }
+  .table.gs-xl-0 th.dtr-control:first-child, .table.gs-xl-0 td.dtr-control:first-child {
+    padding-left: 0rem !important;
+  }
 
   .table.g-xl-1 th, .table.g-xl-1 td {
     padding: 0.25rem;
+  }
+  .table.g-xl-1 th.dtr-control, .table.g-xl-1 td.dtr-control {
+    padding-left: 0.25rem !important;
   }
 
   .table.gy-xl-1 th, .table.gy-xl-1 td {
@@ -41663,6 +42157,9 @@ code:not([class*=language-]) {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
   }
+  .table.gx-xl-1 th.dtr-control, .table.gx-xl-1 td.dtr-control {
+    padding-left: 0.25rem !important;
+  }
 
   .table.gs-xl-1 th:first-child, .table.gs-xl-1 td:first-child {
     padding-left: 0.25rem;
@@ -41670,9 +42167,15 @@ code:not([class*=language-]) {
   .table.gs-xl-1 th:last-child, .table.gs-xl-1 td:last-child {
     padding-right: 0.25rem;
   }
+  .table.gs-xl-1 th.dtr-control:first-child, .table.gs-xl-1 td.dtr-control:first-child {
+    padding-left: 0.25rem !important;
+  }
 
   .table.g-xl-2 th, .table.g-xl-2 td {
     padding: 0.5rem;
+  }
+  .table.g-xl-2 th.dtr-control, .table.g-xl-2 td.dtr-control {
+    padding-left: 0.5rem !important;
   }
 
   .table.gy-xl-2 th, .table.gy-xl-2 td {
@@ -41684,6 +42187,9 @@ code:not([class*=language-]) {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
+  .table.gx-xl-2 th.dtr-control, .table.gx-xl-2 td.dtr-control {
+    padding-left: 0.5rem !important;
+  }
 
   .table.gs-xl-2 th:first-child, .table.gs-xl-2 td:first-child {
     padding-left: 0.5rem;
@@ -41691,9 +42197,15 @@ code:not([class*=language-]) {
   .table.gs-xl-2 th:last-child, .table.gs-xl-2 td:last-child {
     padding-right: 0.5rem;
   }
+  .table.gs-xl-2 th.dtr-control:first-child, .table.gs-xl-2 td.dtr-control:first-child {
+    padding-left: 0.5rem !important;
+  }
 
   .table.g-xl-3 th, .table.g-xl-3 td {
     padding: 0.75rem;
+  }
+  .table.g-xl-3 th.dtr-control, .table.g-xl-3 td.dtr-control {
+    padding-left: 0.75rem !important;
   }
 
   .table.gy-xl-3 th, .table.gy-xl-3 td {
@@ -41705,6 +42217,9 @@ code:not([class*=language-]) {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
   }
+  .table.gx-xl-3 th.dtr-control, .table.gx-xl-3 td.dtr-control {
+    padding-left: 0.75rem !important;
+  }
 
   .table.gs-xl-3 th:first-child, .table.gs-xl-3 td:first-child {
     padding-left: 0.75rem;
@@ -41712,9 +42227,15 @@ code:not([class*=language-]) {
   .table.gs-xl-3 th:last-child, .table.gs-xl-3 td:last-child {
     padding-right: 0.75rem;
   }
+  .table.gs-xl-3 th.dtr-control:first-child, .table.gs-xl-3 td.dtr-control:first-child {
+    padding-left: 0.75rem !important;
+  }
 
   .table.g-xl-4 th, .table.g-xl-4 td {
     padding: 1rem;
+  }
+  .table.g-xl-4 th.dtr-control, .table.g-xl-4 td.dtr-control {
+    padding-left: 1rem !important;
   }
 
   .table.gy-xl-4 th, .table.gy-xl-4 td {
@@ -41726,6 +42247,9 @@ code:not([class*=language-]) {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  .table.gx-xl-4 th.dtr-control, .table.gx-xl-4 td.dtr-control {
+    padding-left: 1rem !important;
+  }
 
   .table.gs-xl-4 th:first-child, .table.gs-xl-4 td:first-child {
     padding-left: 1rem;
@@ -41733,9 +42257,15 @@ code:not([class*=language-]) {
   .table.gs-xl-4 th:last-child, .table.gs-xl-4 td:last-child {
     padding-right: 1rem;
   }
+  .table.gs-xl-4 th.dtr-control:first-child, .table.gs-xl-4 td.dtr-control:first-child {
+    padding-left: 1rem !important;
+  }
 
   .table.g-xl-5 th, .table.g-xl-5 td {
     padding: 1.25rem;
+  }
+  .table.g-xl-5 th.dtr-control, .table.g-xl-5 td.dtr-control {
+    padding-left: 1.25rem !important;
   }
 
   .table.gy-xl-5 th, .table.gy-xl-5 td {
@@ -41747,6 +42277,9 @@ code:not([class*=language-]) {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
+  .table.gx-xl-5 th.dtr-control, .table.gx-xl-5 td.dtr-control {
+    padding-left: 1.25rem !important;
+  }
 
   .table.gs-xl-5 th:first-child, .table.gs-xl-5 td:first-child {
     padding-left: 1.25rem;
@@ -41754,9 +42287,15 @@ code:not([class*=language-]) {
   .table.gs-xl-5 th:last-child, .table.gs-xl-5 td:last-child {
     padding-right: 1.25rem;
   }
+  .table.gs-xl-5 th.dtr-control:first-child, .table.gs-xl-5 td.dtr-control:first-child {
+    padding-left: 1.25rem !important;
+  }
 
   .table.g-xl-6 th, .table.g-xl-6 td {
     padding: 1.5rem;
+  }
+  .table.g-xl-6 th.dtr-control, .table.g-xl-6 td.dtr-control {
+    padding-left: 1.5rem !important;
   }
 
   .table.gy-xl-6 th, .table.gy-xl-6 td {
@@ -41768,6 +42307,9 @@ code:not([class*=language-]) {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+  .table.gx-xl-6 th.dtr-control, .table.gx-xl-6 td.dtr-control {
+    padding-left: 1.5rem !important;
+  }
 
   .table.gs-xl-6 th:first-child, .table.gs-xl-6 td:first-child {
     padding-left: 1.5rem;
@@ -41775,9 +42317,15 @@ code:not([class*=language-]) {
   .table.gs-xl-6 th:last-child, .table.gs-xl-6 td:last-child {
     padding-right: 1.5rem;
   }
+  .table.gs-xl-6 th.dtr-control:first-child, .table.gs-xl-6 td.dtr-control:first-child {
+    padding-left: 1.5rem !important;
+  }
 
   .table.g-xl-7 th, .table.g-xl-7 td {
     padding: 1.75rem;
+  }
+  .table.g-xl-7 th.dtr-control, .table.g-xl-7 td.dtr-control {
+    padding-left: 1.75rem !important;
   }
 
   .table.gy-xl-7 th, .table.gy-xl-7 td {
@@ -41789,6 +42337,9 @@ code:not([class*=language-]) {
     padding-left: 1.75rem;
     padding-right: 1.75rem;
   }
+  .table.gx-xl-7 th.dtr-control, .table.gx-xl-7 td.dtr-control {
+    padding-left: 1.75rem !important;
+  }
 
   .table.gs-xl-7 th:first-child, .table.gs-xl-7 td:first-child {
     padding-left: 1.75rem;
@@ -41796,9 +42347,15 @@ code:not([class*=language-]) {
   .table.gs-xl-7 th:last-child, .table.gs-xl-7 td:last-child {
     padding-right: 1.75rem;
   }
+  .table.gs-xl-7 th.dtr-control:first-child, .table.gs-xl-7 td.dtr-control:first-child {
+    padding-left: 1.75rem !important;
+  }
 
   .table.g-xl-8 th, .table.g-xl-8 td {
     padding: 2rem;
+  }
+  .table.g-xl-8 th.dtr-control, .table.g-xl-8 td.dtr-control {
+    padding-left: 2rem !important;
   }
 
   .table.gy-xl-8 th, .table.gy-xl-8 td {
@@ -41810,6 +42367,9 @@ code:not([class*=language-]) {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+  .table.gx-xl-8 th.dtr-control, .table.gx-xl-8 td.dtr-control {
+    padding-left: 2rem !important;
+  }
 
   .table.gs-xl-8 th:first-child, .table.gs-xl-8 td:first-child {
     padding-left: 2rem;
@@ -41817,9 +42377,15 @@ code:not([class*=language-]) {
   .table.gs-xl-8 th:last-child, .table.gs-xl-8 td:last-child {
     padding-right: 2rem;
   }
+  .table.gs-xl-8 th.dtr-control:first-child, .table.gs-xl-8 td.dtr-control:first-child {
+    padding-left: 2rem !important;
+  }
 
   .table.g-xl-9 th, .table.g-xl-9 td {
     padding: 2.25rem;
+  }
+  .table.g-xl-9 th.dtr-control, .table.g-xl-9 td.dtr-control {
+    padding-left: 2.25rem !important;
   }
 
   .table.gy-xl-9 th, .table.gy-xl-9 td {
@@ -41831,6 +42397,9 @@ code:not([class*=language-]) {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
   }
+  .table.gx-xl-9 th.dtr-control, .table.gx-xl-9 td.dtr-control {
+    padding-left: 2.25rem !important;
+  }
 
   .table.gs-xl-9 th:first-child, .table.gs-xl-9 td:first-child {
     padding-left: 2.25rem;
@@ -41838,9 +42407,15 @@ code:not([class*=language-]) {
   .table.gs-xl-9 th:last-child, .table.gs-xl-9 td:last-child {
     padding-right: 2.25rem;
   }
+  .table.gs-xl-9 th.dtr-control:first-child, .table.gs-xl-9 td.dtr-control:first-child {
+    padding-left: 2.25rem !important;
+  }
 
   .table.g-xl-10 th, .table.g-xl-10 td {
     padding: 2.5rem;
+  }
+  .table.g-xl-10 th.dtr-control, .table.g-xl-10 td.dtr-control {
+    padding-left: 2.5rem !important;
   }
 
   .table.gy-xl-10 th, .table.gy-xl-10 td {
@@ -41852,6 +42427,9 @@ code:not([class*=language-]) {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
+  .table.gx-xl-10 th.dtr-control, .table.gx-xl-10 td.dtr-control {
+    padding-left: 2.5rem !important;
+  }
 
   .table.gs-xl-10 th:first-child, .table.gs-xl-10 td:first-child {
     padding-left: 2.5rem;
@@ -41859,10 +42437,16 @@ code:not([class*=language-]) {
   .table.gs-xl-10 th:last-child, .table.gs-xl-10 td:last-child {
     padding-right: 2.5rem;
   }
+  .table.gs-xl-10 th.dtr-control:first-child, .table.gs-xl-10 td.dtr-control:first-child {
+    padding-left: 2.5rem !important;
+  }
 }
 @media (min-width: 1400px) {
   .table.g-xxl-0 th, .table.g-xxl-0 td {
     padding: 0rem;
+  }
+  .table.g-xxl-0 th.dtr-control, .table.g-xxl-0 td.dtr-control {
+    padding-left: 0rem !important;
   }
 
   .table.gy-xxl-0 th, .table.gy-xxl-0 td {
@@ -41874,6 +42458,9 @@ code:not([class*=language-]) {
     padding-left: 0rem;
     padding-right: 0rem;
   }
+  .table.gx-xxl-0 th.dtr-control, .table.gx-xxl-0 td.dtr-control {
+    padding-left: 0rem !important;
+  }
 
   .table.gs-xxl-0 th:first-child, .table.gs-xxl-0 td:first-child {
     padding-left: 0rem;
@@ -41881,9 +42468,15 @@ code:not([class*=language-]) {
   .table.gs-xxl-0 th:last-child, .table.gs-xxl-0 td:last-child {
     padding-right: 0rem;
   }
+  .table.gs-xxl-0 th.dtr-control:first-child, .table.gs-xxl-0 td.dtr-control:first-child {
+    padding-left: 0rem !important;
+  }
 
   .table.g-xxl-1 th, .table.g-xxl-1 td {
     padding: 0.25rem;
+  }
+  .table.g-xxl-1 th.dtr-control, .table.g-xxl-1 td.dtr-control {
+    padding-left: 0.25rem !important;
   }
 
   .table.gy-xxl-1 th, .table.gy-xxl-1 td {
@@ -41895,6 +42488,9 @@ code:not([class*=language-]) {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
   }
+  .table.gx-xxl-1 th.dtr-control, .table.gx-xxl-1 td.dtr-control {
+    padding-left: 0.25rem !important;
+  }
 
   .table.gs-xxl-1 th:first-child, .table.gs-xxl-1 td:first-child {
     padding-left: 0.25rem;
@@ -41902,9 +42498,15 @@ code:not([class*=language-]) {
   .table.gs-xxl-1 th:last-child, .table.gs-xxl-1 td:last-child {
     padding-right: 0.25rem;
   }
+  .table.gs-xxl-1 th.dtr-control:first-child, .table.gs-xxl-1 td.dtr-control:first-child {
+    padding-left: 0.25rem !important;
+  }
 
   .table.g-xxl-2 th, .table.g-xxl-2 td {
     padding: 0.5rem;
+  }
+  .table.g-xxl-2 th.dtr-control, .table.g-xxl-2 td.dtr-control {
+    padding-left: 0.5rem !important;
   }
 
   .table.gy-xxl-2 th, .table.gy-xxl-2 td {
@@ -41916,6 +42518,9 @@ code:not([class*=language-]) {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
+  .table.gx-xxl-2 th.dtr-control, .table.gx-xxl-2 td.dtr-control {
+    padding-left: 0.5rem !important;
+  }
 
   .table.gs-xxl-2 th:first-child, .table.gs-xxl-2 td:first-child {
     padding-left: 0.5rem;
@@ -41923,9 +42528,15 @@ code:not([class*=language-]) {
   .table.gs-xxl-2 th:last-child, .table.gs-xxl-2 td:last-child {
     padding-right: 0.5rem;
   }
+  .table.gs-xxl-2 th.dtr-control:first-child, .table.gs-xxl-2 td.dtr-control:first-child {
+    padding-left: 0.5rem !important;
+  }
 
   .table.g-xxl-3 th, .table.g-xxl-3 td {
     padding: 0.75rem;
+  }
+  .table.g-xxl-3 th.dtr-control, .table.g-xxl-3 td.dtr-control {
+    padding-left: 0.75rem !important;
   }
 
   .table.gy-xxl-3 th, .table.gy-xxl-3 td {
@@ -41937,6 +42548,9 @@ code:not([class*=language-]) {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
   }
+  .table.gx-xxl-3 th.dtr-control, .table.gx-xxl-3 td.dtr-control {
+    padding-left: 0.75rem !important;
+  }
 
   .table.gs-xxl-3 th:first-child, .table.gs-xxl-3 td:first-child {
     padding-left: 0.75rem;
@@ -41944,9 +42558,15 @@ code:not([class*=language-]) {
   .table.gs-xxl-3 th:last-child, .table.gs-xxl-3 td:last-child {
     padding-right: 0.75rem;
   }
+  .table.gs-xxl-3 th.dtr-control:first-child, .table.gs-xxl-3 td.dtr-control:first-child {
+    padding-left: 0.75rem !important;
+  }
 
   .table.g-xxl-4 th, .table.g-xxl-4 td {
     padding: 1rem;
+  }
+  .table.g-xxl-4 th.dtr-control, .table.g-xxl-4 td.dtr-control {
+    padding-left: 1rem !important;
   }
 
   .table.gy-xxl-4 th, .table.gy-xxl-4 td {
@@ -41958,6 +42578,9 @@ code:not([class*=language-]) {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  .table.gx-xxl-4 th.dtr-control, .table.gx-xxl-4 td.dtr-control {
+    padding-left: 1rem !important;
+  }
 
   .table.gs-xxl-4 th:first-child, .table.gs-xxl-4 td:first-child {
     padding-left: 1rem;
@@ -41965,9 +42588,15 @@ code:not([class*=language-]) {
   .table.gs-xxl-4 th:last-child, .table.gs-xxl-4 td:last-child {
     padding-right: 1rem;
   }
+  .table.gs-xxl-4 th.dtr-control:first-child, .table.gs-xxl-4 td.dtr-control:first-child {
+    padding-left: 1rem !important;
+  }
 
   .table.g-xxl-5 th, .table.g-xxl-5 td {
     padding: 1.25rem;
+  }
+  .table.g-xxl-5 th.dtr-control, .table.g-xxl-5 td.dtr-control {
+    padding-left: 1.25rem !important;
   }
 
   .table.gy-xxl-5 th, .table.gy-xxl-5 td {
@@ -41979,6 +42608,9 @@ code:not([class*=language-]) {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
+  .table.gx-xxl-5 th.dtr-control, .table.gx-xxl-5 td.dtr-control {
+    padding-left: 1.25rem !important;
+  }
 
   .table.gs-xxl-5 th:first-child, .table.gs-xxl-5 td:first-child {
     padding-left: 1.25rem;
@@ -41986,9 +42618,15 @@ code:not([class*=language-]) {
   .table.gs-xxl-5 th:last-child, .table.gs-xxl-5 td:last-child {
     padding-right: 1.25rem;
   }
+  .table.gs-xxl-5 th.dtr-control:first-child, .table.gs-xxl-5 td.dtr-control:first-child {
+    padding-left: 1.25rem !important;
+  }
 
   .table.g-xxl-6 th, .table.g-xxl-6 td {
     padding: 1.5rem;
+  }
+  .table.g-xxl-6 th.dtr-control, .table.g-xxl-6 td.dtr-control {
+    padding-left: 1.5rem !important;
   }
 
   .table.gy-xxl-6 th, .table.gy-xxl-6 td {
@@ -42000,6 +42638,9 @@ code:not([class*=language-]) {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+  .table.gx-xxl-6 th.dtr-control, .table.gx-xxl-6 td.dtr-control {
+    padding-left: 1.5rem !important;
+  }
 
   .table.gs-xxl-6 th:first-child, .table.gs-xxl-6 td:first-child {
     padding-left: 1.5rem;
@@ -42007,9 +42648,15 @@ code:not([class*=language-]) {
   .table.gs-xxl-6 th:last-child, .table.gs-xxl-6 td:last-child {
     padding-right: 1.5rem;
   }
+  .table.gs-xxl-6 th.dtr-control:first-child, .table.gs-xxl-6 td.dtr-control:first-child {
+    padding-left: 1.5rem !important;
+  }
 
   .table.g-xxl-7 th, .table.g-xxl-7 td {
     padding: 1.75rem;
+  }
+  .table.g-xxl-7 th.dtr-control, .table.g-xxl-7 td.dtr-control {
+    padding-left: 1.75rem !important;
   }
 
   .table.gy-xxl-7 th, .table.gy-xxl-7 td {
@@ -42021,6 +42668,9 @@ code:not([class*=language-]) {
     padding-left: 1.75rem;
     padding-right: 1.75rem;
   }
+  .table.gx-xxl-7 th.dtr-control, .table.gx-xxl-7 td.dtr-control {
+    padding-left: 1.75rem !important;
+  }
 
   .table.gs-xxl-7 th:first-child, .table.gs-xxl-7 td:first-child {
     padding-left: 1.75rem;
@@ -42028,9 +42678,15 @@ code:not([class*=language-]) {
   .table.gs-xxl-7 th:last-child, .table.gs-xxl-7 td:last-child {
     padding-right: 1.75rem;
   }
+  .table.gs-xxl-7 th.dtr-control:first-child, .table.gs-xxl-7 td.dtr-control:first-child {
+    padding-left: 1.75rem !important;
+  }
 
   .table.g-xxl-8 th, .table.g-xxl-8 td {
     padding: 2rem;
+  }
+  .table.g-xxl-8 th.dtr-control, .table.g-xxl-8 td.dtr-control {
+    padding-left: 2rem !important;
   }
 
   .table.gy-xxl-8 th, .table.gy-xxl-8 td {
@@ -42042,6 +42698,9 @@ code:not([class*=language-]) {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+  .table.gx-xxl-8 th.dtr-control, .table.gx-xxl-8 td.dtr-control {
+    padding-left: 2rem !important;
+  }
 
   .table.gs-xxl-8 th:first-child, .table.gs-xxl-8 td:first-child {
     padding-left: 2rem;
@@ -42049,9 +42708,15 @@ code:not([class*=language-]) {
   .table.gs-xxl-8 th:last-child, .table.gs-xxl-8 td:last-child {
     padding-right: 2rem;
   }
+  .table.gs-xxl-8 th.dtr-control:first-child, .table.gs-xxl-8 td.dtr-control:first-child {
+    padding-left: 2rem !important;
+  }
 
   .table.g-xxl-9 th, .table.g-xxl-9 td {
     padding: 2.25rem;
+  }
+  .table.g-xxl-9 th.dtr-control, .table.g-xxl-9 td.dtr-control {
+    padding-left: 2.25rem !important;
   }
 
   .table.gy-xxl-9 th, .table.gy-xxl-9 td {
@@ -42063,6 +42728,9 @@ code:not([class*=language-]) {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
   }
+  .table.gx-xxl-9 th.dtr-control, .table.gx-xxl-9 td.dtr-control {
+    padding-left: 2.25rem !important;
+  }
 
   .table.gs-xxl-9 th:first-child, .table.gs-xxl-9 td:first-child {
     padding-left: 2.25rem;
@@ -42070,9 +42738,15 @@ code:not([class*=language-]) {
   .table.gs-xxl-9 th:last-child, .table.gs-xxl-9 td:last-child {
     padding-right: 2.25rem;
   }
+  .table.gs-xxl-9 th.dtr-control:first-child, .table.gs-xxl-9 td.dtr-control:first-child {
+    padding-left: 2.25rem !important;
+  }
 
   .table.g-xxl-10 th, .table.g-xxl-10 td {
     padding: 2.5rem;
+  }
+  .table.g-xxl-10 th.dtr-control, .table.g-xxl-10 td.dtr-control {
+    padding-left: 2.5rem !important;
   }
 
   .table.gy-xxl-10 th, .table.gy-xxl-10 td {
@@ -42084,12 +42758,18 @@ code:not([class*=language-]) {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
+  .table.gx-xxl-10 th.dtr-control, .table.gx-xxl-10 td.dtr-control {
+    padding-left: 2.5rem !important;
+  }
 
   .table.gs-xxl-10 th:first-child, .table.gs-xxl-10 td:first-child {
     padding-left: 2.5rem;
   }
   .table.gs-xxl-10 th:last-child, .table.gs-xxl-10 td:last-child {
     padding-right: 2.5rem;
+  }
+  .table.gs-xxl-10 th.dtr-control:first-child, .table.gs-xxl-10 td.dtr-control:first-child {
+    padding-left: 2.5rem !important;
   }
 }
 .popover .popover-header {
@@ -46785,6 +47465,14 @@ div:hover::-webkit-scrollbar-thumb {
   margin-left: 0.4rem !important;
 }
 
+.scroll-pe {
+  padding-right: 0.4rem !important;
+}
+
+.scroll-me {
+  margin-right: 0.4rem !important;
+}
+
 .scroll-px {
   padding-left: 0.4rem !important;
   padding-right: 0.4rem !important;
@@ -47363,6 +48051,11 @@ label.rating-label:hover ~ .rating-label > .svg-icon svg:hover [fill]:not(.perma
 .explore-label-pro {
   color: #ffffff;
   background-color: #50CD89;
+}
+
+.cookiealert {
+  background: inherit;
+  color: inherit;
 }
 
 .stepper.stepper-links .stepper-nav {
