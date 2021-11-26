@@ -385,3 +385,9 @@ Note - Artisan is usually inside of the application file.
 3. LiveWire Components added to Artisan Control Center.
 4. Middleware for Artisan Control Center.
 5. Trailer Master file added.
+
+## Changelog 11/23/2021
+- No Changes
+
+## Changelog 11/24/2021
+1. Added notification to  email when a new tractor is created.

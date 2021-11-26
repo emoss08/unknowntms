@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\TractorsExport;
 use App\Http\Requests\TractorsRequest;
 use App\Imports\TractorsImport;
+use App\Mail\NewTractorNotification;
 use App\Models\User;
 use App\Notifications\TractorAdded;
 use Illuminate\Support\Facades\Gate;
@@ -16,6 +17,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Mail;
 use Notification;
 use PDF;
 use Yajra\DataTables\DataTables;
@@ -58,6 +60,7 @@ class TractorsController extends Controller
 
     public function store(TractorsRequest $request)
     {
+
         $request ->validate([
             'tractor_id' => 'required|unique:tractors,tractor_id',
         ]);
@@ -69,7 +72,7 @@ class TractorsController extends Controller
             return abort(401);
         }
         Tractors::create($input);
-
+        Mail::to($request->user())->send(new NewTractorNotification($request));
         return redirect()->route('tractors.index');
     }
 
