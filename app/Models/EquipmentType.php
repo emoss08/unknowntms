@@ -32,4 +32,26 @@ class EquipmentType extends Model
     {
         return $this->belongsTo(User::class, 'entered_by');
     }
+
+    /**
+     * Set the first string uppercase of Equip Type ID.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setEquipTypeIdAttribute($value)
+    {
+        $this->attributes['equip_type_id'] = strtoupper($value);
+    }
+
+    /**
+     * Set the first string uppercase of Description.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setDescriptionAttribute($value)
+    {
+        $this->attributes['description'] = ucfirst($value);
+    }
 }

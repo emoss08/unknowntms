@@ -12,7 +12,7 @@ class Trailers extends Model implements \OwenIt\Auditing\Contracts\Auditable
 {
     use HasFactory;
     use HasFactory, Notifiable, HasRoles;
-    use \OwenIt\Auditing\Auditable;
+    use Auditable;
 
     /**
      * The attributes that are mass assignable.
@@ -92,7 +92,7 @@ class Trailers extends Model implements \OwenIt\Auditing\Contracts\Auditable
     }
 
     /**
-     * Set the first string uppercase of Vin.
+     * Set the first string uppercase of Owned By.
      *
      * @param  string  $value
      * @return void
@@ -103,7 +103,7 @@ class Trailers extends Model implements \OwenIt\Auditing\Contracts\Auditable
     }
 
     /**
-     * Set the first string uppercase of Vin.
+     * Set the first string uppercase of Comments.
      *
      * @param  string  $value
      * @return void
