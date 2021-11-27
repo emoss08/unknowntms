@@ -55,7 +55,7 @@
                                         <span class="required">Tractor ID</span>
                                         <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Unique identifier for Tractor."></i>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="tractor_id" id="tractor_id_max" maxlength="4" required />
+                                    <input type="text" class="form-control form-control-solid" name="tractor_id" id="tractor_id_max" maxlength="15" required />
                                     <!--end::Input-->
                                     <div class="valid-feedback">Looks good! Nice Job.</div>
                                 </div>

@@ -31,7 +31,7 @@
                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
                                             <span class="required">Order Type ID</span> <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Unique identifier for Order Type."></i>
                                         </label>
-                                        <input type="text" class="form-control form-control-solid" value="{{$ordertypes->order_type_id}}" name="order_type_id" id="kt_docs_maxlength_always_show" maxlength="4" readonly />
+                                        <input type="text" class="form-control form-control-solid" value="{{$ordertypes->order_type_id}}" name="order_type_id" id="kt_docs_maxlength_always_show" maxlength="4" />
                                     </div>
                                 </div>
                             </div>

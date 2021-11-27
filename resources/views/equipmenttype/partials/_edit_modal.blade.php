@@ -57,7 +57,7 @@
                                             <span class="required">Equipment Type ID</span>
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Unique identifier for Equipment Type."></i>
                                         </label>
-                                        <input type="text" class="form-control form-control-solid" value="{{ $equipmenttypes->equip_type_id }}" name="equip_type_id" id="kt_docs_maxlength_always_show" maxlength="4" readonly />
+                                        <input type="text" class="form-control form-control-solid" value="{{ $equipmenttypes->equip_type_id }}" name="equip_type_id" id="kt_docs_maxlength_always_show" maxlength="4" />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Col-->

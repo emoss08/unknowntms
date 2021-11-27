@@ -59,7 +59,7 @@
                                             <span class="required">Tractor ID</span>
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Unique identifier for Tractor."></i>
                                         </label>
-                                        <input type="text" class="form-control form-control-solid" name="tractor_id" id="kt_docs_maxlength_always_show" maxlength="4" value="{{ $tractors->tractor_id }}" required />
+                                        <input type="text" class="form-control form-control-solid" name="tractor_id" id="kt_docs_maxlength_always_show" maxlength="15" value="{{ $tractors->tractor_id }}" required />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Col-->

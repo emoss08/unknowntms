@@ -77,7 +77,7 @@ class Kernel extends ConsoleKernel
             ->runInBackground()
             ->evenInMaintenanceMode();
 
-        // Purge all In Active Commodity Codes every minute
+        // Purge all In Active Tractors every minute
         $schedule->call(function () {
             DB::table('tractors')->WHERE('status', '=', 'In-Active')
                 ->delete();
@@ -90,6 +90,22 @@ class Kernel extends ConsoleKernel
                 Storage::disk('local')->put('delete_inactive_tractors.log', 'Job Failed to Run');
             })
             ->name('delete_inactive_tractors')
+            ->runInBackground()
+            ->evenInMaintenanceMode();
+
+        // Purge all In Active Tractors every minute
+        $schedule->call(function () {
+            DB::table('trailers')->WHERE('status', '=', 'In-Active')
+                ->delete();
+        })
+            ->everyMinute()
+            ->onSuccess(function () {
+                Storage::disk('local')->put('delete_inactive_trailers.log', 'Successfully Ran Job');
+            })
+            ->onFailure(function () {
+                Storage::disk('local')->put('delete_inactive_trailers.log', 'Job Failed to Run');
+            })
+            ->name('delete_inactive_trailers')
             ->runInBackground()
             ->evenInMaintenanceMode();
     }
