@@ -15,19 +15,19 @@ class CreateTrailersTable extends Migration
     {
         Schema::create('trailers', function (Blueprint $table) {
             $table->id();
-            $table->string('status');
-            $table->string('trailer_id')->unique();
-            $table->string('year');
-            $table->string('make');
-            $table->string('model');
-            $table->string('vin');
-            $table->string('owned_by')->nullable();
-            $table->string('equip_type_id')->nullable();
-            $table->string('tag')->nullable();
-            $table->string('tag_state')->nullable();
-            $table->string('tag_expiration')->nullable();
-            $table->string('last_inspection')->nullable();
-            $table->string('comments')->nullable();
+            $table->string('status', 10)->default('Active');
+            $table->string('trailer_id', 15)->unique();
+            $table->string('year', 4);
+            $table->string('make', 30);
+            $table->string('model', 30);
+            $table->string('vin', 17)->unique();
+            $table->string('owned_by', 50)->nullable();
+            $table->string('equip_type_id',5);
+            $table->string('tag', 50)->nullable();
+            $table->string('tag_state', 2)->nullable();
+            $table->string('tag_expiration', 12)->nullable();
+            $table->string('last_inspection', 12)->nullable();
+            $table->string('comments', 255)->nullable();
             $table->integer('entered_by')->nullable();
             $table->string('attachments')->nullable();
             $table->timestamps();

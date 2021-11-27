@@ -47,7 +47,17 @@
             pageLength: 7,
             ajax: '{!! route('trailers.list') !!}',
             columns: [
-                { data: "status", name: "status" },
+                { data: "status",
+                    render: function(data, type, row, meta){
+                        if(type === 'display'){
+                            if(data === 'Active'){
+                                data = '<span class="badge badge-light-success">Active</span>';
+                            }
+                            else if(data === 'Inactive'){
+                                data = '<span class="badge badge-light-danger">Inactive</span>';
+                            }
+                            return data;
+                        }}},
                 { data: "trailer_id", name: "trailer_id" },
                 { data: "year", name: "year" },
                 { data: "make", name: "make" },

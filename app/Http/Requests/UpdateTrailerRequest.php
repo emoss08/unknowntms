@@ -33,13 +33,15 @@ class UpdateTrailerRequest extends FormRequest
     {
         return [
             'status' => 'required',
-            'trailer_id' => 'required',
+            'trailer_id' => 'required|unique:trailers,trailer_id,' . $this->trailer->id,
             'year' => 'required|size:4',
-            'make' => 'required',
-            'model' => 'required',
-            'equip_type_id' => 'required',
-            'vin' => 'required|vin_code',
-            'comments' => 'max:500'
+            'make' => 'required|max:30',
+            'model' => 'required|max:30',
+            'equip_type_id' => 'required|max:30|min:1|exists:equipment_type,equip_type_id',
+            'vin' => 'required|vin_code|unique:trailers,vin,' . $this->trailer->id,
+            'comments' => 'max:500|nullable|string|min:1',
+            'tag_expiration' => 'required|date',
+            'last_inspection' => 'required|date',
         ];
     }
 
@@ -55,6 +57,7 @@ class UpdateTrailerRequest extends FormRequest
             'model.required' => 'Model is required',
             'vin.required' => 'VIN is required',
             'vin.vin_code' => 'VIN must be a valid VIN code',
+            'vin.unique' => 'VIN is already taken',
             'comments.max' => 'Comments may not exceed 500 characters'
         ];
     }

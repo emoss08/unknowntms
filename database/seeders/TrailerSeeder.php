@@ -22,6 +22,7 @@ class TrailerSeeder extends Seeder
                     'make' => 'Unknown',
                     'model' => 'Trailer',
                     'vin' => 'SCFAC23302B500083',
+                    'equip_type_id' => 'RF',
                     'owned_by' => 'Unknown',
                     'tag' => '1234567',
                     'tag_expiration' => '2021-01-01',

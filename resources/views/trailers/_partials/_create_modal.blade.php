@@ -1,7 +1,4 @@
-
-@foreach ($trailers as $trailer)
-
-    <!--begin::Modal - Edit Tractors-->
+ <!--begin::Modal - Create Trailer-->
     <div class="modal fade" id="create-trailer" tabindex="-1" aria-hidden="true">
         <!--begin::Modal dialog-->
         <div class="modal-dialog modal-xl">
@@ -116,7 +113,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" class="form-control form-control-solid" name="vin" id="kt_docs_maxlength_always_show" maxlength="40" required />
+                                        <input type="text" class="form-control form-control-solid" name="vin" id="kt_docs_maxlength_always_show" maxlength="17" required />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Col-->
@@ -126,7 +123,7 @@
                                             <span>Owned by</span>
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Owner of the trailer."></i>
                                         </label>
-                                        <input type="text" class="form-control form-control-solid" name="owned_by" id="kt_docs_maxlength_always_show" maxlength="30" required />
+                                        <input type="text" class="form-control form-control-solid" name="owned_by" id="kt_docs_maxlength_always_show" maxlength="50" required />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Col-->
@@ -135,8 +132,8 @@
                                             <span class="required">Equipment Type</span>
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Type of Trailer."></i>
                                         </label>
-                                        <select class="form-select form-select-solid" data-control="select2" name="equip_type_id" data-dropdown-parent="#create-trailer">
-                                            <option>{{ $trailer->equip_type_id }}</option>
+                                        <select class="form-select form-select-solid" data-control="select2" name="equip_type_id" data-placeholder="Select an option" data-dropdown-parent="#create-trailer">
+                                            <option></option>
                                             @foreach($equipTypes as $equipType)
                                                 <option value="{{ $equipType->equip_type_id }}">{{ $equipType->equip_type_id }} - {{ $equipType->description }}</option>
                                             @endforeach
@@ -171,7 +168,7 @@
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="State of the yearly registration sticker that you place on your license plate every time you renew your vehicle's registration"></i>
                                         </label>
                                         <select class="form-select form-select-solid" data-dropdown-parent="#create-trailer" data-control="select2" data-placeholder="Select an state" name="tag_state">
-                                            <option>{{ $trailer->tag_state }}</option>
+                                            <option></option>
                                             <option value="AL">Alabama</option>
                                             <option value="AK">Alaska</option>
                                             <option value="AZ">Arizona</option>
@@ -267,7 +264,7 @@
                             <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
                                 <span>Comments</span>
                             </label>
-                            <textarea name="comments" class="form-control form-control form-control-solid" data-kt-autosize="true" maxlength="50"></textarea>
+                            <textarea name="comments" class="form-control form-control form-control-solid" data-kt-autosize="true" maxlength="255"></textarea>
                             <!--end::solid autosize textarea-->
                         </div>
                         <!--end::Input group-->
@@ -290,5 +287,4 @@
         </div>
         <!--end::Modal dialog-->
     </div>
-    <!--end::Modal - Edit Order Type-->
-@endforeach
+    <!--end::Modal - Create Trailer-->

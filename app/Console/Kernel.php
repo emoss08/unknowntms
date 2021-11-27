@@ -95,7 +95,7 @@ class Kernel extends ConsoleKernel
 
         // Purge all In Active Tractors every minute
         $schedule->call(function () {
-            DB::table('trailers')->WHERE('status', '=', 'In-Active')
+            DB::table('trailers')->WHERE('status', '=', 'Inactive')
                 ->delete();
         })
             ->everyMinute()
