@@ -36,8 +36,8 @@ class TrailersController extends Controller
 
     public function store(StoreTrailerRequest $request)
     {
-        $input = $request->all();
         $input['entered_by'] = auth()->user()->id;
+        $input = $request->all();
 
         if (! Gate::allows('trailer-create', $input)) {
             return abort(401);

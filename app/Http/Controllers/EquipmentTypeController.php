@@ -13,6 +13,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Str;
 use Yajra\Datatables\Datatables;
 
 class EquipmentTypeController extends Controller
@@ -57,9 +58,8 @@ class EquipmentTypeController extends Controller
         $request->validate([
             'equip_type_id' => 'required|unique:equipment_type,equip_type_id',
         ]);
-
+        Str::upper($input['equip_type_id'] = $request->equip_type_id);
         $input = $request->all();
-        $input['entered_by'] = auth()->user()->id;
 
         if (! Gate::allows('equipment-type-create', $input)) {
             return abort(401);

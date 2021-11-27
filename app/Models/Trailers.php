@@ -51,4 +51,65 @@ class Trailers extends Model implements \OwenIt\Auditing\Contracts\Auditable
     {
         return $this->belongsTo(User::class);
     }
+
+    /** Belongs to relationship to EquipmentType */
+    public function equipmentType()
+    {
+        return $this->belongsTo(EquipmentType::class);
+    }
+
+    /**
+     * Set the first string uppercase of Make.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setMakeAttribute($value)
+    {
+        $this->attributes['make'] = ucfirst($value);
+    }
+
+    /**
+     * Set the first string uppercase of Model.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setModelAttribute($value)
+    {
+        $this->attributes['model'] = ucfirst($value);
+    }
+
+    /**
+     * Set the first string uppercase of Vin.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setVinAttribute($value)
+    {
+        $this->attributes['vin'] = strtoupper($value);
+    }
+
+    /**
+     * Set the first string uppercase of Vin.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setOwnedByAttribute($value)
+    {
+        $this->attributes['owned_by'] = ucfirst($value);
+    }
+
+    /**
+     * Set the first string uppercase of Vin.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setCommentsAttribute($value)
+    {
+        $this->attributes['comments'] = ucfirst($value);
+    }
 }

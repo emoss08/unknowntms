@@ -75,4 +75,19 @@ class StoreTrailerRequest extends FormRequest
 
         ];
     }
+
+    /**
+     *  Filters to be applied to the input.
+     *
+     * @return array
+     */
+    public function filters()
+    {
+        return [
+            'status' => 'trim|escape',
+            'trailer_id' => 'trim|escape',
+            'year' => 'trim|escape',
+            'make' => 'trim|escape|upper',
+        ];
+    }
 }
