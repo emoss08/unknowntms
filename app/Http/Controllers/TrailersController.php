@@ -36,10 +36,6 @@ class TrailersController extends Controller
 
     public function store(StoreTrailerRequest $request)
     {
-        $request ->validate([
-            'trailer_id' => 'required|unique:tractors,tractor_id',
-        ]);
-
         $input = $request->all();
         $input['entered_by'] = auth()->user()->id;
 

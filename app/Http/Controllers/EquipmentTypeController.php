@@ -130,7 +130,7 @@ class EquipmentTypeController extends Controller
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
      */
     public function fileExport()
     {

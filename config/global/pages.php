@@ -113,6 +113,7 @@ return array(
                 'js'  => array(
                     'plugins/custom/datatables/datatables.bundle.js',
                     'js/custom/tractors/submit.js',
+                    'js/custom/tractors/custom.js',
                 ),
             ),
         ),
@@ -130,6 +131,7 @@ return array(
                 'js'  => array(
                     'plugins/custom/datatables/datatables.bundle.js',
                     'js/custom/trailers/submit.js',
+                    'js/custom/trailers/custom.js',
                 ),
             ),
         ),

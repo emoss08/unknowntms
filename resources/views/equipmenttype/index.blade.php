@@ -32,6 +32,29 @@ $(function(){$('#equip-type-table').DataTable({processing:!0,serverSide:!0,searc
 <!-- end::Script to Produce DataTable for Equipment Types -->
 
 <script type="text/javascript">
-    var CSRF_TOKEN=$('meta[name="csrf-token"]').attr("content");$(document).ready(function(){$("#selEquip").select2({ajax:{url:"{{route('equipmenttype.showEquipTypes')}}",type:"post",dataType:"json",delay:250,data:function(e){return{_token:CSRF_TOKEN,search:e.term}},processResults:function(e){return{results:e}},cache:!0}})});
+
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr("content");
+    $(document).ready(function () {
+        $("#selEquip").select2({
+            placeholder: {
+                id: '-1', // the value of the option
+                text: 'Select an option'
+            },
+            ajax: {
+                url: "{{ route('equipmenttype.showEquipTypes') }}",
+                type: "GET",
+                dataType: "json",
+                delay: 250,
+                data: function (e) {
+                    return { _token: CSRF_TOKEN, search: e.term };
+                },
+                processResults: function (e) {
+                    return { results: e };
+                },
+                cache: !0,
+            },
+        });
+    });
+
 </script>
 

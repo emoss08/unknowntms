@@ -86,7 +86,7 @@
         /* end::Middleware to throttle application **/
 
         /** begin::Ajax Calls */
-        Route::post ('equipmenttype/showEquipTypes', [EquipmentTypeController::class, 'showEquipTypes'])->name ('equipmenttype.showEquipTypes');
+        Route::get('equipmenttype/showEquipTypes', [EquipmentTypeController::class, 'showEquipTypes'])->name('equipmenttype.showEquipTypes');
         Route::post ('tractor/showTractorList', [TractorsController::class, 'showTractorList'])->name ('tractors.showTractors');
         Route::post ('commodity/showCommoditiesList', [CommoditiesController::class, 'showCommoditiesList'])->name ('commodity.showCommoditiesList');
         Route::post ('ordertype/showOrderTypesList', [OrderTypesController::class, 'showOrderTypesList'])->name ('ordertypes.showOrderTypesList');
@@ -102,7 +102,6 @@
         /** end::GET for DataTables to produce data */
 
         Route::get('artisan', [ArtisanController::class, 'index'])->name('artisan.index');
-
 
         /* begin::Middleware to throttle Exports **/
         Route::middleware (['throttle:exports'])->group(function () {

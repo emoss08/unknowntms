@@ -32,7 +32,7 @@ class StoreTrailerRequest extends FormRequest
     {
         return [
             'status' => 'required',
-            'trailer_id' => 'required',
+            'trailer_id' => 'required|unique:trailers,trailer_id',
             'year' => 'required|size:4',
             'make' => 'required',
             'model' => 'required',

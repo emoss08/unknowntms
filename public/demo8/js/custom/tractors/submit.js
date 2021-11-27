@@ -17,8 +17,8 @@ var Tractors = (function () {
                         tractor_id: {
                             validators: {
                                 notEmpty: { message: "The tractor ID is required" },
-                                stringLength: { min: 1, max: 10, message: "Equipment Type ID must be more than 1 and less than 10 characters long." },
-                                regexp: { regexp: /^[a-zA-Z0-9]+$/, message: "Equipment Type ID can only consist of alphabetical and number" },
+                                stringLength: { min: 1, max: 10, message: "Tractor ID must be more than 1 and less than 10 characters long." },
+                                regexp: { regexp: /^[a-zA-Z0-9]+$/, message: "Tractor ID can only consist of alphabetical and number" },
                             }
                         },
                         year: {
