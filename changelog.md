@@ -391,3 +391,16 @@ Note - Artisan is usually inside of the application file.
 
 ## Changelog 11/24/2021
 1. Added notification to  email when a new tractor is created.
+
+## Changelog 11/25/2021
+- No Changes
+
+## Changelog 11/26/2021
+- No Changes
+
+## Changelog 11/27/2021
+1. Added mutators to Tractors Master file.
+2. Added mutators to Commodities Master file.
+3. Added mutators to Equipment Type Master file.
+4. Added mutators to Trailers Master file.
+5. Added mutators to Order Type Master file.
