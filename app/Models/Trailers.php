@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -13,6 +14,7 @@ class Trailers extends Model implements \OwenIt\Auditing\Contracts\Auditable
     use HasFactory;
     use HasFactory, Notifiable, HasRoles;
     use Auditable;
+    use Cachable;
 
     /**
      * The attributes that are mass assignable.
