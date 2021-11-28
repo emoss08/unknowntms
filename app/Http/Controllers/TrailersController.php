@@ -62,7 +62,7 @@ class TrailersController extends Controller
 
         return Datatables::of($trailers)
             ->addColumn('Actions', function ($trailers)  {
-                return '<button class="btn btn-light btn-active-light-info btn-sm" data-bs-toggle="modal" data-bs-target="#edit-trailers-'.$trailers->id.'" class="menu-link px-3">Edit</button>';
+                return '<button class="btn btn-light btn-active-light-info btn-sm" data-bs-toggle="modal" data-bs-target="#edit-trailers-'.$trailers->id.'">Edit</button>';
             })
             ->rawColumns(['Actions'])
             ->make(true);

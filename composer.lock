@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "029b3644d459f42a1f4c930d34c20d33",
+    "content-hash": "498c38e35b49e52749194bc0e50967e6",
     "packages": [
         {
             "name": "anlutro/l4-settings",
@@ -8219,6 +8219,50 @@
                 "source": "https://github.com/Torann/laravel-geoip/tree/3.0.2"
             },
             "time": "2020-12-21T19:12:11+00:00"
+        },
+        {
+            "name": "vectorwyse/idle-timeout-alert",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vectorwyse/idle-timeout-alert.git",
+                "reference": "68c5453cdb24ba8b56457cde8cc083ef4efdb04b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vectorwyse/idle-timeout-alert/zipball/68c5453cdb24ba8b56457cde8cc083ef4efdb04b",
+                "reference": "68c5453cdb24ba8b56457cde8cc083ef4efdb04b",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Vectorwyse\\IdleTimeoutAlert\\IdleTimeoutAlertServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Vectorwyse\\IdleTimeoutAlert\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Li",
+                    "email": "jeffrey@vectorwyse.com"
+                }
+            ],
+            "description": "A Laravel package for alerting idle sessions about to expire.",
+            "support": {
+                "issues": "https://github.com/vectorwyse/idle-timeout-alert/issues",
+                "source": "https://github.com/vectorwyse/idle-timeout-alert/tree/v1.0"
+            },
+            "time": "2020-07-07T00:45:21+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
