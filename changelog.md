@@ -390,7 +390,7 @@ Note - Artisan is usually inside of the application file.
 - No Changes
 
 ## Changelog 11/24/2021
-1. Added notification to  email when a new tractor is created.
+1. Added notification to email when a new tractor is created.
 
 ## Changelog 11/25/2021
 - No Changes
@@ -405,3 +405,7 @@ Note - Artisan is usually inside of the application file.
 4. Added mutators to Trailers Master file.
 5. Added mutators to Order Type Master file.
 6. Added REDIS for caching data.
+
+## Changelog 11/28/2021
+1. Added REDIS caching globally.
+   - Note: Before running Artisan Command (Run System Scheduler), you must run Artisan Cache:Clear & Artisan modelCache:clear to clear cache.
