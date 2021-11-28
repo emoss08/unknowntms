@@ -404,3 +404,4 @@ Note - Artisan is usually inside of the application file.
 3. Added mutators to Equipment Type Master file.
 4. Added mutators to Trailers Master file.
 5. Added mutators to Order Type Master file.
+6. Added REDIS for caching data.
