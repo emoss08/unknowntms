@@ -16,20 +16,20 @@ class CreateTrailersTable extends Migration
         Schema::create('trailers', function (Blueprint $table) {
             $table->id();
             $table->string('status', 10)->default('Active');
-            $table->string('trailer_id', 15)->unique();
-            $table->string('year', 4);
-            $table->string('make', 30);
-            $table->string('model', 30);
+            $table->string('trailer_id', 15)->unique()->index();
+            $table->string('year', 4)->index();
+            $table->string('make', 30)->index();
+            $table->string('model', 30)->index();
             $table->string('vin', 17)->unique();
-            $table->string('owned_by', 50)->nullable();
-            $table->string('equip_type_id',5);
-            $table->string('tag', 50)->nullable();
-            $table->string('tag_state', 2)->nullable();
-            $table->string('tag_expiration', 12)->nullable();
-            $table->string('last_inspection', 12)->nullable();
-            $table->string('comments', 255)->nullable();
-            $table->integer('entered_by')->nullable();
-            $table->string('attachments')->nullable();
+            $table->string('owned_by', 50)->nullable()->index();
+            $table->string('equip_type_id',5)->index();
+            $table->string('tag', 50)->nullable()->index();
+            $table->string('tag_state', 2)->nullable()->index();
+            $table->string('tag_expiration', 12)->nullable()->index();
+            $table->string('last_inspection', 12)->nullable()->index();
+            $table->string('comments', 255)->nullable()->index();
+            $table->integer('entered_by')->nullable()->index();
+            $table->string('attachments')->nullable()->index();
             $table->timestamps();
         });
     }

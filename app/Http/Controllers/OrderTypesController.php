@@ -12,6 +12,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\OrderTypes;
+use Illuminate\Support\Facades\Redis;
 use Yajra\DataTables\DataTables;
 
 class OrderTypesController extends Controller
@@ -36,8 +37,7 @@ class OrderTypesController extends Controller
      */
     public function index()
     {
-        $ordertype = OrderTypes::all();
-
+        $ordertype = ordertypes::all();
         return view('ordertypes.index',compact('ordertype'));
     }
 

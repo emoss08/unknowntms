@@ -29,7 +29,7 @@ class TrailersController extends Controller
     {
         $equipTypes = \App\Models\EquipmentType::all();
 
-        $trailers = Trailers::latest()->paginate(11);
+        $trailers = Trailers::latest()->get();
 
         return view('trailers.index' ,compact('trailers'))->with('equipTypes', $equipTypes);
     }

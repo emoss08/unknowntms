@@ -87,10 +87,10 @@
 
         /** begin::Ajax Calls */
         Route::get('equipmenttype/showEquipTypes', [EquipmentTypeController::class, 'showEquipTypes'])->name('equipmenttype.showEquipTypes');
-        Route::post ('tractor/showTractorList', [TractorsController::class, 'showTractorList'])->name ('tractors.showTractors');
-        Route::post ('commodity/showCommoditiesList', [CommoditiesController::class, 'showCommoditiesList'])->name ('commodity.showCommoditiesList');
-        Route::post ('ordertype/showOrderTypesList', [OrderTypesController::class, 'showOrderTypesList'])->name ('ordertypes.showOrderTypesList');
-        Route::post ('trailer/showTrailerList', [TrailersController::class, 'showTrailerList'])->name ('trailer.showTrailerList');
+        Route::post('tractor/showTractorList', [TractorsController::class, 'showTractorList'])->name ('tractors.showTractors');
+        Route::post('commodity/showCommoditiesList', [CommoditiesController::class, 'showCommoditiesList'])->name ('commodity.showCommoditiesList');
+        Route::post('ordertype/showOrderTypesList', [OrderTypesController::class, 'showOrderTypesList'])->name ('ordertypes.showOrderTypesList');
+        Route::post('trailer/showTrailerList', [TrailersController::class, 'showTrailerList'])->name ('trailer.showTrailerList');
         /** end::Ajax Calls */
 
         /** begin::GET for DataTables to produce data */

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use OwenIt\Auditing\Contracts\Auditable;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Spatie\Permission\Traits\HasRoles;
 
 class OrderTypes extends Model implements Auditable
@@ -13,6 +14,7 @@ class OrderTypes extends Model implements Auditable
     use HasFactory, Notifiable, HasRoles;
 
     use \OwenIt\Auditing\Auditable;
+    use Cachable;
 
     /**
      * The attributes that are mass assignable.

@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\OrderTypes;
 use DB;
 use Illuminate\Database\Seeder;
+use Str;
 
 class OrderTypeSeeder extends Seeder
 {

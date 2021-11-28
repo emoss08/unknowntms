@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Trailers;
 use DB;
 use Illuminate\Database\Seeder;
+use Str;
 
 class TrailerSeeder extends Seeder
 {
