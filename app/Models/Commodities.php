@@ -40,4 +40,26 @@ class Commodities extends Model implements Auditable
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Set the first string uppercase of Equip Type ID.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setCommodityIdAttribute($value)
+    {
+        $this->attributes['commodity_id'] = strtoupper($value);
+    }
+
+    /**
+     * Set the first string uppercase of Description.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setDescriptionAttribute($value)
+    {
+        $this->attributes['description'] = ucfirst($value);
+    }
 }
