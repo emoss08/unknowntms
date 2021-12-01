@@ -9,7 +9,7 @@
             <div class="modal-content">
                 <!--begin::Modal header-->
                 <div class="modal-header">
-                    <h2>Updating Tractor - {{ $tractors->tractor_id  }}</h2>
+                    <h2 class="modal-title">Updating Tractor - {{ $tractors->tractor_id  }}</h2>
                     <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
                         <span class="svg-icon svg-icon-1">
 														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -21,7 +21,7 @@
                 </div>
                 <!--end::Modal header-->
                 <!--begin::Modal body-->
-                <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+                <div class="modal-body scroll-y mx-5 mx-xl-15 my-5">
                     <!--begin::Form-->
                     <form action="{{ route('tractors.update',$tractors->id) }}" method="POST" id="tractor_form_edit-{{ $tractors->id }}" novalidate>
                     @csrf

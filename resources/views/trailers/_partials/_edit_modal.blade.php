@@ -8,10 +8,19 @@
             <div class="modal-content">
                 <!--begin::Modal header-->
                 <div class="modal-header">
+                    <h2 class="modal-title">Updating Trailer - {{ $trailer->trailer_id }}</h2>
+                    <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                        <span class="svg-icon svg-icon-1">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+															<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+														</svg>
+													</span>
+                    </div>
                 </div>
                 <!--end::Modal header-->
                 <!--begin::Modal body-->
-                <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+                <div class="modal-body scroll-y mx-5 mx-xl-15 my-5">
                     <!--begin::Form-->
                     <form action="{{ route('trailers.update',$trailer->id) }}" method="POST" id="trailer_form_edit-{{ $trailer->id }}" novalidate>
                     @csrf
@@ -64,7 +73,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" class="form-control form-control-solid" name="year" id="kt_docs_maxlength_always_show" value="" maxlength="4" required />
+                                        <input type="text" class="form-control form-control-solid" name="year" id="kt_docs_maxlength_always_show" value="{{ $trailer->year }}" maxlength="4" required />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Col-->
@@ -74,7 +83,7 @@
                                             <span class="required">Make</span>
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Make of the tractor."></i>
                                         </label>
-                                        <input type="text" class="form-control form-control-solid" name="make" id="kt_docs_maxlength_always_show" value="" maxlength="30" required />
+                                        <input type="text" class="form-control form-control-solid" name="make" id="kt_docs_maxlength_always_show" value="{{ $trailer->make }}" maxlength="30" required />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Col-->
@@ -83,7 +92,7 @@
                                             <span class="required">Model</span>
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Model of the tractor."></i>
                                         </label>
-                                        <input type="text" class="form-control form-control-solid" name="model" id="kt_docs_maxlength_always_show" value="" maxlength="30" required />
+                                        <input type="text" class="form-control form-control-solid" name="model" id="kt_docs_maxlength_always_show" value="{{ $trailer->model }}" maxlength="30" required />
                                         <!--end::Input-->
                                     </div>
                                 </div>
@@ -103,7 +112,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" class="form-control form-control-solid" name="vin" id="kt_docs_maxlength_always_show" value="" maxlength="40" required />
+                                        <input type="text" class="form-control form-control-solid" name="vin" id="kt_docs_maxlength_always_show" value="{{ $trailer->vin }}" maxlength="40" required />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Col-->
@@ -113,7 +122,7 @@
                                             <span>Owned by</span>
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Owner of the tractor."></i>
                                         </label>
-                                        <input type="text" class="form-control form-control-solid" name="owned_by" id="kt_docs_maxlength_always_show" value="" maxlength="30" required />
+                                        <input type="text" class="form-control form-control-solid" name="owned_by" id="kt_docs_maxlength_always_show" value="{{ $trailer->owned_by }}" maxlength="30" required />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Col-->
@@ -122,8 +131,8 @@
                                             <span>Equipment Type</span>
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Type of Trailer."></i>
                                         </label>
-                                        <select class="form-select form-select-solid" data-control="select2" name="equip_type_id" data-dropdown-parent="#edit-trailers">
-                                            <option></option>
+                                        <select class="form-select form-select-solid" data-control="select2" name="equip_type_id" data-dropdown-parent="#edit-trailers-{{ $trailer->id }}">
+                                            <option>{{ $trailer->equip_type_id }}</option>
                                             @foreach($equipTypes as $equipType)
                                                 <option value="{{ $equipType->equip_type_id }}">{{ $equipType->equip_type_id }} - {{ $equipType->description }}</option>
                                             @endforeach
@@ -147,7 +156,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" class="form-control form-control-solid" name="tag" id="kt_docs_maxlength_always_show" maxlength="40" value="" />
+                                        <input type="text" class="form-control form-control-solid" name="tag" id="kt_docs_maxlength_always_show" maxlength="40" value="{{ $trailer->tag }}" />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Col-->
@@ -157,8 +166,8 @@
                                             <span>Tag State</span>
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="State of the yearly registration sticker that you place on your license plate every time you renew your vehicle's registration"></i>
                                         </label>
-                                        <select class="form-select form-select-solid" data-dropdown-parent="#edit-trailers" data-control="select2" data-placeholder="Select an state" name="tag_state" >
-                                            <option></option>
+                                        <select class="form-select form-select-solid" data-dropdown-parent="#edit-trailers-{{ $trailer->id }}" data-control="select2" data-placeholder="Select an state" name="tag_state" >
+                                            <option>{{ $trailer->tag_state }}</option>
                                             <option value="AL">Alabama</option>
                                             <option value="AK">Alaska</option>
                                             <option value="AZ">Arizona</option>
@@ -219,7 +228,7 @@
                                             <span>Tag Expiration</span>
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Expiration Date of Tag."></i>
                                         </label>
-                                        <input class="form-control form-control-solid" name="tag_expiration" id="tag_expiration" value=""/>
+                                        <input class="form-control form-control-solid" name="tag_expiration" id="tag_expiration-{{ $trailer->id }}" value="{{ $trailer->tag_expiration }}"/>
                                         <!--end::Input-->
                                     </div>
                                 </div>
@@ -239,7 +248,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input class="form-control form-control-solid" name="last_inspection" id="last_inspection" value="" />
+                                        <input class="form-control form-control-solid" name="last_inspection" id="last_inspection-{{ $trailer->id }}" value="{{ $trailer->last_inspection }}" />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Col-->
@@ -250,22 +259,18 @@
                         </div>
                         <!--end::Input group-->
                         <div class="d-flex flex-column mb-7 fv-row">
-                            <!--begin::solid autosize textarea-->
                             <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
                                 <span>Comments</span>
                             </label>
-                            <textarea name="comments" class="form-control form-control form-control-solid" data-kt-autosize="true" maxlength="50"></textarea>
-                            <!--end::solid autosize textarea-->
+                            <textarea name="comments" class="form-control form-control form-control-solid" data-kt-autosize="true" maxlength="50">{{ $trailer->comments }}</textarea>
                         </div>
-                        <!--end::Input group-->
-                        <!--begin::Actions-->
-                        <div class="text-center pt-15">
-                            <button type="reset" id="kt_modal_new_card_cancel" class="btn btn-light me-3">Discard</button>
-                            <button type="submit" id="trailer_submit_edit-{{ $trailer->id }}" class="btn btn-primary">
-                                <span class="indicator-label">Submit</span>
-                                <span class="indicator-progress">Please wait...
+                        <div class="modal-footer">
+                                <a data-bs-dismiss="modal" class="btn btn-light me-3">Discard</a>
+                                <button type="submit" id="trailer_submit_edit-{{ $trailer->id }}" class="btn btn-primary">
+                                    <span class="indicator-label">Submit</span>
+                                    <span class="indicator-progress">Please wait...
 									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                            </button>
+                                </button>
                         </div>
                         <!--end::Actions-->
                     </form>
