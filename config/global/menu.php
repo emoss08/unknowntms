@@ -315,6 +315,57 @@ return array(
             ),
         ),
 
+        // Artisan Analytics Center
+        array(
+            'title'      => 'Artisan Report Center',
+            'icon'       => array(
+                'svg'  => theme()->getSvgIcon("demo8/media/icons/duotune/general/gen032.svg", "svg-icon-2"),
+                'font' => '<i class="bi bi-person fs-2"></i>',
+            ),
+            'classes'    => array('item' => 'menu-accordion'),
+            'attributes' => array(
+                "data-kt-menu-trigger" => "click",
+            ),
+            'sub'        => array(
+                'class' => 'menu-sub-accordion menu-active-bg',
+                'items' => array(
+                    array(
+                        'title'  => 'Order Report Center',
+                        'path'   => '#',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                        'attributes' => array(
+                            'link' => array(
+                                "title"             => "Coming soon",
+                                "data-bs-toggle"    => "tooltip",
+                                "data-bs-trigger"   => "hover",
+                                "data-bs-dismiss"   => "click",
+                                "data-bs-placement" => "right",
+                            ),
+                        ),
+                    ),
+                    array(
+                        'title'  => 'Trailer Report Center',
+                        'path'   => 'analytics/trailers',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'title'      => 'Tractors Report Center',
+                        'path'       => '#',
+                        'bullet'     => '<span class="bullet bullet-dot"></span>',
+                        'attributes' => array(
+                            'link' => array(
+                                "title"             => "Coming soon",
+                                "data-bs-toggle"    => "tooltip",
+                                "data-bs-trigger"   => "hover",
+                                "data-bs-dismiss"   => "click",
+                                "data-bs-placement" => "right",
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+
         //// Administrative
         array(
             'classes' => array('content' => 'pt-8 pb-2'),

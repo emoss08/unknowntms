@@ -258,6 +258,18 @@ return array(
         ),
     ),
 
+    'analytics'         => array(
+        'title' => 'Artisan Analytics Center',
+
+        'trailers' => array(
+            'title' => 'Trailer Dashboard',
+
+            'edit' => array(
+                'title' => 'Edit User',
+            ),
+        ),
+    ),
+
     // Documentation pages
     'documentation' => array(
         '*' => array(

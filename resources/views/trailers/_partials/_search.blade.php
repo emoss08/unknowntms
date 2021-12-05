@@ -30,7 +30,6 @@
                     <select class="form-select form-select-solid select2-hidden-accessible" data-control="select2" data-placeholder="In Progress" data-hide-search="true" data-select2-id="select2-data-10-lo7h" tabindex="-1" aria-hidden="true">
                         <option value="Active" selected="selected" data-select2-id="select2-data-12-dieh">Active</option>
                         <option value="2">In-Active</option>
-                        <option value="3">Done</option>
                     </select>
                     <!--end::Select-->
                 </div>

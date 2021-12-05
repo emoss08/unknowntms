@@ -370,5 +370,4 @@
             $(this).is(":checked") ? $("div input").attr("checked", !0) : $("div input").attr("checked", !1);
         });
 </script>
-
 @endforeach

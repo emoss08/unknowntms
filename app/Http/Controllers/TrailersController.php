@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\TrailersDashboard;
 use App\Http\Requests\StoreTrailerRequest;
 use App\Http\Requests\UpdateTrailerRequest;
 use App\Models\Trailers;
@@ -85,5 +86,18 @@ class TrailersController extends Controller
             );
         }
         return response()->json($response);
+    }
+
+    public function destroy(Trailers $trailer)
+    {
+        if ($trailer->user_id != auth()->user()->id) {
+            return abort(403);
+        }
+        $trailer->delete();
+    }
+
+    public function forAnalytics()
+    {
+        return view('trailers.dashboard');
     }
 }

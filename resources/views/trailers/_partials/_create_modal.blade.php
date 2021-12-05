@@ -1,53 +1,32 @@
  <!--begin::Modal - Create Trailer-->
     <div class="modal fade" id="create-trailer" tabindex="-1" aria-hidden="true">
-        <!--begin::Modal dialog-->
         <div class="modal-dialog modal-xl">
-            <!--begin::Modal content-->
             <div class="modal-content">
-                <!--begin::Modal header-->
                 <div class="modal-header">
-                    <!--begin::Modal title-->
-                    <h2>Add new trailer</h2>
-                    <!--end::Modal title-->
-                    <!--begin::Close-->
+                    <h2 class="modal-title">Add new trailer</h2>
                     <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
-                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
                         <span class="svg-icon svg-icon-1">
 														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 															<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
 															<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
 														</svg>
 													</span>
-                        <!--end::Svg Icon-->
                     </div>
-                    <!--end::Close-->
                 </div>
-                <!--end::Modal header-->
-                <!--begin::Modal body-->
-                <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-                    <!--begin::Form-->
+                <div class="modal-body scroll-y mx-5 mx-xl-15 my-1">
                     <form action="{{ route('trailers.store') }}" method="POST" id="trailer_form_create" novalidate>
                     @csrf
-                    <!--begin::Input group-->
                         <div class="row mb-5">
-                            <!--begin::Col-->
                             <div class="col-md-15 fv-row">
-                                <!--begin::Row-->
                                 <div class="row fv-row">
                                     <div class="col-md-4 fv-row">
-                                        <!--begin::Label-->
                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
                                             <span class="required">Status</span>
                                         </label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
                                         <select class="form-select form-select-solid" data-control="select2" data-dropdown-parent="#create-trailers" name="status" readonly>
                                             <option value="Active">Active</option>
                                         </select>
-                                        <!--end::Input-->
                                     </div>
-                                    <!--end::Col-->
-                                    <!--begin::Col-->
                                     <div class="col-md-4 fv-row">
                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
                                             <span class="required">Trailer ID</span>
@@ -60,7 +39,7 @@
                                 </div>
                                 <!--end::Row-->
                             </div>
-                            <div class="separator my-10"></div>
+                            <div class="separator my-5"></div>
                             <!--end::Col-->
                             <!--begin::Col-->
                             <div class="col-md-15 fv-row">
@@ -258,19 +237,14 @@
                             </div>
                             <!--end::Col-->
                         </div>
-                        <!--end::Input group-->
                         <div class="d-flex flex-column mb-7 fv-row">
-                            <!--begin::solid autosize textarea-->
                             <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
                                 <span>Comments</span>
                             </label>
                             <textarea name="comments" class="form-control form-control form-control-solid" data-kt-autosize="true" maxlength="255"></textarea>
-                            <!--end::solid autosize textarea-->
                         </div>
-                        <!--end::Input group-->
-                        <!--begin::Actions-->
-                        <div class="text-center pt-15">
-                            <button type="reset" id="kt_modal_new_card_cancel" class="btn btn-light me-3">Discard</button>
+                        <div class="modal-footer">
+                            <a data-bs-dismiss="modal"  class="btn btn-light me-3">Discard</a>
                             <button type="submit" id="trailer_submit" class="btn btn-primary">
                                 <span class="indicator-label">Submit</span>
                                 <span class="indicator-progress">Please wait...

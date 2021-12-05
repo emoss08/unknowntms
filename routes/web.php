@@ -84,7 +84,7 @@
             /** end::Application Pages ( DO NOT CHANGE OR REMOVE OR PAGES WILL NOT WORK */
         });
         /* end::Middleware to throttle application **/
-
+        Route::get('analytics/trailers', [TrailersController::class, 'forAnalytics'])->name('trailers.dashboard');
         /** begin::Ajax Calls */
         Route::get('equipmenttype/showEquipTypes', [EquipmentTypeController::class, 'showEquipTypes'])->name('equipmenttype.showEquipTypes');
         Route::post('tractor/showTractorList', [TractorsController::class, 'showTractorList'])->name ('tractors.showTractors');
@@ -99,6 +99,7 @@
         Route::get ('commodity/list', [CommoditiesController::class, 'getCommodities'])->name ('commodity.list');
         Route::get ('ordertype/list', [OrderTypesController::class, 'getOrderTypes'])->name ('ordertype.list');
         Route::get ('trailer/list', [TrailersController::class, 'getTrailers'])->name ('trailers.list');
+        Route::get ('user/list', [UsersController::class, 'getUsers'])->name ('users.list');
         /** end::GET for DataTables to produce data */
 
         /* begin::Middleware to throttle Exports **/

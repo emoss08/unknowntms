@@ -17,14 +17,48 @@
         </div>
     @endif
 
+    <input type="text" name="email" class="form-control searchEmail" placeholder="Search for Email Only...">
+    <br>
 
     <table class="table table-bordered data-table">
+        <thead>
         <tr>
             <th>No</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Roles</th>
-            <th width="280px">Action</th>
+            <th width="100px">Action</th>
         </tr>
+        </thead>
+        <tbody>
+        </tbody>
     </table>
+
 </x-base-layout>
+
+<script type="text/javascript">
+    $(function () {
+
+        var table = $('.data-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: "{{ route('users.index') }}",
+                data: function (d) {
+                    d.email = $('.searchEmail').val(),
+                        d.search = $('input[type="search"]').val()
+                }
+            },
+            columns: [
+                {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                {data: 'name', name: 'name'},
+                {data: 'email', name: 'email'},
+                {data: 'action', name: 'action', orderable: false, searchable: false},
+            ]
+        });
+
+        $(".searchEmail").keyup(function(){
+            table.draw();
+        });
+
+    });
+</script>

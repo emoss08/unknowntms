@@ -1,5 +1,4 @@
 @foreach ($trailers as $trailer)
-
 <!--begin::Modal - Edit Tractors-->
     <div class="modal fade" id="edit-trailers-{{ $trailer->id }}" tabindex="-1" aria-hidden="true">
         <!--begin::Modal dialog-->
@@ -20,33 +19,24 @@
                 </div>
                 <!--end::Modal header-->
                 <!--begin::Modal body-->
-                <div class="modal-body scroll-y mx-5 mx-xl-15 my-5">
+                <div class="modal-body scroll-y mx-5 mx-xl-15 my-1">
                     <!--begin::Form-->
                     <form action="{{ route('trailers.update',$trailer->id) }}" method="POST" id="trailer_form_edit-{{ $trailer->id }}" novalidate>
                     @csrf
                     @method('PUT')
-                    <!--begin::Input group-->
                         <div class="row mb-5">
-                            <!--begin::Col-->
                             <div class="col-md-15 fv-row">
-                                <!--begin::Row-->
                                 <div class="row fv-row">
                                     <div class="col-md-4 fv-row">
-                                        <!--begin::Label-->
                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
                                             <span class="required">Status</span>
                                         </label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
                                         <select class="form-select form-select-solid" data-control="select2" data-placeholder="{{ $trailer->status }}" data-dropdown-parent="#edit-trailers-{{ $trailer->id }}" name="status">
                                             <option></option>
                                             <option value="Active">Active</option>
                                             <option value="Inactive">Inactive</option>
                                         </select>
-                                        <!--end::Input-->
                                     </div>
-                                    <!--end::Col-->
-                                    <!--begin::Col-->
                                     <div class="col-md-4 fv-row">
                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
                                             <span class="required">Trailer ID</span>
@@ -59,7 +49,7 @@
                                 </div>
                                 <!--end::Row-->
                             </div>
-                            <div class="separator my-10"></div>
+                            <div class="separator my-5"></div>
                             <!--end::Col-->
                             <!--begin::Col-->
                             <div class="col-md-15 fv-row">
@@ -257,7 +247,6 @@
                             </div>
                             <!--end::Col-->
                         </div>
-                        <!--end::Input group-->
                         <div class="d-flex flex-column mb-7 fv-row">
                             <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
                                 <span>Comments</span>
@@ -269,7 +258,8 @@
                                 <button type="submit" id="trailer_submit_edit-{{ $trailer->id }}" class="btn btn-primary">
                                     <span class="indicator-label">Submit</span>
                                     <span class="indicator-progress">Please wait...
-									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+									<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                    </span>
                                 </button>
                         </div>
                         <!--end::Actions-->
