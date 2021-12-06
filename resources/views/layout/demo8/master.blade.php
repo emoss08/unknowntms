@@ -4,20 +4,19 @@
 
     <!--begin::Main-->
     @if (theme()->getOption('layout', 'main/type') === 'blank')
-        <div class="d-flex flex-column flex-root">
-            {{ $slot }}
-        </div>
-    @else
         <!--begin::Root-->
         <div class="d-flex flex-column flex-root">
             <!--begin::Page-->
             <div class="page d-flex flex-row flex-column-fluid">
-            {{ theme()->getView('layout/aside/_base') }}
+            {{ $slot }}
+            </div>
+        </div>
+    @else
 
-            <!--begin::Wrapper-->
-                <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+            <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
                 {{ theme()->getView('layout/header/_base') }}
 
+                {{ theme()->getView('layout/aside/_base') }}
                 <!--begin::Content-->
                     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
                         {{ theme()->getView('layout/_content', compact('slot')) }}

@@ -50,8 +50,7 @@
 {{-- end::Head --}}
 
 {{-- begin::Body --}}
-<body {!! theme()->printHtmlAttributes('body') !!} {!! theme()->printHtmlClasses('body') !!} {!! theme()->printCssVariables('body') !!} ">
-
+<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
 @if (theme()->getOption('layout', 'loader/display') === true)
     {{ theme()->getView('layout/_loader') }}
 @endif

@@ -1,5 +1,5 @@
 <!--begin::Container-->
-<div id="kt_content_container" class="{{ theme()->printHtmlClasses('content-container', false) }}">
+<div class="container-fluid d-flex flex-stack">
     {{ $slot }}
 </div>
 <!--end::Container-->

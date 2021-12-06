@@ -259,10 +259,10 @@ return array(
     ),
 
     'analytics'         => array(
-        'title' => 'Artisan Analytics Center',
+        'title' => 'Artisan Report Center',
 
         'trailers' => array(
-            'title' => 'Trailer Dashboard',
+            'title' => 'Trailer Report Center',
 
             'edit' => array(
                 'title' => 'Edit User',
