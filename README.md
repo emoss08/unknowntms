@@ -1,5 +1,4 @@
-reference changelog.md
+PROJECT IS UNDER REDEVELOPMENT
 
-![alt text](https://werewlf.com/unknowntms.png "Unknown TMS")
 
-UI licensed from Keenthemes.com - Metronic Admin Dashboard.
+PROJECT IS MOVING TO JAVA/SPRING BOOT BACKEND!
