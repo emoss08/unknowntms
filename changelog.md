@@ -409,3 +409,7 @@ Note - Artisan is usually inside of the application file.
 ## Changelog 11/28/2021
 1. Added REDIS caching globally.
    - Note: Before running Artisan Command (Run System Scheduler), you must run Artisan Cache:Clear & Artisan modelCache:clear to clear cache.
+
+## Changelog 12/5/2021
+1. New theme implementation.
+2. Removed REDIS caching on Tractors Master file & Trailers Master File.

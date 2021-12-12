@@ -5,6 +5,7 @@
 $select2-dropdown-padding: 1rem 0;
 $select2-dropdown-option-padding: 0.75rem 1.25rem;
 $select2-dropdown-option-margin: 0 0;
+$select2-dropdown-option-check-padding: 1.25rem;
 
 $select2-dropdown-group-padding: 0 1.25rem 0 1.25rem;
 $select2-dropdown-group-margin: 0 0 0.25rem 0;
@@ -22,7 +23,7 @@ $select2-clear-right: $form-select-indicator-padding;  //$form-select-padding-x 
 // Bootstrapa 5 Theme
 .select2-container--bootstrap5 {
 
-	// Selection 
+	// Selection
 	.select2-selection {
 		box-shadow: none !important;
 		height: auto;
@@ -44,7 +45,7 @@ $select2-clear-right: $form-select-indicator-padding;  //$form-select-padding-x 
 	// Search
 	.select2-search.select2-search--inline {
 		.select2-search__field {
-			color: $input-color;	
+			color: $input-color;
 			@include placeholder($input-placeholder-color);
 			font-weight: $input-font-weight;
 			background-color: transparent;
@@ -67,7 +68,7 @@ $select2-clear-right: $form-select-indicator-padding;  //$form-select-padding-x 
 	.select2-selection--single {
 		display: flex;
 		align-items: center;
-		
+
 		// Selected
 		.select2-selection__rendered {
 			display: block;
@@ -132,7 +133,7 @@ $select2-clear-right: $form-select-indicator-padding;  //$form-select-padding-x 
 
 					span  {
 						display: none;
-					}					
+					}
 
 					&:hover {
 						opacity: 1;
@@ -146,7 +147,7 @@ $select2-clear-right: $form-select-indicator-padding;  //$form-select-padding-x 
 				}
 			}
 		}
-		
+
 		// Sizes
 		&:not(.form-select-sm):not(.form-select-lg) {
 			// $input-height, $choice-font-size, $choice-border-radius, $choice-padding-y, $choice-padding-x, $choice-margin-y, $choice-margin-x, $remove-size, $remove-margin-x
@@ -161,7 +162,7 @@ $select2-clear-right: $form-select-indicator-padding;  //$form-select-padding-x 
 			@include select2-multiple-size($input-padding-y-sm, $input-height-border, 0.8rem, 0.4rem, 0.15rem, 0.4rem, 0.15rem, 0.4rem, 0.5rem, 0.5rem);
 		}
 	}
-		
+
 	// Dropdown
 	.select2-dropdown {
 		border: 0;
@@ -210,12 +211,21 @@ $select2-clear-right: $form-select-indicator-padding;  //$form-select-padding-x 
 			margin: $select2-dropdown-option-margin;
 
 			&.select2-results__option--highlighted {
+				background-color: transparent;
+				color: $gray-700;
+			}
+
+			&:hover {
 				background-color: $component-hover-bg;
 				color: $component-hover-color;
 				transition: $transition-link;
 			}
 
 			&.select2-results__option--selected {
+				@include svg-bg-icon(check, $component-active-color);
+
+				background-size: 0.8rem;
+				background-position: center right $select2-dropdown-option-check-padding;
 				background-color: $component-active-bg;
 				color: $component-active-color;
 				transition: $transition-link;

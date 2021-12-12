@@ -183,6 +183,14 @@
     margin-left: get($scrollbar, width) !important;
 }
 
+.scroll-pe {
+    padding-right: get($scrollbar, width) !important;
+}
+
+.scroll-me {
+    margin-right: get($scrollbar, width) !important;
+}
+
 .scroll-px {
     padding-left: get($scrollbar, width) !important;
     padding-right: get($scrollbar, width) !important;

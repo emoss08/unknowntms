@@ -306,6 +306,7 @@ $container-max-widths: (
 
 $border-width:                                      1px !default;
 $border-color:                                      $gray-200 !default;
+$border-dashed-color:                               $gray-300 !default;  // Custom variable
 
 $border-widths: (
   0: 0,
@@ -459,7 +460,7 @@ $font-sizes: (
     4qx: $font-size-base * 4.25,    // 55.25px
     4hx: $font-size-base * 4.5,     // 58.5px
     4tx: $font-size-base * 4.75,    // 61.75px
-    
+
     5x: $font-size-base * 5,        // 65px
     5qx: $font-size-base * 5.25,    // 68.25px
     5hx: $font-size-base * 5.5,     // 71.5px
@@ -754,7 +755,7 @@ $alert-bg-scale:                                    if(isDarkMode(), -60%, -80%)
 
 // Dropdowns
 // Dropdown menu container and contents.
-$dropdown-box-shadow:								if(isDarkMode(), 0px 0px 30px rgba(0, 0, 0, 0.3), 0px 0px 50px 0px rgba(82,63,105, 0.1)) !default;
+$dropdown-box-shadow:								if(isDarkMode(), 0px 0px 30px rgba(0, 0, 0, 0.3), 0px 0px 50px 0px rgba(82,63,105, 0.15)) !default;
 $dropdown-border-radius:                            $border-radius !default;
 $dropdown-border-width:                             0 !default;
 $dropdown-bg:                                       $body-bg !default;

@@ -27,7 +27,29 @@
 
 <!-- begin::Script to Produce DataTable for Equipment Types -->
 <script>
-$(function(){$('#equip-type-table').DataTable({processing:!0,serverSide:!0,searching:!1,"order":[[0,"desc"]],search:{return:!0},pageLength:7,ajax:'{!! route('equipmenttype.list') !!}',columns:[{data:'status',name:'status'},{data:'equip_type_id',name:'equip_type_id'},{data:'description',name:'description'},{data:'Actions',name:'Actions',orderable:!1,serachable:!1,sClass:'text-center'},]})})
+$(function(){$('#equip-type-table').DataTable(
+    {processing:!0,serverSide:!0,
+        searching:!1,
+        "order":[[0,"desc"]],
+        search:{return:!0},
+        pageLength:7,
+        ajax:'{!! route('equipmenttype.list') !!}',
+        columns:[
+            {data: "status",
+                render: function (data, type, row, meta) {
+                    if (type === 'display') {
+                        if (data === 'Active') {
+                            data = '<span class="badge badge-light-success">Active</span>';
+                        } else if (data === 'Inactive') {
+                            data = '<span class="badge badge-light-danger">Inactive</span>';
+                        }
+                        return data;
+                }}},
+        {data:'equip_type_id',name:'equip_type_id'},
+        {data:'description',name:'description'},
+        {data:'Actions',name:'Actions',orderable:!1,serachable:!1,sClass:'text-center'},
+        ]}
+    )})
 </script>
 <!-- end::Script to Produce DataTable for Equipment Types -->
 

@@ -192,8 +192,13 @@ return array(
     ),
 
     // Main menu
+
     'main'          => array(
         //// Dashboard
+        array(
+            'classes' => array('content' => 'pb-2'),
+            'content' => '<span class="menu-section text-muted text-uppercase fs-8 ls-1">Dashboard</span>',
+        ),
         array(
             'title' => 'Dashboard',
             'path'  => 'index',
@@ -201,7 +206,7 @@ return array(
         ),
         //// Customer Service
         array(
-            'classes' => array('content' => 'pt-8 pb-2'),
+            'classes' => array('content' => 'pb-2'),
             'content' => '<span class="menu-section text-muted text-uppercase fs-8 ls-1">Customer Service</span>',
         ),
         // Order Management

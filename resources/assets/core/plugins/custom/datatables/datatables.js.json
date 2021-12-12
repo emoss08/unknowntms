@@ -23,9 +23,9 @@
     "node_modules/datatables.net-rowreorder/js/dataTables.rowReorder.min.js",
     "node_modules/datatables.net-rowreorder-bs5/js/rowReorder.bootstrap5.js",
     "node_modules/datatables.net-scroller/js/dataTables.scroller.min.js",
-    "node_modules/datatables.net-scroller-bs5/js/dataTables.bootstrap5.js",
+    "node_modules/datatables.net-scroller-bs5/js/scroller.bootstrap5.js",
     "node_modules/datatables.net-select/js/dataTables.select.min.js",
-    "node_modules/datatables.net-select-bs5/js/dataTables.bootstrap5.js",
+    "node_modules/datatables.net-select-bs5/js/select.bootstrap5.js",
     "node_modules/datatables.net-datetime/dist/dataTables.dateTime.min.js",
     "resources/assets/extended/js/vendors/plugins/datatables.init.js"
 ]

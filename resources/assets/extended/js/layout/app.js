@@ -2,8 +2,6 @@
 
 require('select2');
 require('../../../core/js/vendors/plugins/select2.init.js');
-require('./../assets/vendor/vectorwyse/idle-timeout-alert/js/app');
-
 
 // Class definition
 var KTApp = function() {

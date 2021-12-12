@@ -26,10 +26,10 @@
 		    &.active {
 			    .page-link {
 			        border-color: $primary-light;
-				}	
+				}
 			}
 		}
-	}		
+	}
 }
 
 .page-item {
@@ -53,63 +53,70 @@
 			font-size: $pagination-icon-font-size;
 		}
 
+		/*rtl:options:{"autoRename":false}*/
 		.previous,
 		.next {
 			display: block;
 			height: $pagination-icon-height;
 			width: $pagination-icon-height;
+
+			/*rtl:raw:transform: rotateZ(-180deg);*/
+		}
+		/*rtl:end:ignore*/
+
+		.previous {
+				@include svg-bg-icon(arrow-start, $pagination-color);
+			}
+
+		/*rtl:options:{"autoRename":false}*/
+		.next {
+			@include svg-bg-icon(arrow-end, $pagination-color);
 		}
 	}
 
-	&.next:not(:hover):not(:focus):not(.disabled),
-	&.previous:not(:hover):not(:focus):not(.disabled) {
+	/*rtl:options:{"autoRename":false}*/
+	&.next,
+	&.previous {
 		.page-link {
 			background-color: $pagination-item-bg;
 
 			i {
 				color: $pagination-color;
 			}
-	
+
 			.svg-icon {
 				@include svg-icon-color($pagination-color);
-			}
-
-			.previous {
-				@include svg-bg-icon(arrow-start, $pagination-color);
-			}
-
-			.next {
-				@include svg-bg-icon(arrow-end, $pagination-color);
 			}
 		}
 	}
 
-	&:focus:not(.disabled) {
+	&:focus {
 		.page-link {
 			i {
 				color: $pagination-focus-color;
 			}
-	
+
 			.svg-icon {
 				@include svg-icon-color($pagination-focus-color);
-			}			
+			}
 
 			.previous {
 				@include svg-bg-icon(arrow-start, $pagination-focus-color);
 			}
 
+			/*rtl:options:{"autoRename":false}*/
 			.next {
 				@include svg-bg-icon(arrow-end, $pagination-focus-color);
 			}
 		}
 	}
 
-	&:hover:not(.disabled) {
+	&:hover {
 		.page-link {
 			i {
 				color: $pagination-hover-color;
 			}
-	
+
 			.svg-icon {
 				@include svg-icon-color($pagination-hover-color);
 			}
@@ -118,6 +125,7 @@
 				@include svg-bg-icon(arrow-start, $pagination-hover-color);
 			}
 
+			/*rtl:options:{"autoRename":false}*/
 			.next {
 				@include svg-bg-icon(arrow-end, $pagination-hover-color);
 			}
@@ -129,7 +137,7 @@
 			i {
 				color: $pagination-active-color;
 			}
-	
+
 			.svg-icon {
 				@include svg-icon-color($pagination-active-color);
 			}
@@ -138,6 +146,7 @@
 				@include svg-bg-icon(arrow-start, $pagination-active-color);
 			}
 
+			/*rtl:options:{"autoRename":false}*/
 			.next {
 				@include svg-bg-icon(arrow-end, $pagination-active-color);
 			}
@@ -149,7 +158,7 @@
 			i {
 				color: $pagination-disabled-color;
 			}
-	
+
 			.svg-icon {
 				@include svg-icon-color($pagination-disabled-color);
 			}
@@ -158,11 +167,13 @@
 				@include svg-bg-icon(arrow-start, $pagination-disabled-color);
 			}
 
+			/*rtl:options:{"autoRename":false}*/
 			.next {
 				@include svg-bg-icon(arrow-end, $pagination-disabled-color);
 			}
 		}
 	}
+	/*rtl:end:ignore*/
 }
 
 // Tablet & mobile modes
