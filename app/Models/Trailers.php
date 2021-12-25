@@ -33,6 +33,7 @@ class Trailers extends Model implements \OwenIt\Auditing\Contracts\Auditable
         'last_inspection',
         'comments',
         'entered_by',
+        'attachments',
     ];
 
     /**

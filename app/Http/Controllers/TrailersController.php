@@ -43,7 +43,6 @@ class TrailersController extends Controller
         if (! Gate::allows('trailer-create', $input)) {
             return abort(401);
         }
-        Trailers::create($input);
     }
 
     public function update(UpdateTrailerRequest $request, Trailers $trailer)

@@ -6,6 +6,8 @@ use App\Exports\TractorsExport;
 use App\Http\Requests\TractorsRequest;
 use App\Imports\TractorsImport;
 use App\Mail\NewTractorNotification;
+use App\Models\TemporaryFile;
+use App\Models\Trailers;
 use App\Models\User;
 use App\Notifications\TractorAdded;
 use Illuminate\Support\Facades\Gate;
@@ -20,6 +22,7 @@ use Illuminate\Http\Response;
 use Mail;
 use Notification;
 use PDF;
+use RahulHaque\Filepond\Facades\Filepond;
 use Yajra\DataTables\DataTables;
 
 class TractorsController extends Controller
@@ -59,7 +62,6 @@ class TractorsController extends Controller
 
     public function store(TractorsRequest $request)
     {
-
         $request ->validate([
             'tractor_id' => 'required|unique:tractors,tractor_id',
         ]);
@@ -67,11 +69,20 @@ class TractorsController extends Controller
         $input = $request->all();
         $input['entered_by'] = auth()->user()->id;
 
+
         if (! Gate::allows('tractor-create', $input)) {
             return abort(401);
         }
-        Tractors::create($input);
-        Mail::to($request->user())->send(new NewTractorNotification($request));
+
+       $tractor = Tractors::create($input);
+
+        $temporaryFIle = TemporaryFile::where('folder', $request->attachments)->first();
+        if ($temporaryFIle) {
+            $tractor->addMedia(storage_path('app/tractors/tmp/' . $request->attachments . '/' . $temporaryFIle->filename))
+                ->toMediaCollection('attachments');
+            rmdir(storage_path('app/tractors/tmp/' . $request->attachments));
+            $temporaryFIle->delete();
+        }
         return redirect()->route('tractors.index');
     }
 

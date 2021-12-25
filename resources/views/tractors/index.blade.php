@@ -10,14 +10,21 @@
 @includeIf('tractors._partials._create_modal')
 </x-base-layout>
 
-<!-- begin::Script to Produce DataTable for Tractors -->
+    <script>
+        // Create FilePond object
+        const inputElement = document.querySelector('input[id="attachment"]');
+        const pond = FilePond.create(inputElement);
+        FilePond.setOptions({
+            server: {
+                url: '/upload',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+            }
+        });
+    </script>
 <script>
     $(function(){$('#tractor_table').DataTable({
-        processing:!0,
-        serverSide:!0,
-        searching: false,
-        "order":[[0,"desc"]],
-        pageLength:7,
         ajax:'{!! route('api.tractors.index') !!}',
         columns:[
         {
@@ -40,7 +47,9 @@
             {data:'owned_by',name:'owned_by'},
             {data:'last_inspection',name:'last_inspection'},
             {data:'Actions',name:'Actions',orderable:!1,sClass:'text-center'},
-        ]})})
+        ],
+    })
+})
 </script>
 <!-- end::Script to Produce DataTable for Tractors -->
 

@@ -26,8 +26,9 @@
             <!--begin::Modal body-->
             <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                 <!--begin::Form-->
-                <form action="{{ route('tractors.store') }}" method="POST" novalidate="novalidate" id="tractor_form">
+                <form action="{{ route('tractors.store') }}" method="POST" novalidate="novalidate" id="tractor_form" enctype="multipart/form-data">
                 @csrf
+
                 <!--begin::Input group-->
                     <div class="row mb-5">
                         <!--begin::Col-->
@@ -44,7 +45,7 @@
                                     <select class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option" data-dropdown-parent="#create-tractor" name="status">
                                         <option></option>
                                         <option value="Active">Active</option>
-                                        <option value="In-Active">In-Active</option>
+                                        <option value="Inactive">Inactive</option>
                                     </select>
                                     <!--end::Input-->
                                 </div>
@@ -277,6 +278,16 @@
                             <span>Comments</span>
                         </label>
                         <textarea name="comments" class="form-control form-control form-control-solid" data-kt-autosize="true" maxlength="50"></textarea>
+                        <div class="valid-feedback">Looks good! Nice Job.</div>
+                        <!--end::solid autosize textarea-->
+                    </div>
+
+                    <div class="d-flex flex-column mb-7 fv-row">
+                        <!--begin::solid autosize textarea-->
+                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                            <span>Attachments</span>
+                        </label>
+                        <input type="file" name="attachments" id="attachment" />
                         <div class="valid-feedback">Looks good! Nice Job.</div>
                         <!--end::solid autosize textarea-->
                     </div>

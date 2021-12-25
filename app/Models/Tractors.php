@@ -6,12 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use OwenIt\Auditing\Contracts\Auditable;
+use RahulHaque\Filepond\Traits\HasFilepond;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Permission\Traits\HasRoles;
 
-class Tractors extends Model implements Auditable
+class Tractors extends Model implements Auditable, HasMedia
 {
     use HasFactory, Notifiable, HasRoles;
     use \OwenIt\Auditing\Auditable;
+    use InteractsWithMedia;
+    use HasFilepond;
 
     /**
      * The attributes that are mass assignable.
@@ -35,6 +40,7 @@ class Tractors extends Model implements Auditable
         'odometer',
         'comments',
         'entered_by',
+        'attachments',
     ];
 
     /**

@@ -29,7 +29,7 @@
                         <select class="form-select form-select-solid" data-control="select2" data-placeholder="{{ $tractor->status }}" name="status">
                             <option></option>
                             <option value="Active">Active</option>
-                            <option value="In-Active">In-Active</option>
+                            <option value="Inactive">Inactive</option>
                         </select>
                         <!--end::Input-->
                     </div>

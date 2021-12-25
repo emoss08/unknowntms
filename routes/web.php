@@ -18,6 +18,7 @@
     use App\Http\Controllers\TestQueueEmails;
     use App\Http\Controllers\TractorsController;
     use App\Http\Controllers\TrailersController;
+    use App\Http\Controllers\UploadController;
     use App\Http\Controllers\UserController;
     use App\Http\Controllers\UsersController;
     use Illuminate\Support\Facades\Route;
@@ -39,6 +40,8 @@
     Route::get ('/', function () {
         return redirect ('index');
     });
+
+    Route::post('/upload', [UploadController::class, 'store']);
 
     $menu = theme ()->getMenu ();
     array_walk ($menu, function ($val) {
@@ -103,7 +106,7 @@
         Route::get ('commodity/list', [CommoditiesController::class, 'getCommodities'])->name ('commodities.ajax.index');
         Route::get ('ordertype/list', [OrderTypesController::class, 'getOrderTypes'])->name ('ordertype.list');
         Route::get ('trailer/list', [TrailersController::class, 'getTrailers'])->name ('trailers.list');
-        Route::get ('user/list', [UsersController::class, 'getUsers'])->name ('users.list');
+        Route::get ('user/list', [UserController::class, 'getUsers'])->name ('users.list');
         /** end::GET for DataTables to produce data */
 
         /* begin::Middleware to throttle Exports **/

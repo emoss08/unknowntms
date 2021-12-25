@@ -9,6 +9,7 @@
     <link rel="canonical" href="{{ ucfirst(theme()->getOption('meta', 'canonical')) }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="shortcut icon" href="{{ asset(theme()->getDemo() . '/' .theme()->getOption('assets', 'favicon')) }}"/>
+    <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- begin::Fonts --}}
@@ -82,120 +83,25 @@
 @endif
 {{-- end::Javascript --}}
 
-@if (theme()->getViewMode() === 'preview')
-    {{ theme()->getView('partials/trackers/_ga-tag-manager-for-body') }}
-@endif
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
 
 @yield('scripts')
 
 {{--begin::TOASTR options --}}
 <script>
-    @if(Session::has('message'))
-    var type = "{{ Session::get('alert-type', 'info') }}";
-    switch(type){
-        case 'info':
-            toastr.options = {
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": true,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": true,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            }
-            toastr.info("{{ Session::get('message') }}");
-            break;
-
-        case 'warning':
-            toastr.options = {
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": true,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": true,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            }
-            toastr.warning("{{ Session::get('message') }}");
-            break;
-
-        case 'success':
-            toastr.options = {
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": true,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": true,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            }
-            toastr.success("{{ Session::get('message') }}");
-            break;
-
-        case 'error':
-            toastr.options = {
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": true,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": true,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            }
-            toastr.error("{{ Session::get('message') }}");
-            break;
-    }
-    @endif
+    $.extend( true, $.fn.dataTable.defaults, {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/{{ app()->getLocale() }}.json"
+        },
+        processing: true,
+        serverSide: true,
+        searching: false,
+        "order":[[0,"desc"]],
+        pageLength:7,
+    })
 </script>
-
-<!--
-<script>
-window.oncontextmenu = function () {
-return false;
-}
-$(document).keydown(function (event) {
-if (event.keyCode == 123) {
-return false;
-}
-else if ((event.ctrlKey && event.shiftKey && event.keyCode == 73) || (event.ctrlKey && event.shiftKey && event.keyCode == 74)) {
-return false;
-}
-});
-</script> -->
-{{--end::TOASTR options --}}
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 {{-- end::Body --}}
 </html>
