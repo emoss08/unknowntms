@@ -5,6 +5,7 @@
     use App\Http\Controllers\AuditController;
     use App\Http\Controllers\Auth\SocialiteLoginController;
     use App\Http\Controllers\CommoditiesController;
+    use App\Http\Controllers\CustomerController;
     use App\Http\Controllers\Documentation\ReferencesController;
     use App\Http\Controllers\EquipmentTypeController;
     use App\Http\Controllers\LangController;
@@ -12,10 +13,12 @@
     use App\Http\Controllers\Logs\SystemLogsController;
     use App\Http\Controllers\OrderTypesController;
     use App\Http\Controllers\PagesController;
+    use App\Http\Controllers\ProductController;
     use App\Http\Controllers\RoleController;
     use App\Http\Controllers\TestQueueEmails;
     use App\Http\Controllers\TractorsController;
     use App\Http\Controllers\TrailersController;
+    use App\Http\Controllers\UserController;
     use App\Http\Controllers\UsersController;
     use Illuminate\Support\Facades\Route;
     use SebastianBergmann\Environment\Console;
@@ -75,9 +78,11 @@
             /** begin::Application Pages ( DO NOT CHANGE OR REMOVE OR PAGES WILL NOT WORK */
             Route::resource ('ordertypes', OrderTypesController::class);
             Route::resource ('roles', RoleController::class);
-            Route::resource ('users', UsersController::class);
+            Route::resource ('users', UserController::class);
+            Route::resource ('customers', CustomerController::class);
             Route::resource ('commodities', CommoditiesController::class);
             Route::resource ('tractors', TractorsController::class);
+            Route::resource ('products', ProductController::class);
             Route::resource ('trailers', TrailersController::class);
             Route::resource ('equipmenttypes', EquipmentTypeController::class);
             Route::resource ('artisan', ArtisanController::class);
@@ -95,8 +100,7 @@
 
         /** begin::GET for DataTables to produce data */
         Route::get ('equipmenttype/list', [EquipmentTypeController::class, 'getEquipTypes'])->name ('equipmenttype.list');
-        Route::get ('tractor/list', [TractorsController::class, 'getTractors'])->name ('tractors.list');
-        Route::get ('commodity/list', [CommoditiesController::class, 'getCommodities'])->name ('commodity.list');
+        Route::get ('commodity/list', [CommoditiesController::class, 'getCommodities'])->name ('commodities.ajax.index');
         Route::get ('ordertype/list', [OrderTypesController::class, 'getOrderTypes'])->name ('ordertype.list');
         Route::get ('trailer/list', [TrailersController::class, 'getTrailers'])->name ('trailers.list');
         Route::get ('user/list', [UsersController::class, 'getUsers'])->name ('users.list');

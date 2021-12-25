@@ -137,6 +137,21 @@ return array(
         ),
     ),
 
+    // Trailers
+    'products' => array(
+        'title'  => 'Trailers Overview',
+        'view'   => 'trailers.index',
+        'assets' => array(
+            'custom' => array(
+                'css' => array(
+                    'plugins/custom/datatables/datatables.bundle.css',
+                ),
+                'js'  => array(
+                    'plugins/custom/datatables/datatables.bundle.js',
+                ),
+            ),
+        ),
+    ),
 
     'equipmenttypes' => array(
         '*'  => array(

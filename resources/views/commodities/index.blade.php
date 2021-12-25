@@ -1,7 +1,10 @@
 <x-base-layout>
     @if ($message=Session::get('success'))
         <div class="alert alert-success"><p>{{$message}}</p></div>
-    @endif @includeIf('commodities._partials._content') @includeIf('commodities._partials._create_modal') @includeIf('commodities._partials._edit_modal')
+    @endif
+        @includeIf('commodities._partials._content')
+        @includeIf('commodities._partials._create_modal')
+        @includeIf('commodities._partials._edit_modal')
 </x-base-layout>
 @foreach ($commodities as $commodity)
     <script>
@@ -9,14 +12,15 @@
     </script>
 @endforeach
 <script>
-    $(function(){$('#commodity-table').DataTable(
-            {processing:!0,
-            serverSide:!0,
+    $(function(){$('#commodity-table').DataTable({
+            processing: true,
+            serverSide: true,
+            retrieve: true,
             searching:!1,
             "order":[[0,"desc"]],
             search:{return:!0},
             pageLength:7,
-            ajax:'{!! route('commodity.list') !!}',
+            ajax:'{!! route('commodities.ajax.index') !!}',
             columns:[
             {data: "status",
                 render: function (data, type, row, meta) {
@@ -27,7 +31,8 @@
                             data = '<span class="badge badge-light-danger">Inactive</span>';
                         }
                         return data;
-                    }}},
+                    }}
+            },
                 {data:'commodity_id',name:'commodity_id'},
                 {data:'description',name:'description'},
                 {data:'Actions',name:'Actions',orderable:!1,serachable:!1,sClass:'text-center'},

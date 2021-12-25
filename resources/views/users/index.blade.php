@@ -17,48 +17,41 @@
         </div>
     @endif
 
-    <input type="text" name="email" class="form-control searchEmail" placeholder="Search for Email Only...">
-    <br>
 
-    <table class="table table-bordered data-table">
-        <thead>
+    <table class="table table-bordered">
         <tr>
             <th>No</th>
             <th>Name</th>
             <th>Email</th>
-            <th width="100px">Action</th>
+            <th>Roles</th>
+            <th width="280px">Action</th>
         </tr>
-        </thead>
-        <tbody>
-        </tbody>
+        @foreach ($data as $key => $user)
+            <tr>
+                <td>{{ ++$i }}</td>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
+                <td>
+                    @if(!empty($user->getRoleNames()))
+                        @foreach($user->getRoleNames() as $v)
+                            <label class="badge badge-success">{{ $v }}</label>
+                        @endforeach
+                    @endif
+                </td>
+                <td>
+                    <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Show</a>
+                    <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
+                    {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
+                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                    {!! Form::close() !!}
+                </td>
+            </tr>
+        @endforeach
     </table>
 
+
+    {!! $data->render() !!}
+
+
+    <p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>
 </x-base-layout>
-
-<script type="text/javascript">
-    $(function () {
-
-        var table = $('.data-table').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: {
-                url: "{{ route('users.index') }}",
-                data: function (d) {
-                    d.email = $('.searchEmail').val(),
-                        d.search = $('input[type="search"]').val()
-                }
-            },
-            columns: [
-                {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                {data: 'name', name: 'name'},
-                {data: 'email', name: 'email'},
-                {data: 'action', name: 'action', orderable: false, searchable: false},
-            ]
-        });
-
-        $(".searchEmail").keyup(function(){
-            table.draw();
-        });
-
-    });
-</script>

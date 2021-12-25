@@ -36,6 +36,12 @@
         });
     });
 </script>
+
+<style>
+    .red {
+        background-color: red !important;
+    }
+</style>
 <script>
     $(function () {
         $("#trailer_table").DataTable({

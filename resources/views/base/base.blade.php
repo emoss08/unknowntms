@@ -45,7 +45,6 @@
     @endif
 
     @yield('styles')
-    <livewire:styles />
 </head>
 {{-- end::Head --}}
 
@@ -196,9 +195,7 @@ return false;
 });
 </script> -->
 {{--end::TOASTR options --}}
-<livewire:scripts />
-<script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
-<x-livewire-alert::flash />
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 {{-- end::Body --}}
 </html>

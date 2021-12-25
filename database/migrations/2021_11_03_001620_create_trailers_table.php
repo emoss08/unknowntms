@@ -30,6 +30,7 @@ class CreateTrailersTable extends Migration
             $table->string('comments', 255)->nullable()->index();
             $table->integer('entered_by')->nullable()->index();
             $table->string('attachments')->nullable()->index();
+            $table->string('slug')->nullable()->index();
             $table->timestamps();
         });
     }

@@ -13,7 +13,6 @@ class Commodities extends Model implements Auditable
 {
     use HasFactory, Notifiable, HasRoles;
     use \OwenIt\Auditing\Auditable;
-    use Cachable;
 
     /**
      * The attributes that are mass assignable.

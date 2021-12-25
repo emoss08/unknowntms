@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+    use App\Http\Controllers\APIController;
+    use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,4 +21,4 @@ use Illuminate\Support\Facades\Route;
 
 // Sample API route
 Route::get('/profits', [\App\Http\Controllers\SampleDataController::class, 'profits'])->name('profits');
-
+route::get('/v1/tractors', [APIController::class, 'getTractors'])->name('api.tractors.index');

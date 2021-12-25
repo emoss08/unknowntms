@@ -44,8 +44,7 @@ class TractorsController extends Controller
      */
     public function index()
     {
-    $tractor = Tractors::latest()->paginate(11);
-    return view('tractors.index',compact('tractor'));
+    return view('tractors.index');
     }
 
     /**
@@ -91,10 +90,11 @@ class TractorsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Tractors $tractor
-     * @return Response
+     * @return Application|Factory|View
      */
-    public function edit(Tractors $tractor)
+    public function edit(Tractors $tractor): View|Factory|Application
     {
+        $tractor = Tractors::findOrFail($tractor->id);
         return view('tractors.edit',compact('tractor'));
     }
 
@@ -161,19 +161,6 @@ class TractorsController extends Controller
             );
         }
         return response()->json($response);
-    }
-
-    // Tractor list for DataTables
-    public function getTractors(Request $request)
-    {
-        $tractors = Tractors::latest()->get();
-
-        return Datatables::of($tractors)
-            ->addColumn('Actions', function ($tractors)  {
-                return '<button class="btn btn-light btn-active-light-info btn-sm" data-bs-toggle="modal" data-bs-target="#edit-tractors-'.$tractors->id.'" class="menu-link px-3">Edit</button>';
-            })
-            ->rawColumns(['Actions'])
-            ->make(true);
     }
 
     // PDF export for Tractor List

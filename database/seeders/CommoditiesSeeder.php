@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use DB;
+use Str;
 
 class CommoditiesSeeder extends Seeder
 {
@@ -14,57 +15,16 @@ class CommoditiesSeeder extends Seeder
      */
     public function run()
     {
-        $commodities = [
-            [
+
+        for ($i = 0; $i < 1000; $i++) {
+            DB::table('commodities')->insert([
                 'status' => 'Active',
-                'commodity_id' => 'TEST',
+                'commodity_id' => Str::random(4),
                 'description' => 'Test Commodity',
                 'entered_by' => '4',
                 'created_at' => now(),
                 'updated_at' => now(),
-            ],
-            [
-                'status' => 'Active',
-                'commodity_id' => 'PROD',
-                'description' => 'Produce',
-                'entered_by' => '4',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'status' => 'Active',
-                'commodity_id' => 'MEAT',
-                'description' => 'Meat',
-                'entered_by' => '4',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'status' => 'Active',
-                'commodity_id' => 'MED',
-                'description' => 'Medical Supplies',
-                'entered_by' => '4',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'status' => 'Active',
-                'commodity_id' => 'HAZ',
-                'description' => 'General Hazmat Commodity',
-                'entered_by' => '4',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'status' => 'Active',
-                'commodity_id' => 'GENR',
-                'description' => 'General Commodity',
-                'entered_by' => '4',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]
-        ];
-
-        DB::table('commodities')->insert($commodities);
+            ]);
+        }
     }
 }

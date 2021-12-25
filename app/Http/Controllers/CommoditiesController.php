@@ -29,17 +29,8 @@ class CommoditiesController extends Controller
     public function index()
     {
         $commodities = Commodities::all();
-        return view('commodities.index',compact('commodities'));
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('commodities.create');
+        return view('commodities.index', (compact('commodities')));
     }
 
     /**
@@ -54,9 +45,7 @@ class CommoditiesController extends Controller
         $input = $request->validated();
         $input['entered_by'] = auth()->user()->id;
 
-        if (! Gate::allows('commodities-create', $input)) {
-            abort(401);
-        }
+        abort_unless(\Gate::allows('commodities-create'), 403);
 
         Commodities::create($input);
 
@@ -93,14 +82,18 @@ class CommoditiesController extends Controller
     //
     public function getCommodities(Request $request)
     {
-        $commodity = Commodities::latest()->get();
+        if (request()->ajax()) {
+            $commodity = Commodities::query();
+            $table = DataTables::of($commodity);
 
-        return Datatables::of($commodity)
-            ->addColumn('Actions', function ($commodity)  {
-                return '<button class="btn btn-light btn-active-light-info btn-sm" data-bs-toggle="modal" data-bs-target="#edit-commodity-'.$commodity->id.'" class="menu-link px-3">Edit</button>';
-            })
-            ->rawColumns(['Actions'])
-            ->make(true);
+            $table->addColumn('Actions', function ($commodity) {
+                return '<button class="btn btn-light btn-active-light-info btn-sm" data-bs-toggle="modal" data-bs-target="#edit-commodity-'.$commodity->id.'">Edit</button>';
+            });
+            $table->rawColumns(['Actions']);
+            return $table->make(true);
+        }
+
+        return view('commodities.ajax.index');
     }
 
     /* AJAX request */
