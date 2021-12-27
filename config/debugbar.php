@@ -74,7 +74,7 @@ return [
      */
 
     'capture_ajax' => true,
-    'add_ajax_timing' => false,
+    'add_ajax_timing' => true,
 
     /*
      |--------------------------------------------------------------------------
@@ -85,7 +85,7 @@ return [
      | in the Messages tab.
      |
      */
-    'error_handler' => false,
+    'error_handler' => true,
 
     /*
      |--------------------------------------------------------------------------
@@ -117,18 +117,18 @@ return [
         'db'              => true,  // Show database (PDO) queries and bindings
         'views'           => true,  // Views with their data
         'route'           => true,  // Current route information
-        'auth'            => false, // Display Laravel authentication status
+        'auth'            => true, // Display Laravel authentication status
         'gate'            => true,  // Display Laravel Gate checks
         'session'         => true,  // Display session data
         'symfony_request' => true,  // Only one can be enabled..
         'mail'            => true,  // Catch mail messages
-        'laravel'         => false, // Laravel version and environment
+        'laravel'         => true, // Laravel version and environment
         'events'          => false, // All events fired
         'default_request' => false, // Regular or special Symfony request logger
         'logs'            => false, // Add the latest log messages
         'files'           => false, // Show the included files
-        'config'          => false, // Display config settings
-        'cache'           => false, // Display cache events
+        'config'          => true, // Display config settings
+        'cache'           => true, // Display cache events
         'models'          => true,  // Display models
         'livewire'        => true,  // Display Livewire (when available)
     ],
