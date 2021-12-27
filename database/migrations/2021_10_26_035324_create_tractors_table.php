@@ -29,7 +29,8 @@ class CreateTractorsTable extends Migration
             $table->string('tag_expiration')->nullable();
             $table->string('last_inspection')->nullable();
             $table->string('comments')->nullable();
-            $table->integer('entered_by')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('attachments')->nullable();
             $table->timestamps();
         });

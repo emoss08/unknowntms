@@ -27,10 +27,10 @@ class CreateTrailersTable extends Migration
             $table->string('tag_state', 2)->nullable()->index();
             $table->string('tag_expiration', 12)->nullable()->index();
             $table->string('last_inspection', 12)->nullable()->index();
-            $table->string('comments', 255)->nullable()->index();
-            $table->integer('entered_by')->nullable()->index();
-            $table->string('attachments')->nullable()->index();
-            $table->string('slug')->nullable()->index();
+            $table->string('comments', 255)->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('attachments')->nullable();
             $table->timestamps();
         });
     }

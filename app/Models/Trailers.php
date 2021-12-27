@@ -32,7 +32,7 @@ class Trailers extends Model implements \OwenIt\Auditing\Contracts\Auditable
         'tag_expiration',
         'last_inspection',
         'comments',
-        'entered_by',
+        'user_id',
         'attachments',
     ];
 

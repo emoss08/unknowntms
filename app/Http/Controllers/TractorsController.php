@@ -65,16 +65,11 @@ class TractorsController extends Controller
         $request ->validate([
             'tractor_id' => 'required|unique:tractors,tractor_id',
         ]);
-
         $input = $request->all();
-        $input['entered_by'] = auth()->user()->id;
-
-
         if (! Gate::allows('tractor-create', $input)) {
             return abort(401);
         }
-
-       $tractor = Tractors::create($input);
+       $tractor = Tractors::create($input + ['user_id' => auth()->id()]);
 
         $temporaryFIle = TemporaryFile::where('folder', $request->attachments)->first();
         if ($temporaryFIle) {
@@ -83,6 +78,12 @@ class TractorsController extends Controller
             rmdir(storage_path('app/tractors/tmp/' . $request->attachments));
             $temporaryFIle->delete();
         }
+
+        $tractorData = [
+            'id' => $request->tractor_id,
+        ];
+
+        Notification::send(User::find(1), new TractorAdded($tractorData));
         return redirect()->route('tractors.index');
     }
 

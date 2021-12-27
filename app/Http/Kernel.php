@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\IsAdminMiddleware;
 use App\Jobs\TestSendEmail;
 use DB;
 use Illuminate\Console\Scheduling\Schedule;
@@ -74,5 +75,6 @@ class Kernel extends HttpKernel
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
+        'is_admin' => IsAdminMiddleware::class,
     ];
 }

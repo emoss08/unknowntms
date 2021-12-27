@@ -30,9 +30,7 @@ class TrailersController extends Controller
     {
         $equipTypes = \App\Models\EquipmentType::all();
 
-        $trailers = Trailers::latest()->get();
-
-        return view('trailers.index' ,compact('trailers'))->with('equipTypes', $equipTypes);
+        return view('trailers.index' , compact('equipTypes'));
     }
 
     public function store(StoreTrailerRequest $request)
@@ -53,19 +51,6 @@ class TrailersController extends Controller
         $trailer->update($request->all());
 
         return redirect()->route('trailers.index');
-    }
-
-    // Tractor list for DataTables
-    public function getTrailers(Request $request)
-    {
-        $trailers= Trailers::latest()->get();
-
-        return Datatables::of($trailers)
-            ->addColumn('Actions', function ($trailers)  {
-                return '<button class="btn btn-light btn-active-light-info btn-sm" data-bs-toggle="modal" data-bs-target="#edit-trailers-'.$trailers->id.'">Edit</button>';
-            })
-            ->rawColumns(['Actions'])
-            ->make(true);
     }
 
     /* AJAX request */

@@ -5,7 +5,9 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-
+@if (auth()->user()->is_admin)
+    test to see if you're admin
+@endif
 @includeIf('tractors._partials._content')
 @includeIf('tractors._partials._create_modal')
 </x-base-layout>

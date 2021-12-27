@@ -8,7 +8,6 @@
 
     @includeIf('trailers._partials._content')
     @includeIf('trailers._partials._create_modal')
-    @includeIf('trailers._partials._edit_modal')
 </x-base-layout>
 
 <script type="text/javascript">
@@ -51,7 +50,7 @@
             order: [[0, "desc"]],
             search: {return: !0},
             pageLength: 7,
-                ajax: '{!! route('trailers.list') !!}',
+                ajax: '{!! route('api.trailers.index') !!}',
                 columns: [
                     {
                         data: "status",
@@ -77,15 +76,13 @@
         });
     });
 </script>
-@foreach($trailers as $trailer)
-
 <script>
     "use strict";
-    var Trailer_{{$trailer->id}}=function() {
+    var Trailer=function() {
         var e, a, t;
         return {
             init:function() {
-                e=document.querySelector("#trailer_form_edit-{{ $trailer->id }}"), a=document.querySelector("#trailer_submit_edit-{{ $trailer->id }}"),
+                e=document.querySelector("#trailer_form_edit"), a=document.querySelector("#trailer_submit_edit"),
                     t=FormValidation.formValidation(e, {
                             fields: {
                                 status: {
@@ -329,13 +326,13 @@
             }
         }
     }();
-    KTUtil.onDOMContentLoaded(function() {Trailer_{{$trailer->id}}.init()}
+    KTUtil.onDOMContentLoaded(function() {Trailer.init()}
     );
 </script>
 
 <script>
     "use strict";
-    $("#tag_expiration-{{ $trailer->id }}").daterangepicker(
+    $("#tag_expiration").daterangepicker(
         {
             singleDatePicker: !0,
             showDropdowns: !0,
@@ -349,13 +346,13 @@
             ranges: { Today: [moment()], Yesterday: [moment().subtract(1, "days")], "7 Days Ago": [moment().subtract(6, "days")], "30 Days Ago": [moment().subtract(29, "days")] },
         },
         function (t) {
-            $("#tag_expiration-{{ $trailer->id }}").val(t.format("YYYY-MM-DD"));
+            $("#tag_expiration").val(t.format("YYYY-MM-DD"));
         }
     ),
         $(".selectall").click(function () {
             $(this).is(":checked") ? $("div input").attr("checked", !0) : $("div input").attr("checked", !1);
         }),
-        $("#last_inspection-{{ $trailer->id }}").daterangepicker(
+        $("#last_inspection").daterangepicker(
             {
                 singleDatePicker: !0,
                 showDropdowns: !0,
@@ -369,11 +366,10 @@
                 ranges: { Today: [moment()], Yesterday: [moment().subtract(1, "days")], "7 Days Ago": [moment().subtract(6, "days")], "30 Days Ago": [moment().subtract(29, "days")] },
             },
             function (t) {
-                $("#last_inspection-{{ $trailer->id }}").val(t.format("YYYY-MM-DD"));
+                $("#last_inspection").val(t.format("YYYY-MM-DD"));
             }
         ),
         $(".selectall").click(function () {
             $(this).is(":checked") ? $("div input").attr("checked", !0) : $("div input").attr("checked", !1);
         });
 </script>
-@endforeach

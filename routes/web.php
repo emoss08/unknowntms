@@ -88,7 +88,7 @@
             Route::resource ('products', ProductController::class);
             Route::resource ('trailers', TrailersController::class);
             Route::resource ('equipmenttypes', EquipmentTypeController::class);
-            Route::resource ('artisan', ArtisanController::class);
+            Route::resource ('artisan', ArtisanController::class)->middleware('is_admin');
             /** end::Application Pages ( DO NOT CHANGE OR REMOVE OR PAGES WILL NOT WORK */
         });
         /* end::Middleware to throttle application **/
@@ -105,7 +105,6 @@
         Route::get ('equipmenttype/list', [EquipmentTypeController::class, 'getEquipTypes'])->name ('equipmenttype.list');
         Route::get ('commodity/list', [CommoditiesController::class, 'getCommodities'])->name ('commodities.ajax.index');
         Route::get ('ordertype/list', [OrderTypesController::class, 'getOrderTypes'])->name ('ordertype.list');
-        Route::get ('trailer/list', [TrailersController::class, 'getTrailers'])->name ('trailers.list');
         Route::get ('user/list', [UserController::class, 'getUsers'])->name ('users.list');
         /** end::GET for DataTables to produce data */
 

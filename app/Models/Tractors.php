@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Notifications\TractorAdded;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -39,7 +40,7 @@ class Tractors extends Model implements Auditable, HasMedia
         'last_inspection',
         'odometer',
         'comments',
-        'entered_by',
+        'user_id',
         'attachments',
     ];
 

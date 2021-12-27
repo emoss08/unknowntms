@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Core\Adapters\Theme;
+use App\Models\Tractors;
+use App\Observers\TractorOberserver;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,6 +29,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        Tractors::observe(TractorOberserver::class);
+
         $theme = theme();
 
         // Share theme adapter class
