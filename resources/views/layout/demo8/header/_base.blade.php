@@ -968,12 +968,12 @@
                             <!--begin::Name-->
                             <div class="d-none d-md-flex flex-column align-items-end justify-content-center me-2 me-md-4">
                                 <span class="text-muted fs-8 fw-bold lh-1 mb-1">{{ auth()->user()->name }}</span>
-                                <span class="text-white fs-8 fw-bolder lh-1">Sr. Software Engineer</span>
+                                <span class="text-white fs-8 fw-bolder lh-1">{{ auth()->user()->title }}</span>
                             </div>
                             <!--end::Name-->
                             <!--begin::Symbol-->
                             <div class="symbol symbol-30px symbol-md-40px">
-                                <img src="{{ auth()->user()->avatar_url }}" alt="image" />
+                                <img src="{{ Avatar::create(auth()->user()->name)->toBase64() }}" alt="image" />
                             </div>
                             <!--end::Symbol-->
                         </div>
@@ -985,7 +985,7 @@
                                 <div class="menu-content d-flex align-items-center px-3">
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-50px me-5">
-                                        <img alt="Logo" src="{{ auth()->user()->avatar_url }}" />
+                                        <img alt="Logo" src="{{ Avatar::create(auth()->user()->name)->toBase64() }}" />
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::Username-->
