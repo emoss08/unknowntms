@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\Charts\TrailersDashboard;
 use App\Http\Requests\StoreTrailerRequest;
 use App\Http\Requests\UpdateTrailerRequest;
+use App\Models\EquipmentType;
 use App\Models\Trailers;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
@@ -16,9 +20,9 @@ class TrailersController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return void
      */
-    function __construct()
+    public function __construct()
     {
         $this->middleware('permission:trailer-list|trailer-create|trailer-edit|trailer-delete', ['only' => ['index','show']]);
         $this->middleware('permission:trailer-create', ['only' => ['create','store']]);
@@ -26,7 +30,7 @@ class TrailersController extends Controller
         $this->middleware('permission:trailer-delete', ['only' => ['destroy']]);
     }
 
-    public function index()
+    public function index(): Factory|View|Application
     {
         $equipTypes = \App\Models\EquipmentType::all();
 
@@ -43,7 +47,20 @@ class TrailersController extends Controller
         }
     }
 
-    public function update(UpdateTrailerRequest $request, Trailers $trailer)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Trailers $trailer
+     * @return Application|Factory|View
+     */
+    public function edit(Trailers $trailer): View|Factory|Application
+    {
+        $equipTypes = EquipmentType::all();
+        $trailer = Trailers::findOrFail($trailer->id);
+        return view('trailers.edit',compact('trailer', 'equipTypes'));
+    }
+
+    public function update(UpdateTrailerRequest $request, Trailers $trailer): \Illuminate\Http\RedirectResponse
     {
         if ($request->user()->cannot('trailer-edit', $trailer)) {
             abort (403);
@@ -51,6 +68,18 @@ class TrailersController extends Controller
         $trailer->update($request->all());
 
         return redirect()->route('trailers.index');
+    }
+
+    public function create(): View
+    {
+        $equipTypes = EquipmentType::all();
+        return view('trailers.create', compact('equipTypes'));
+    }
+
+public function show(Trailers $trailer): View
+    {
+        $equipTypes = EquipmentType::all();
+        return view('trailers.show', compact('trailer', 'equipTypes'));
     }
 
     /* AJAX request */
@@ -63,7 +92,8 @@ class TrailersController extends Controller
             $trailers = Trailers::orderby('trailer_id','asc')->select('id','trailer_id')->where('trailer_id', 'like', '%' .$search . '%')->limit(5)->get();
         }
         $response = array();
-        foreach($trailers as $trailer){
+        foreach($trailers as $trailer)
+        {
             $response[] = array(
                 "id"=>$trailer->id,
                 "text"=>$trailer->trailer_id
@@ -72,15 +102,17 @@ class TrailersController extends Controller
         return response()->json($response);
     }
 
-    public function destroy(Trailers $trailer)
+    public function destroy(Trailers $trailer): \Illuminate\Http\RedirectResponse
     {
-        if ($trailer->user_id != auth()->user()->id) {
+        if ($trailer->user_id !== auth()->user()->id) {
             return abort(403);
         }
         $trailer->delete();
+
+        return redirect()->route('trailers.index');
     }
 
-    public function forAnalytics()
+    public function forAnalytics(): Factory|View|Application
     {
         return view('trailers.dashboard');
     }

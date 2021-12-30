@@ -202,9 +202,15 @@
       <path value="$PROJECT_DIR$/vendor/spiral/roadrunner-worker" />
       <path value="$PROJECT_DIR$/vendor/spiral/goridge" />
       <path value="$PROJECT_DIR$/vendor/spiral/roadrunner-cli" />
+      <path value="$PROJECT_DIR$/vendor/zircote/swagger-php" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/goldspecdigital/oooas" />
+      <path value="$PROJECT_DIR$/vendor/vyuldashev/laravel-openapi" />
+      <path value="$PROJECT_DIR$/vendor/rakutentech/laravel-request-docs" />
+      <path value="$PROJECT_DIR$/vendor/kevincobain2000/laravel-erd" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.0">
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.1">
     <option name="suggestChangeDefaultLanguageLevel" value="false" />
   </component>
   <component name="PhpUnit">

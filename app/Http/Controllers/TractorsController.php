@@ -128,6 +128,15 @@ class TractorsController extends Controller
         return redirect()->route('tractors.index');
     }
 
+    public function destroy(Tractors $tractor)
+    {
+        if ($tractor->user_id != auth()->id()) {
+            abort(403);
+        }
+        $tractor->delete();
+        return redirect()->route('tractors.index');
+    }
+
     /**
      * @return \Illuminate\Support\Collection
      */

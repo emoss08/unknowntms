@@ -52,6 +52,29 @@ class CommoditiesController extends Controller
         return redirect()->route('commodities.index');
     }
 
+    public function create()
+    {
+        abort_unless(\Gate::allows('commodities-create'), 403);
+
+        return view('commodities.create');
+    }
+
+    public function show(Commodities $commodity)
+    {
+        abort_unless(\Gate::allows('commodities-show'), 403);
+
+        return view('commodities.show', compact('commodity'));
+    }
+
+    public function destroy(Commodities $commodity)
+    {
+        abort_unless(\Gate::allows('commodities-delete'), 403);
+
+        $commodity->delete();
+
+        return redirect()->route('commodities.index');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

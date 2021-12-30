@@ -90,6 +90,12 @@ class OrderTypesController extends Controller
         return view('ordertypes.edit',compact('ordertype'));
     }
 
+    public function destroy(OrderTypes $ordertype)
+    {
+        $ordertype->delete();
+        return redirect()->route('ordertypes.index');
+    }
+
     /**
      * Update the specified resource in storage.
      *

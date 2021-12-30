@@ -209,6 +209,12 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/spiral/roadrunner-worker" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/spiral/goridge" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/spiral/roadrunner-cli" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zircote/swagger-php" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/annotations" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/goldspecdigital/oooas" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vyuldashev/laravel-openapi" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/rakutentech/laravel-request-docs" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/kevincobain2000/laravel-erd" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

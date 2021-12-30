@@ -116,6 +116,23 @@ class EquipmentTypeController extends Controller
         return redirect()->route('equipmenttypes.index')->with($notification);
     }
 
+    public function destroy(EquipmentType $equipmenttype)
+    {
+        $notification = array(
+            'message' => 'Record Successfully Deleted!',
+            'alert-type' => 'success',
+            'closeButton' => true,
+
+        );
+
+        if ($equipmenttype->user_id != auth()->user()->id) {
+            abort(403);
+        }
+        $equipmenttype->delete();
+
+        return redirect()->route('equipmenttypes.index')->with($notification);
+    }
+
     //
     public function getEquipTypes(Request $request)
     {
