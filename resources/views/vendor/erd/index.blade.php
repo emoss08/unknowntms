@@ -54,6 +54,13 @@
                     <img alt="Logo" src="{{asset('demo8/media/logos/logo-2.svg')}}" class="h-25px h-lg-30px"/>
                 </a>
             </div>
+                <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center flex-shrink-0">
+                        <div class="d-flex align-items-center ms-1">
+                            <a href="/" class="btn btn-sm btn-text-white btn-active-light-dark btn-active-text-dark">Go back to Application</a>
+                        </div>
+                    </div>
+                    </div>
         </div>
     </div>
     <div class="d-flex flex-column flex-lg-row">

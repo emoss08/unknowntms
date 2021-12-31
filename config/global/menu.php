@@ -485,6 +485,11 @@ return array(
             'path'  => 'telescope',
             'icon'  => theme()->getSvgIcon("demo8/media/icons/duotune/general/gen012.svg", "svg-icon-2"),
         ),
+        array(
+            'title' => 'Eloquent Relationships',
+            'path'  => 'eloquent',
+            'icon'  => theme()->getSvgIcon("demo8/media/icons/duotune/arrows/arr035.svg", "svg-icon-2"),
+        ),
 
         // Separator
         array(

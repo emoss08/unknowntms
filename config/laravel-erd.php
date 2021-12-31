@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'url' => 'erd',
+    'url' => 'eloquent',
     'middlewares' => [
         //Example
         //\App\Http\Middleware\NotFoundWhenProduction::class,

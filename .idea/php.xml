@@ -208,6 +208,13 @@
       <path value="$PROJECT_DIR$/vendor/vyuldashev/laravel-openapi" />
       <path value="$PROJECT_DIR$/vendor/rakutentech/laravel-request-docs" />
       <path value="$PROJECT_DIR$/vendor/kevincobain2000/laravel-erd" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/path-util" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/glob" />
+      <path value="$PROJECT_DIR$/vendor/recca0120/terminal" />
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/vendor/tucker-eric/docusign-rest-client" />
+      <path value="$PROJECT_DIR$/vendor/tucker-eric/laravel-docusign" />
+      <path value="$PROJECT_DIR$/vendor/docusign/esign-client" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1">

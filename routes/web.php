@@ -88,7 +88,7 @@
             Route::resource ('products', ProductController::class);
             Route::resource ('trailers', TrailersController::class);
             Route::resource ('equipmenttypes', EquipmentTypeController::class);
-            Route::resource ('artisan', ArtisanController::class)->middleware('is_admin');
+            Route::resource ('artisan', ArtisanController::class);
             /** end::Application Pages ( DO NOT CHANGE OR REMOVE OR PAGES WILL NOT WORK */
         });
         /* end::Middleware to throttle application **/

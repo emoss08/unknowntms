@@ -215,6 +215,13 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/vyuldashev/laravel-openapi" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/rakutentech/laravel-request-docs" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/kevincobain2000/laravel-erd" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/path-util" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/glob" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/recca0120/terminal" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/firebase/php-jwt" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/tucker-eric/docusign-rest-client" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/tucker-eric/laravel-docusign" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/docusign/esign-client" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

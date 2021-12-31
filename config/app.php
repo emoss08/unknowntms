@@ -184,6 +184,8 @@ return [
         Vyuldashev\LaravelOpenApi\OpenApiServiceProvider::class,
         Askedio\Laravel5ProfanityFilter\Providers\ProfanityFilterServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        LaravelDocusign\DocusignServiceProvider::class,
+        Recca0120\Terminal\TerminalServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Laravolt\Avatar\ServiceProvider::class,
 
@@ -226,6 +228,7 @@ return [
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
         'DB' => Illuminate\Support\Facades\DB::class,
+        'DocuSign'  => LaravelDocusign\Facades\DocuSign::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Event' => Illuminate\Support\Facades\Event::class,
