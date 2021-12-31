@@ -2,32 +2,35 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 
 class RolesSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        $data = $this->data();
-
-        foreach ($data as $value) {
-            Role::create([
-                'name' => $value['name'],
-            ]);
-        }
-    }
-
-    public function data()
-    {
-        return [
-            ['name' => 'admin'],
-            ['name' => 'editor'],
+        $roles = [
+            [
+                'name' => 'Admin',
+                'display_name' => 'Admin',
+                'description' => 'Can access all features!'
+            ],
+            [
+                'name' => 'Buyer',
+                'display_name' => 'Buyer',
+                'description' => 'Can access limited features!'
+            ],
         ];
+
+        foreach ($roles as $key => $value) {
+            $role = Role::create([
+                'name' => $value['name'],
+                'display_name' => $value['display_name'],
+                'description' => $value['description']
+            ]);
+
+            User::first()->attachRole($role);
+        }
     }
 }

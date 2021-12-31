@@ -11,10 +11,12 @@ use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
+use Laratrust\Traits\LaratrustUserTrait;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasRoles, SpatieLogsActivity, AuthenticationLoggable, HasFactory, Notifiable;
+    use LaratrustUserTrait;
+    use SpatieLogsActivity, AuthenticationLoggable, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.

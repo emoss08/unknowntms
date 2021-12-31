@@ -222,6 +222,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/tucker-eric/docusign-rest-client" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/tucker-eric/laravel-docusign" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/docusign/esign-client" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/arcanedev/log-viewer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/arcanedev/support" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/santigarcor/laratrust" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/kkszymanowski/traitor" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

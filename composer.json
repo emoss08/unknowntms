@@ -10,6 +10,7 @@
     "require": {
         "ext-json": "*",
         "anlutro/l4-settings": "^1.0",
+        "arcanedev/log-viewer": "~8.0",
         "arielmejiadev/larapex-charts": "^3.0",
         "askedio/laravel5-profanity-filter": "^1.10",
         "avto-dev/extended-laravel-validator": "^3.5",
@@ -41,6 +42,7 @@
         "rappasoft/lockout": "^3.0",
         "realrashid/sweet-alert": "^4.1",
         "renatomarinho/laravel-page-speed": "^2.0",
+        "santigarcor/laratrust": "^6.3",
         "spatie/laravel-activitylog": "^4.0",
         "spatie/laravel-backup": "^7.7",
         "spatie/laravel-medialibrary": "^9.0.0",

@@ -215,9 +215,13 @@
       <path value="$PROJECT_DIR$/vendor/tucker-eric/docusign-rest-client" />
       <path value="$PROJECT_DIR$/vendor/tucker-eric/laravel-docusign" />
       <path value="$PROJECT_DIR$/vendor/docusign/esign-client" />
+      <path value="$PROJECT_DIR$/vendor/arcanedev/log-viewer" />
+      <path value="$PROJECT_DIR$/vendor/arcanedev/support" />
+      <path value="$PROJECT_DIR$/vendor/santigarcor/laratrust" />
+      <path value="$PROJECT_DIR$/vendor/kkszymanowski/traitor" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.1">
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.0">
     <option name="suggestChangeDefaultLanguageLevel" value="false" />
   </component>
   <component name="PhpUnit">
