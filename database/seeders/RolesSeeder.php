@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use DB;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 
@@ -14,23 +15,20 @@ class RolesSeeder extends Seeder
             [
                 'name' => 'Admin',
                 'display_name' => 'Admin',
-                'description' => 'Can access all features!'
+                'description' => 'Can access all features!',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'Buyer',
                 'display_name' => 'Buyer',
-                'description' => 'Can access limited features!'
+                'description' => 'Can access limited features!',
+                'created_at' => now(),
+                'updated_at' => now(),
+
             ],
         ];
 
-        foreach ($roles as $key => $value) {
-            $role = Role::create([
-                'name' => $value['name'],
-                'display_name' => $value['display_name'],
-                'description' => $value['description']
-            ]);
-
-            User::first()->attachRole($role);
-        }
+        DB::table('roles')->insert($roles);
     }
 }

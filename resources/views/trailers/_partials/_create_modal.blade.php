@@ -3,7 +3,7 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title">Add new trailer</h2>
+                    <h2 class="modal-title">Add New trailer</h2>
                     <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
                         <span class="svg-icon svg-icon-1">
 														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -23,8 +23,9 @@
                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
                                             <span class="required">Status</span>
                                         </label>
-                                        <select class="form-select form-select-solid" data-control="select2" data-dropdown-parent="#create-trailers" name="status" readonly>
+                                        <select class="form-select form-select-solid" data-control="select2" data-dropdown-parent="#create-trailer" name="status">
                                             <option value="Active">Active</option>
+                                            <option value="Inactive">Inactive</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4 fv-row">

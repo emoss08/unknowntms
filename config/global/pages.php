@@ -71,7 +71,6 @@ return array(
             ),
         ),
     ),
-
     'log' => array(
         'audit'  => array(
             'title'  => 'Audit Log',

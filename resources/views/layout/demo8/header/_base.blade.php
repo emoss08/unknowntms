@@ -968,7 +968,7 @@
                             <!--begin::Name-->
                             <div class="d-none d-md-flex flex-column align-items-end justify-content-center me-2 me-md-4">
                                 <span class="text-muted fs-8 fw-bold lh-1 mb-1">{{ auth()->user()->name }}</span>
-                                <span class="text-white fs-8 fw-bolder lh-1">{{ auth()->user()->title }}</span>
+                                <span class="text-white fs-8 fw-bolder lh-1">{{ auth()->user()->roles()->first()->display_name }}</span>
                             </div>
                             <!--end::Name-->
                             <!--begin::Symbol-->
@@ -991,7 +991,7 @@
                                     <!--begin::Username-->
                                     <div class="d-flex flex-column">
                                         <div class="fw-bolder d-flex align-items-center fs-5"> {{ auth()->user()->name }}
-                                            <span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span></div>
+                                            <span class="badge badge-light-danger fw-bolder fs-8 px-2 py-1 ms-2">{{ auth()->user()->roles()->first()->name }}</span></div>
                                         <a href="#" class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->email }}</a>
                                     </div>
                                     <!--end::Username-->
