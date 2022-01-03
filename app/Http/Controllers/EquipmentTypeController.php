@@ -59,6 +59,7 @@ class EquipmentTypeController extends Controller
             'equip_type_id' => 'required|unique:equipment_type,equip_type_id',
         ]);
         Str::upper($input['equip_type_id'] = $request->equip_type_id);
+
         $input = $request->all();
 
         if (! Gate::allows('equipment-type-create', $input)) {

@@ -462,16 +462,6 @@ return array(
                         'path'   => 'log/system',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),
-                    array(
-                        'title'  => 'Role Management',
-                        'path'   => 'roles',
-                        'bullet' => '<span class="bullet bullet-dot"></span>',
-                    ),
-                    array(
-                        'title'  => 'Users Management',
-                        'path'   => 'users',
-                        'bullet' => '<span class="bullet bullet-dot"></span>',
-                    ),
                 ),
             ),
         ),

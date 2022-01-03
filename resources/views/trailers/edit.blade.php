@@ -520,13 +520,12 @@
         {
             singleDatePicker: !0,
             showDropdowns: !0,
-            autoUpdateInput: !1,
             drops: "auto",
             opens: "center",
             minYear: 2020,
             maxYear: 2025,
-            autoApply: true,
             locale: { format: "YYYY-MM-DD" },
+            autoApply: false,
             ranges: { Today: [moment()], Yesterday: [moment().subtract(1, "days")], "7 Days Ago": [moment().subtract(6, "days")], "30 Days Ago": [moment().subtract(29, "days")] },
         },
         function (t) {
@@ -540,13 +539,12 @@
             {
                 singleDatePicker: !0,
                 showDropdowns: !0,
-                autoUpdateInput: !1,
                 drops: "auto",
                 opens: "center",
                 minYear: 2020,
                 maxYear: 2025,
                 locale: { format: "YYYY-MM-DD" },
-                autoApply: true,
+                autoApply: false,
                 ranges: { Today: [moment()], Yesterday: [moment().subtract(1, "days")], "7 Days Ago": [moment().subtract(6, "days")], "30 Days Ago": [moment().subtract(29, "days")] },
             },
             function (t) {

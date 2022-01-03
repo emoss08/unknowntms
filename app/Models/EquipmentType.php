@@ -17,7 +17,7 @@ class EquipmentType extends Model
         'status',
         'equip_type_id',
         'description',
-        'entered_by',
+        'user_id',
     ];
 
     /**

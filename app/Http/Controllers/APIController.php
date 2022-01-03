@@ -12,19 +12,24 @@
     {
         public function getTractors()
         {
-            $tractors = Tractors::select('id', 'status', 'tractor_id', 'year', 'make', 'model','owned_by', 'last_inspection');
+            $tractors = Tractors::select('id', 'status', 'tractor_id', 'year', 'make', 'model', 'owned_by', 'last_inspection');
 
             return Datatables::of($tractors)
                 ->addColumn('Actions', function($tractors) {
                     return '<a class="btn btn-light btn-active-light-info btn-sm" href="tractors/' . $tractors->id . '/edit" target="_blank" >Edit</a>';
                 })
-        // CUSTOM ROW CLASSES
+                // CUSTOM ROW CLASSES
                 ->editColumn('owned_by', function($tractors) {
                     return '<span class="badge badge-pill badge-light">' . $tractors->owned_by . '</span>';
                 })
                 ->editColumn('last_inspection', function($tractors) {
-                    return '<span class="badge badge-pill badge-light">' . $tractors->last_inspection . '</span>';
+                    if($tractors->last_inspection < Carbon::now()->toDateString()) {
+                        return '<span class="badge badge-pill badge-danger">' . 'Inspection Past Due' . '</span>';
+                    } else {
+                        return '<span class="badge badge-pill badge-light">' . $tractors->last_inspection . '</span>';
+                    }
                 })
+
                 ->rawColumns(['Actions', 'status', 'owned_by', 'last_inspection'])
                 ->make(true);
         }
@@ -35,10 +40,10 @@
         // Tractor list for DataTables
         public function getTrailers(Request $request)
         {
-            $trailers = Trailers::select('id', 'status', 'trailer_id', 'year', 'make', 'model','owned_by', 'last_inspection');
+            $trailers = Trailers::select('id', 'status', 'trailer_id', 'year', 'make', 'model', 'owned_by', 'last_inspection');
 
             return Datatables::of($trailers)
-                ->addColumn('Actions', function ($trailers)  {
+                ->addColumn('Actions', function($trailers) {
                     return '<a class="btn btn-light btn-active-light-info btn-sm" href="trailers/' . $trailers->id . '/edit" target="_blank" >Edit</a>';
                 })
                 // CUSTOM ROW CLASSES
@@ -46,7 +51,11 @@
                     return '<span class="badge badge-pill badge-light">' . $trailers->owned_by . '</span>';
                 })
                 ->editColumn('last_inspection', function($trailers) {
-                    return '<span class="badge badge-pill badge-light">' . $trailers->last_inspection . '</span>';
+                    if($trailers->last_inspection < Carbon::now()->toDateString()) {
+                        return '<span class="badge badge-pill badge-danger">' . 'Past Due' . '</span>';
+                    } else {
+                        return '<span class="badge badge-pill badge-light">' . $trailers->last_inspection . '</span>';
+                    }
                 })
                 ->rawColumns(['Actions', 'status', 'owned_by', 'last_inspection'])
                 ->make(true);

@@ -3,7 +3,7 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title">Add New trailer</h2>
+                    <h2 class="modal-title">Add New Trailer</h2>
                     <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
                         <span class="svg-icon svg-icon-1">
 														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -33,7 +33,7 @@
                                             <span class="required">Trailer ID</span>
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Unique identifier for Trailer."></i>
                                         </label>
-                                        <input type="text" class="form-control form-control-solid" name="trailer_id" id="kt_docs_maxlength_always_show" maxlength="15" required />
+                                        <input type="text" class="form-control form-control-solid" name="trailer_id" maxlength="15" required />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Col-->

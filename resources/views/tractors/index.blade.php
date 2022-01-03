@@ -5,9 +5,7 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-@if (auth()->user()->is_admin)
-    test to see if you're admin
-@endif
+{{ \Carbon\Carbon::now()->subDays(5)->toDateString() }}
 @includeIf('tractors._partials._content')
 @includeIf('tractors._partials._create_modal')
 </x-base-layout>

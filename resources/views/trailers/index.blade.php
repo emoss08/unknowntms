@@ -83,7 +83,7 @@
         var e, a, t;
         return {
             init:function() {
-                e=document.querySelector("#trailer_form_edit"), a=document.querySelector("#trailer_submit_edit"),
+                e=document.querySelector("#trailer_form_create"), a=document.querySelector("#trailer_submit"),
                     t=FormValidation.formValidation(e, {
                             fields: {
                                 status: {
@@ -337,12 +337,11 @@
         {
             singleDatePicker: !0,
             showDropdowns: !0,
-            autoUpdateInput: !1,
             drops: "auto",
             opens: "center",
             minYear: 2020,
             maxYear: 2025,
-            autoApply: true,
+            autoApply: false,
             locale: { format: "YYYY-MM-DD" },
             ranges: { Today: [moment()], Yesterday: [moment().subtract(1, "days")], "7 Days Ago": [moment().subtract(6, "days")], "30 Days Ago": [moment().subtract(29, "days")] },
         },
@@ -357,13 +356,12 @@
             {
                 singleDatePicker: !0,
                 showDropdowns: !0,
-                autoUpdateInput: !1,
                 drops: "auto",
                 opens: "center",
                 minYear: 2020,
                 maxYear: 2025,
                 locale: { format: "YYYY-MM-DD" },
-                autoApply: true,
+                autoApply: false,
                 ranges: { Today: [moment()], Yesterday: [moment().subtract(1, "days")], "7 Days Ago": [moment().subtract(6, "days")], "30 Days Ago": [moment().subtract(29, "days")] },
             },
             function (t) {

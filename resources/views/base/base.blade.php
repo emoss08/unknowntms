@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="{{ asset(theme()->getDemo() . '/' .theme()->getOption('assets', 'favicon')) }}"/>
     <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    @livewireStyles
 
     {{-- begin::Fonts --}}
     {{ theme()->includeFonts() }}
@@ -88,8 +89,7 @@
 <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
 
 @yield('scripts')
-
-{{--begin::TOASTR options --}}
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script>
     $.extend( true, $.fn.dataTable.defaults, {
         processing: true,
@@ -99,6 +99,8 @@
         pageLength:7,
     })
 </script>
+@livewire('livewire-ui-modal')
+@livewireScripts
+
 </body>
-{{-- end::Body --}}
 </html>

@@ -14,14 +14,14 @@ class RolesSeeder extends Seeder
         $roles = [
             [
                 'name' => 'Admin',
-                'display_name' => 'Admin',
+                'display_name' => 'Administrator',
                 'description' => 'Can access all features!',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Buyer',
-                'display_name' => 'Buyer',
+                'name' => 'User',
+                'display_name' => 'User',
                 'description' => 'Can access limited features!',
                 'created_at' => now(),
                 'updated_at' => now(),
