@@ -5,7 +5,6 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-{{ \Carbon\Carbon::now()->subDays(5)->toDateString() }}
 @includeIf('tractors._partials._content')
 @includeIf('tractors._partials._create_modal')
 </x-base-layout>

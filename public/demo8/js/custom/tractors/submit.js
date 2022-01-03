@@ -7,88 +7,165 @@ var Tractors = (function () {
                 (t = document.querySelector("#tractor_submit")),
                 (i = FormValidation.formValidation(e, {
                     fields: {
-                        status: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'Status field is required.'
-                                }
-                            }
-                        },
+                        status: {validators: {notEmpty: {message: "Status field is required."}}},
                         tractor_id: {
                             validators: {
-                                notEmpty: { message: "The tractor ID is required" },
-                                stringLength: { min: 1, max: 10, message: "Tractor ID must be more than 1 and less than 10 characters long." },
-                                regexp: { regexp: /^[a-zA-Z0-9]+$/, message: "Tractor ID can only consist of alphabetical and number" },
-                            }
+                                notEmpty: {message: "The tractor ID is required"},
+                                stringLength: {
+                                    min: 1,
+                                    max: 10,
+                                    message: "Equipment Type ID must be more than 1 and less than 10 characters long."
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9]+$/,
+                                    message: "Equipment Type ID can only consist of alphabetical and number"
+                                },
+                            },
                         },
                         year: {
                             validators: {
-                                notEmpty: { message: 'Year Field is required.' },
-                                stringLength: { min: 4, max: 4, message: 'Year must be 4 characters long.' },
-                                regexp: { regexp: /^[0-9]+$/, message: "A year can only consist of number" },
-                            }
+                                notEmpty: {message: "Year Field is required."},
+                                stringLength: {min: 4, max: 4, message: "Year must be 4 characters long."},
+                                regexp: {regexp: /^[0-9]+$/, message: "A year can only consist of number"},
+                            },
                         },
                         make: {
                             validators: {
-                                notEmpty: { message: 'Make field is required.' },
-                                stringLength: { min: 1, max: 50, message: 'Make must be more than 1 and less than 50 characters long.' },
-                                regexp: { regexp: /^[a-zA-Z0-9]+$/, message: "Make can only consist of alphabetical and number" },
-                            }
+                                notEmpty: {message: "Make field is required."},
+                                stringLength: {
+                                    min: 1,
+                                    max: 50,
+                                    message: "Make must be more than 1 and less than 50 characters long."
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9]+$/,
+                                    message: "Make can only consist of alphabetical and number"
+                                },
+                            },
                         },
                         model: {
                             validators: {
-                                notEmpty: { message: 'Model field is required.' },
-                                stringLength: { min: 1, max: 50, message: 'Model must be more than 1 and less than 50 characters long.' },
-                                regexp: { regexp: /^[a-zA-Z0-9]+$/, message: "Model can only consist of alphabetical and number" },
-                            }
+                                notEmpty: {message: "Model field is required."},
+                                stringLength: {
+                                    min: 1,
+                                    max: 50,
+                                    message: "Model must be more than 1 and less than 50 characters long."
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9]+$/,
+                                    message: "Model can only consist of alphabetical and number"
+                                },
+                            },
                         },
                         vin: {
                             validators: {
-                                vin: { message: 'The value is not valid VIN.' },
-                                notEmpty: { message: 'VIN field is required.' },
-                                stringLength: { min: 1, max: 17, message: 'VIN must be more than 1 and less than 17 characters long.' },
-                                regexp: { regexp: /^[a-zA-Z0-9]+$/, message: "VIN can only consist of alphabetical and number" },
-                            }
+                                vin: {message: "The value is not valid VIN."},
+                                notEmpty: {message: "VIN field is required."},
+                                stringLength: {
+                                    min: 1,
+                                    max: 17,
+                                    message: "VIN must be more than 1 and less than 17 characters long."
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9]+$/,
+                                    message: "VIN can only consist of alphabetical and number"
+                                },
+                            },
                         },
                         owned_by: {
                             validators: {
-                                stringLength: { min: 1, max: 50, message: 'Owned By must be more than 1 and less than 50 characters long.' },
-                                regexp: { regexp: /^[a-zA-Z0-9]+$/, message: "Owned By can only consist of alphabetical and number" },
+                                notEmpty: {message: "Owned By field is required."},
+                                stringLength: {
+                                    min: 1,
+                                    max: 50,
+                                    message: "Owned By must be more than 1 and less than 50 characters long."
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9]+$/,
+                                    message: "Owned By can only consist of alphabetical and number"
+                                },
+                            },
+                        },
+                        driver_1: {
+                            validators: {
+                                notEmpty: {message: "Driver 1 field is required."},
+                                stringLength: {
+                                    min: 1,
+                                    max: 50,
+                                    message: "Driver 1 must be more than 1 and less than 50 characters long."
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9]+$/,
+                                    message: "Driver 1 can only consist of alphabetical and number"
+                                },
+                            },
+                        },
+                        tag: {
+                            validators: {
+                                notEmpty: {message: "Tag field is required."},
+                                stringLength: {
+                                    min: 1,
+                                    max: 50,
+                                    message: "Tag must be more than 1 and less than 50 characters long."
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9]+$/,
+                                    message: "Tag can only consist of alphabetical and number"
+                                },
+                            },
+                        },
+                        tag_state: {
+                            validators: {
+                                notEmpty: {message: "Tag State field is required."},
+                                stringLength: {
+                                    min: 1,
+                                    max: 50,
+                                    message: "Tag must be more than 1 and less than 50 characters long."
+                                },
+                            },
+                        },
+                        tag_expiration: {
+                            validators: {
+                                notEmpty: {
+                                    message: "Tag Expiration field is required."},
+                                stringLength: {
+                                    min: 1,
+                                    max: 50,
+                                    message: "Tag must be more than 1 and less than 50 characters long."
+                                },
+                                date: {
+                                    format: "YYYY-MM-DD",
+                                    message: "The value is not a valid date. Use the format YYYY-MM-DD"
+                                }
                             }
                         },
-                        driver_1:{
+                        last_inspection: {
                             validators: {
-                                stringLength: { min: 1, max: 50, message: 'Driver 1 must be more than 1 and less than 50 characters long.' },
-                                regexp: { regexp: /^[a-zA-Z0-9]+$/, message: "Driver 1 can only consist of alphabetical and number" },
+                                notEmpty: {
+                                    message: "Last Inspection field is required."},
+                                stringLength: {
+                                    min: 1,
+                                    max: 50,
+                                    message: "Tag must be more than 1 and less than 50 characters long."
+                                },
+                                date: {
+                                    format: "YYYY-MM-DD",
+                                    message: "The value is not a valid date. Use the format YYYY-MM-DD"
+                                }
                             }
                         },
-                        tag:{
+                        comments: {
                             validators: {
-                                stringLength: { min: 1, max: 50, message: 'Tag must be more than 1 and less than 50 characters long.' },
-                                regexp: { regexp: /^[a-zA-Z0-9]+$/, message: "Tag can only consist of alphabetical and number" },
-                            }
-                        },
-                        tag_state:{
-                            validators: {
-                                stringLength: { min: 1, max: 50, message: 'Tag must be more than 1 and less than 50 characters long.' },
-                                regexp: { regexp: /^[a-zA-Z0-9]+$/, message: "Tag can only consist of alphabetical and number" },
-                            }
-                        },
-                        tag_expiration:{
-                            validators: {
-                                date:{ format: 'YYYY-MM-DD', message: 'The value is not a valid date. Use the format YYYY-MM-DD' }
-                            }
-                        },
-                        last_inspection:{
-                            validators: {
-                                date:{ format: 'YYYY-MM-DD', message: 'The value is not a valid date. Use the format YYYY-MM-DD' }
-                            }
-                        },
-                        comments:{
-                            validators: {
-                                stringLength: { min: 1, max: 500, message: 'Comments must be more than 1 and less than 500 characters long.' },
-                                regexp: { regexp: /^[a-z\s]+$/i, message: "Description can consist of alphabetical characters and spaces only." },
-                            }
+                                stringLength: {
+                                    min: 1,
+                                    max: 500,
+                                    message: "Comments must be more than 1 and less than 500 characters long."
+                                },
+                                regexp: {
+                                    regexp: /^[a-z\s]+$/i,
+                                    message: "Description can consist of alphabetical characters and spaces only."
+                                },
+                            },
                         },
                     },
                     plugins: {
