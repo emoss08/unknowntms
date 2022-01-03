@@ -72,9 +72,6 @@
                         <div class="valid-feedback">Success! You've done it.</div>
                         <!--end::solid autosize textarea-->
                     </div>
-                    <label>
-                        <input class="form-control form-control-solid" type="text" name="user_id" value="{{ Auth::user()->id }}" />
-                    </label>
                     <!--end::Input group-->
                     <!--begin::Actions-->
                     <div class="text-center pt-15">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\EquipmentTypeExport;
 use App\Http\Requests\EquipmentTypeRequest;
 use App\Models\EquipmentType;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Contracts\Foundation\Application;
@@ -13,7 +14,10 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use PhpOffice\PhpSpreadsheet\Writer\Exception;
+use RealRashid\SweetAlert\Facades\Alert;
 use Str;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Yajra\Datatables\Datatables;
 
 class EquipmentTypeController extends Controller
@@ -36,7 +40,7 @@ class EquipmentTypeController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function index()
+    public function index(): View|Factory|Application
     {
         $equipmenttype = EquipmentType::with('user')->get(['id', 'equip_type_id', 'status', 'description']);
 
@@ -59,13 +63,12 @@ class EquipmentTypeController extends Controller
             'equip_type_id' => 'required|unique:equipment_type,equip_type_id',
         ]);
         Str::upper($input['equip_type_id'] = $request->equip_type_id);
-
         $input = $request->all();
 
         if (! Gate::allows('equipment-type-create', $input)) {
             return abort(401);
         }
-        EquipmentType::create($input);
+        EquipmentType::create($input + ['user_id' => auth()->id()]);
 
         return redirect()->route('equipmenttypes.index');
     }
@@ -74,9 +77,9 @@ class EquipmentTypeController extends Controller
      * Display the specified resource.
      *
      * @param  \App\EquipmentType  $equipmenttype
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
-    public function show(EquipmentType $equipmenttype)
+    public function show(EquipmentType $equipmenttype): View|Factory|Application
     {
         return view('equipmenttypes.show',compact('equipmenttype'));
     }
@@ -84,10 +87,10 @@ class EquipmentTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\EquipmentType  $equipmenttype
-     * @return Response
+     * @param  EquipmentType  $equipmenttype
+     * @return Application|Factory|View
      */
-    public function edit(EquipmentType $equipmenttype)
+    public function edit(EquipmentType $equipmenttype): Application|Factory|View
     {
         return view('equipmenttypes.edit',compact('equipmenttype'));
     }
@@ -96,11 +99,11 @@ class EquipmentTypeController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  \App\EquipmentType  $equipmenttype
+     * @param  EquipmentType  $equipmenttype
      * @return RedirectResponse
      */
 
-    public function update(EquipmentTypeRequest $request, EquipmentType $equipmenttype)
+    public function update(EquipmentTypeRequest $request, EquipmentType $equipmenttype): RedirectResponse
     {
         $notification = array(
             'message' => 'Record Successfully Updated!',
@@ -137,8 +140,11 @@ class EquipmentTypeController extends Controller
     //
     public function getEquipTypes(Request $request)
     {
-        $equip_types = EquipmentType::latest()->get();
-
+        try {
+            $equip_types = EquipmentType::latest()->get();
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
         return Datatables::of($equip_types)
             ->addColumn('Actions', function ($equip_types)  {
             return '<button class="btn btn-light btn-active-light-info btn-sm" data-bs-toggle="modal" data-bs-target="#edit-equipment-type-'.$equip_types->id.'" class="menu-link px-3">Edit</button>';
@@ -148,17 +154,20 @@ class EquipmentTypeController extends Controller
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     * @return BinaryFileResponse
      */
-    public function fileExport()
+    public function fileExport(): BinaryFileResponse
     {
-        // Notification varaiable
-        $notification = toast('Successfully ran command!', 'success')->hideCloseButton();
-        return Excel::download(new EquipmentTypeExport(), 'equipment-type-collection.xlsx');
+        try {
+            return Excel::download(new EquipmentTypeExport(), 'equipment-type-collection.xlsx');
+        } catch(Exception|\PhpOffice\PhpSpreadsheet\Exception $e) {
+            $notification = toast('Error: '.$e->getMessage(), 'error')->hideCloseButton();
+            return redirect()->route('equipmenttypes.index')->with($notification);
+        }
     }
 
     /* AJAX request */
-    public function showEquipTypes(Request $request)
+    public function showEquipTypes(Request $request): \Illuminate\Http\JsonResponse
     {
         $search = $request->search;
         if($search == ''){
@@ -177,17 +186,17 @@ class EquipmentTypeController extends Controller
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return Collection
      */
-    public function fileImportExport()
+    public function fileImportExport(): Collection
     {
         return view('file-import');
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return RedirectResponse
      */
-    public function fileImport(Request $request)
+    public function fileImport(Request $request): RedirectResponse
     {
         Excel::import(new EquipmentTypeExport(), $request->file('file')->store('temp'));
         return back()->with('success', 'Uploaded successfully');

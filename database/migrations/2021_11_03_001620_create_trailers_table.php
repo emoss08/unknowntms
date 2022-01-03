@@ -23,6 +23,7 @@ class CreateTrailersTable extends Migration
             $table->string('vin', 17)->unique();
             $table->string('owned_by', 50)->nullable()->index();
             $table->string('equip_type_id',5)->index();
+            $table->foreign('equip_type_id')->references('equip_type_id')->on('equipment_type');
             $table->string('tag', 50)->nullable()->index();
             $table->string('tag_state', 2)->nullable()->index();
             $table->string('tag_expiration', 12)->nullable()->index();

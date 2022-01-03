@@ -47,24 +47,24 @@ class Trailers extends Model implements \OwenIt\Auditing\Contracts\Auditable
     ];
 
     /** Belongs to relationship to User */
-    public function user()
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
     /** Belongs to relationship to EquipmentType */
-    public function equipmentType()
+    public function equipmentType(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
-        return $this->belongsTo(EquipmentType::class);
+        return $this->hasOne(EquipmentType::class, 'equip_type_id', 'equip_type_id');
     }
 
     /**
      * Set the first string uppercase of Make.
      *
-     * @param  string  $value
+     * @param string $value
      * @return void
      */
-    public function setMakeAttribute($value)
+    public function setMakeAttribute(string $value): void
     {
         $this->attributes['make'] = ucfirst($value);
     }
@@ -72,10 +72,10 @@ class Trailers extends Model implements \OwenIt\Auditing\Contracts\Auditable
     /**
      * Set the first string uppercase of Model.
      *
-     * @param  string  $value
+     * @param string $value
      * @return void
      */
-    public function setModelAttribute($value)
+    public function setModelAttribute(string $value): void
     {
         $this->attributes['model'] = ucfirst($value);
     }
@@ -83,10 +83,10 @@ class Trailers extends Model implements \OwenIt\Auditing\Contracts\Auditable
     /**
      * Set the first string uppercase of Vin.
      *
-     * @param  string  $value
+     * @param string $value
      * @return void
      */
-    public function setVinAttribute($value)
+    public function setVinAttribute(string $value): void
     {
         $this->attributes['vin'] = strtoupper($value);
     }
@@ -94,10 +94,10 @@ class Trailers extends Model implements \OwenIt\Auditing\Contracts\Auditable
     /**
      * Set the first string uppercase of Owned By.
      *
-     * @param  string  $value
+     * @param string $value
      * @return void
      */
-    public function setOwnedByAttribute($value)
+    public function setOwnedByAttribute(string $value): void
     {
         $this->attributes['owned_by'] = ucfirst($value);
     }
@@ -105,10 +105,10 @@ class Trailers extends Model implements \OwenIt\Auditing\Contracts\Auditable
     /**
      * Set the first string uppercase of Comments.
      *
-     * @param  string  $value
+     * @param string $value
      * @return void
      */
-    public function setCommentsAttribute($value)
+    public function setCommentsAttribute(string $value): void
     {
         $this->attributes['comments'] = ucfirst($value);
     }

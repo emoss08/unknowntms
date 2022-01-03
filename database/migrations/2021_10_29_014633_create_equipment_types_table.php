@@ -16,7 +16,7 @@ class CreateEquipmentTypesTable extends Migration
         Schema::create('equipment_type', function (Blueprint $table) {
             $table->id();
             $table->string('status');
-            $table->string('equip_type_id')->unique();
+            $table->string('equip_type_id', 5)->unique();
             $table->text('description');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

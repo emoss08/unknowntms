@@ -30,18 +30,18 @@ class EquipmentType extends Model
         'updated_at',
     ];
 
-    public function user()
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(User::class, 'entered_by');
+        return $this->belongsTo(User::class);
     }
 
     /**
      * Set the first string uppercase of Equip Type ID.
      *
-     * @param  string  $value
+     * @param string $value
      * @return void
      */
-    public function setEquipTypeIdAttribute($value)
+    public function setEquipTypeIdAttribute(string $value): void
     {
         $this->attributes['equip_type_id'] = strtoupper($value);
     }
@@ -49,10 +49,10 @@ class EquipmentType extends Model
     /**
      * Set the first string uppercase of Description.
      *
-     * @param  string  $value
+     * @param string $value
      * @return void
      */
-    public function setDescriptionAttribute($value)
+    public function setDescriptionAttribute(string $value): void
     {
         $this->attributes['description'] = ucfirst($value);
     }

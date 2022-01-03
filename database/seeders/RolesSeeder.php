@@ -20,8 +20,8 @@ class RolesSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'User',
-                'display_name' => 'User',
+                'name' => 'Member',
+                'display_name' => 'Member',
                 'description' => 'Can access limited features!',
                 'created_at' => now(),
                 'updated_at' => now(),

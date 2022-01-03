@@ -4,18 +4,21 @@ namespace App\Models;
 
 use App\Core\Traits\SpatieLogsActivity;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Storage;
 
 class UserInfo extends Model
 {
     use SpatieLogsActivity;
 
+    private mixed $avatar;
+
     /**
      * Prepare proper error handling for url attribute
      *
      * @return string
      */
-    public function getAvatarUrlAttribute()
+    public function getAvatarUrlAttribute(): string
     {
         // if file avatar exist in storage folder
         $avatar = public_path(Storage::url($this->avatar));
@@ -36,9 +39,9 @@ class UserInfo extends Model
     /**
      * User info relation to user model
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
@@ -50,7 +53,7 @@ class UserInfo extends Model
      *
      * @return mixed|null
      */
-    public function getCommunicationAttribute($value)
+    public function getCommunicationAttribute($value): mixed
     {
         // test to un-serialize value and return as array
         $data = @unserialize($value);
