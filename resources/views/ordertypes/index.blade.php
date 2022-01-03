@@ -17,7 +17,7 @@
             "order":[[0,"desc"]],
             search:{return:!0},
             pageLength:7,
-            ajax:'{!! route('ordertype.list') !!}',
+            ajax:'{!! route('api.ordertypes.index') !!}',
             columns:[
                 {
                     data: "status",

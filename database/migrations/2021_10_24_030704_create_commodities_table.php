@@ -18,7 +18,8 @@ class CreateCommoditiesTable extends Migration
             $table->string('status');
             $table->string('commodity_id')->unique();
             $table->text('description');
-            $table->string('entered_by');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

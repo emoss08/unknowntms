@@ -25,7 +25,7 @@ class OrderTypes extends Model implements Auditable
         'status',
         'order_type_id',
         'description',
-        'entered_by',
+        'user_id',
     ];
 
     /**
@@ -38,7 +38,7 @@ class OrderTypes extends Model implements Auditable
         'updated_at',
     ];
 
-    public function user()
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class);
     }
@@ -46,10 +46,10 @@ class OrderTypes extends Model implements Auditable
     /**
      * Set the first string uppercase of Equip Type ID.
      *
-     * @param  string  $value
+     * @param string $value
      * @return void
      */
-    public function setOrderTypeIdAttribute($value)
+    public function setOrderTypeIdAttribute(string $value): void
     {
         $this->attributes['order_type_id'] = strtoupper($value);
     }
@@ -57,10 +57,10 @@ class OrderTypes extends Model implements Auditable
     /**
      * Set the first string uppercase of Description.
      *
-     * @param  string  $value
+     * @param string $value
      * @return void
      */
-    public function setDescriptionAttribute($value)
+    public function setDescriptionAttribute(string $value): void
     {
         $this->attributes['description'] = ucfirst($value);
     }

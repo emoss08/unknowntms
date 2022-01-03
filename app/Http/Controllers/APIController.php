@@ -2,6 +2,7 @@
 
     namespace App\Http\Controllers;
 
+    use App\Models\OrderTypes;
     use App\Models\Tractors;
     use App\Models\Trailers;
     use Carbon\Carbon;
@@ -33,8 +34,8 @@
         //            return $tractors->status === 'Active' ? '' : 'alert-danger';
         //        })
 
-        // Tractor list for DataTables
-        public function getTrailers(Request $request)
+        // Trailers list for DataTables
+        public function getTrailers()
         {
             $trailers = Trailers::select('id', 'status', 'trailer_id', 'year', 'make', 'model', 'owned_by', 'last_inspection');
 
@@ -51,6 +52,19 @@
                     }
                 })
                 ->rawColumns(['Actions', 'status', 'owned_by', 'last_inspection'])
+                ->make(true);
+        }
+
+        // Order Types list for DataTables
+        public function getOrderTypes()
+        {
+            $orderTypes = OrderTypes::select('id', 'status', 'order_type_id', 'description');
+
+            return Datatables::of($orderTypes)
+                ->addColumn('Actions', function($orderTypes) {
+                    return '<a class="btn btn-light btn-active-light-info btn-sm" href="ordertypes/' . $orderTypes->id . '/edit" target="_blank" >Edit</a>';
+                })
+                ->rawColumns(['Actions', 'status'])
                 ->make(true);
         }
     }

@@ -12,6 +12,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\OrderTypes;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Redis;
 use Yajra\DataTables\DataTables;
 
@@ -20,9 +21,9 @@ class OrderTypesController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    function __construct()
+    public function __construct()
     {
         $this->middleware('permission:order_type-list|order_type-create|order_type-edit|order_type-delete', ['only' => ['index','show']]);
         $this->middleware('permission:order_type-create', ['only' => ['create','store']]);
@@ -35,7 +36,7 @@ class OrderTypesController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function index()
+    public function index(): View|Factory|Application
     {
         $ordertype = ordertypes::all();
         return view('ordertypes.index',compact('ordertype'));
@@ -44,9 +45,9 @@ class OrderTypesController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
-    public function create()
+    public function create(): View|Factory|Application
     {
         return view('ordertypes.create');
     }
@@ -54,14 +55,14 @@ class OrderTypesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return \Illuminate\Http\Response
+     * @param OrderTypeStoreRequest $request
+     * @return RedirectResponse
      */
-    public function store(OrderTypeStoreRequest $request)
+    public function store(OrderTypeStoreRequest $request): RedirectResponse
     {
 
         $input = $request->all();
-        $input['entered_by'] = auth()->user()->id;
+        $input['user_id'] = auth()->user()->id;
 
         OrderTypes::create($input);
 
@@ -71,10 +72,10 @@ class OrderTypesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\OrderTypes $ordertype
-     * @return \Illuminate\Http\Response
+     * @param  OrderTypes $ordertype
+     * @return Application|Factory|View
      */
-    public function show(OrderTypes $ordertype)
+    public function show(OrderTypes $ordertype): View|Factory|Application
     {
         return view('ordertypes.show',compact('ordertype'));
     }
@@ -82,15 +83,15 @@ class OrderTypesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\OrderTypes  $ordertype
-     * @return \Illuminate\Http\Response
+     * @param OrderTypes $ordertype
+     * @return Application|Factory|View
      */
-    public function edit(OrderTypes $ordertype)
+    public function edit(OrderTypes $ordertype): View|Factory|Application
     {
         return view('ordertypes.edit',compact('ordertype'));
     }
 
-    public function destroy(OrderTypes $ordertype)
+    public function destroy(OrderTypes $ordertype): RedirectResponse
     {
         $ordertype->delete();
         return redirect()->route('ordertypes.index');
@@ -99,11 +100,11 @@ class OrderTypesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param  \App\OrderTypes  $ordertype
+     * @param UpdateOrderTypeRequest $request
+     * @param OrderTypes $ordertype
      * @return RedirectResponse
      */
-    public function update(UpdateOrderTypeRequest $request, OrderTypes $ordertype)
+    public function update(UpdateOrderTypeRequest $request, OrderTypes $ordertype): RedirectResponse
     {
 
         $ordertype->update($request->all());
@@ -125,10 +126,10 @@ class OrderTypesController extends Controller
     }
 
     /* AJAX request */
-    public function showOrderTypesList(Request $request)
+    public function showOrderTypesList(Request $request): \Illuminate\Http\JsonResponse
     {
         $search = $request->search;
-        if($search == ''){
+        if($search === ''){
             $ordertypes = OrderTypes::orderby('order_type_id','asc')->select('id','order_type_id')->limit(5)->get();
         }else{
             $ordertypes = OrderTypes::orderby('order_type_id','asc')->select('id','order_type_id')->where('order_type_id', 'like', '%' .$search . '%')->limit(5)->get();

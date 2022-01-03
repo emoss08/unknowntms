@@ -25,6 +25,7 @@ Route::get('/profits', [\App\Http\Controllers\SampleDataController::class, 'prof
 //begin:: API routes for the API controller ** VERSION 1 **
 route::get('/v1/tractors', [APIController::class, 'getTractors'])->name('api.tractors.index');
 Route::get('/v1/trailers', [APIController::class, 'getTrailers'])->name('api.trailers.index');
+Route::get('/v1/ordertypes', [APIController::class, 'getOrderTypes'])->name('api.ordertypes.index');
 //end:: API routes for the API controller ** VERSION 1 **
 
 

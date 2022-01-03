@@ -18,7 +18,8 @@ class CreateOrderTypesTable extends Migration
             $table->string('status');
             $table->string('order_type_id')->unique();
             $table->text('description');
-            $table->string('entered_by');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
