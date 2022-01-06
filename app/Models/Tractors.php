@@ -42,6 +42,7 @@ class Tractors extends Model implements Auditable, HasMedia
         'comments',
         'user_id',
         'attachments',
+        'uuid',
     ];
 
     /**

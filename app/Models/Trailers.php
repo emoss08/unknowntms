@@ -34,6 +34,7 @@ class Trailers extends Model implements \OwenIt\Auditing\Contracts\Auditable
         'comments',
         'user_id',
         'attachments',
+        'uuid',
     ];
 
     /**
@@ -108,7 +109,7 @@ class Trailers extends Model implements \OwenIt\Auditing\Contracts\Auditable
      * @param string $value
      * @return void
      */
-    public function setCommentsAttribute(string $value): void
+    public function setCommentsAttribute($value): void
     {
         $this->attributes['comments'] = ucfirst($value);
     }

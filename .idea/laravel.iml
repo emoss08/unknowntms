@@ -228,6 +228,13 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/mailer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-iconv" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/clarkeash/doorman" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/asvae/laravel-api-tester" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/tucker-eric/eloquentfilter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/rachidlaasri/laravel-installer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nwidart/laravel-modules" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/spatie/laravel-cookie-consent" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/webpatser/laravel-uuid" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

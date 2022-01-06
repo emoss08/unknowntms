@@ -13,6 +13,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
+use Uuid;
 use Yajra\DataTables\DataTables;
 
 class TrailersController extends Controller
@@ -45,12 +46,14 @@ class TrailersController extends Controller
         if (! Gate::allows('trailer-create', $input)) {
             return abort(401);
         }
+
+        Trailers::create($input  + ['user_id' => auth()->id()] + ['uuid' => Uuid::generate(4)->string]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Trailers $trailer
+     * @param Trailers $trailer
      * @return Application|Factory|View
      */
     public function edit(Trailers $trailer): View|Factory|Application
@@ -83,10 +86,10 @@ public function show(Trailers $trailer): View
     }
 
     /* AJAX request */
-    public function showTrailerList(Request $request)
+    public function showTrailerList(Request $request): \Illuminate\Http\JsonResponse
     {
         $search = $request->search;
-        if($search == ''){
+        if($search === ''){
             $trailers = Trailers::orderby('trailer_id','asc')->select('id','trailer_id')->limit(5)->get();
         }else{
             $trailers = Trailers::orderby('trailer_id','asc')->select('id','trailer_id')->where('trailer_id', 'like', '%' .$search . '%')->limit(5)->get();

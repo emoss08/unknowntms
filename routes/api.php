@@ -19,9 +19,6 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 });*/
 
-// Sample API route    Vyuldashev\LaravelOpenApi\OpenApiServiceProvider::class,
-Route::get('/profits', [\App\Http\Controllers\SampleDataController::class, 'profits'])->name('profits');
-
 //begin:: API routes for the API controller ** VERSION 1 **
 route::get('/v1/tractors', [APIController::class, 'getTractors'])->name('api.tractors.index');
 Route::get('/v1/trailers', [APIController::class, 'getTrailers'])->name('api.trailers.index');

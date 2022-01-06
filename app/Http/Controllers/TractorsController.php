@@ -10,6 +10,8 @@ use App\Models\TemporaryFile;
 use App\Models\Trailers;
 use App\Models\User;
 use App\Notifications\TractorAdded;
+use App\Tractor;
+use Exception;
 use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Tractors;
@@ -22,8 +24,7 @@ use Illuminate\Http\Response;
 use Mail;
 use Notification;
 use PDF;
-use RahulHaque\Filepond\Facades\Filepond;
-use Yajra\DataTables\DataTables;
+use Uuid;
 
 class TractorsController extends Controller
 {
@@ -60,6 +61,9 @@ class TractorsController extends Controller
         return view('tractors.create');
     }
 
+    /**
+     * @throws Exception
+     */
     public function store(TractorsRequest $request)
     {
         $request ->validate([
@@ -69,7 +73,8 @@ class TractorsController extends Controller
         if (! Gate::allows('tractor-create', $input)) {
             return abort(401);
         }
-       $tractor = Tractors::create($input + ['user_id' => auth()->id()]);
+
+       $tractor = Tractors::create($input + ['user_id' => auth()->id()] + ['uuid' => Uuid::generate(4)->string]);
 
         $temporaryFIle = TemporaryFile::where('folder', $request->attachments)->first();
         if ($temporaryFIle) {
@@ -113,12 +118,13 @@ class TractorsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param  \App\Tractor  $tractor
+     * @param TractorsRequest $request
+     * @param Tractors $tractor
      * @return RedirectResponse
+     * @throws Exception
      */
 
-    public function update(TractorsRequest $request, Tractors $tractor)
+    public function update(TractorsRequest $request, Tractors $tractor): RedirectResponse
     {
         if ($request->user()->cannot('tractor-edit', $tractor)) {
             abort (403);
